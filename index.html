@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laura — Learning Experience Designer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Laura <!-- LASTNAME --></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero fade-in">
+    <p class="hero-intro">Learning Experience Designer</p>
+    <h1>I design learning that<br>changes behavior,<br>not just scores.</h1>
+    <p class="hero-sub">
+      Scenario-based experiences, spaced learning systems, and strategic L&D — built to meet people where they work, not where training lives.
+    </p>
+  </header>
+
+  <section id="work" class="container work-section">
+    <div class="work-section-header fade-in">
+      <h2>Selected Work</h2>
+    </div>
+
+    <a href="feedback-in-the-moment.html" class="case-card fade-in">
+      <div class="case-card-image">
+        <div class="placeholder">
+          <!-- Replace this div with: <img src="images/fitm-cover.jpg" alt="Feedback in the Moment prototype"> -->
+          Screenshot of prototype or deck cover slide
+        </div>
+      </div>
+      <div class="case-card-content">
+        <span class="case-card-tag">Learning Design &bull; Netflix</span>
+        <h3>Feedback in the Moment</h3>
+        <p>
+          A scenario-based learning experience that helps employees build everyday feedback habits — delivered through Slack into Docebo, personalized by barrier, and anchored in Netflix IP.
+        </p>
+        <span class="case-card-cta">Read case study →</span>
+      </div>
+    </a>
+
+    <!-- ═══ FUTURE CASE STUDY CARDS ═══
+    Copy the <a class="case-card"> block above and change the content.
+    They'll stack vertically. To make a 2-column grid, change
+    .work-section to use CSS grid on the cards. -->
+
+  </section>
+
+  <section id="about" class="container about-section fade-in">
+    <div class="about-inner">
+      <h2>About</h2>
+      <p>
+        <!-- REWRITE THIS IN YOUR VOICE — this is placeholder copy -->
+        I'm a Learning Experience Designer who builds experiences that actually change how people work. My background spans Spotify, Groupon, and COPC consulting — designing onboarding programs, compliance training, and product launch enablement.
+      </p>
+      <p>
+        I think of L&D as a strategic function, not a support one. The best learning doesn't feel like training. It feels like practice, with stakes low enough to experiment and high enough to matter.
+      </p>
+      <div class="about-links">
+        <a href="https://www.linkedin.com/in/YOURPROFILE" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:your@email.com">Email</a>
+        <!-- Add more links as needed -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Laura <!-- LASTNAME -->. Built with intention.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

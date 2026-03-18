@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback in the Moment — Laura <!-- LASTNAME --></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Laura <!-- LASTNAME --></a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <header class="cs-hero fade-in">
+    <p class="cs-hero-tag">Learning Design &bull; Netflix</p>
+    <h1>Feedback in the Moment</h1>
+    <p class="cs-hero-sub">
+      A scenario-based learning experience that helps Netflix employees build everyday feedback habits — one moment at a time.
+    </p>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <label>Role</label>
+        <span>Learning Experience Designer</span>
+      </div>
+      <div class="cs-meta-item">
+        <label>Context</label>
+        <span>Design Exercise</span>
+      </div>
+      <div class="cs-meta-item">
+        <label>Timeline</label>
+        <span>1 Week</span>
+      </div>
+      <div class="cs-meta-item">
+        <label>Platform</label>
+        <span>Docebo LMS</span>
+      </div>
+      <div class="cs-meta-item">
+        <label>Tools</label>
+        <span>React, Claude AI, CodeSandbox</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════
+       THE CHALLENGE
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">The Challenge</p>
+    <h2>Feedback was only happening during formal reviews</h2>
+
+    <p>
+      Netflix's Learning & People Development team had a problem: employees were only engaging with feedback during formal 360 review cycles. Outside of those windows, everyday feedback — the kind that actually shifts behavior — wasn't happening.
+    </p>
+    <p>
+      Their existing resources weren't solving it. The Feedback Workshop was a one-size-fits-all session. The Feedback Toolkit was comprehensive but overwhelming. Neither was meeting people in the flow of their actual work.
+    </p>
+    <p>
+      The ask: design a single digital learning experience — 5 to 7 minutes, mobile-responsive, hosted in Docebo — that helps employees build real feedback habits across four global regions with meaningfully different cultural norms.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════
+       RESEARCH & INSIGHT
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">Research &amp; Insight</p>
+    <h2>The gap isn't knowledge — it's action</h2>
+
+    <p>
+      Netflix provided sentiment data from employees across all four regions. A few patterns stood out: engagement with feedback tools dropped sharply outside of 360 cycles, employees consistently reported a gap between wanting to give feedback and actually doing it, and the reasons varied by person — not just by region. A new hire in London and a director in São Paulo might avoid feedback for completely different reasons, or for the same one.
+    </p>
+
+    <p>
+      Before designing anything, I mapped out the honest scope of what a learning experience could move — and what it couldn't.
+    </p>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h3>What training can change</h3>
+        <ul>
+          <li>Employees lack a simple, repeatable approach for in-the-moment feedback</li>
+          <li>People need practice reps in realistic, culturally nuanced contexts</li>
+          <li>Adapting feedback style across relationships, power dynamics, and cultural norms</li>
+        </ul>
+      </div>
+      <div class="col-card muted">
+        <h3>What needs support from other parts of the business</h3>
+        <ul>
+          <li>Feedback infrastructure that sustains beyond 360 cycles</li>
+          <li>Managers modeling the behavior — asking for feedback, not just giving it</li>
+          <li>Feedback woven into existing rituals like 1:1s, retros, and milestones</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      This distinction matters. A 5-minute digital experience won't single-handedly shift a culture. But it can be the strongest lever L&D owns — if we're honest about the dependencies.
+    </p>
+
+    <div class="screenshot">
+      <p>📸 Add a graphic of the "what learning can / can't solve" framework here</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       DESIGN APPROACH
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">Design Approach</p>
+    <h2>A four-week system, not a single course</h2>
+
+    <p>
+      Instead of another workshop or toolkit, I designed a four-week spaced learning system delivered through Slack into Docebo. Each week, a notification drops the learner into a single 5-to-7-minute scenario-based module:
+    </p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-content">
+          <h3>Week 1: Give It</h3>
+          <p>Initiating feedback in a real moment — even when it feels uncomfortable.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-content">
+          <h3>Week 2: Receive It</h3>
+          <p>Hearing hard feedback without shutting down or getting defensive.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-content">
+          <h3>Week 3: Seek It</h3>
+          <p>Actively asking for the feedback you're not getting.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-content">
+          <h3>Week 4: Do It</h3>
+          <p>Self-directed practice — a real conversation, supported but not scaffolded.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Why this structure</h3>
+    <p>
+      <strong>Spaced over time, not all at once.</strong> A single session doesn't build a habit. Weekly pacing gives learners time to practice in the real world between modules.
+    </p>
+    <p>
+      <strong>Scenario-based, not theoretical.</strong> Every module anchors to a recognizable workplace moment. Learners practice making choices, not reading about them.
+    </p>
+    <p>
+      <strong>Adaptive by barrier, not by region.</strong> At the start of each module, a check-in asks learners to self-identify their biggest barrier. The experience routes them into the scenario path that matches. A tenured employee frustrated by past attempts gets a different experience than a new hire who doesn't feel they have standing yet.
+    </p>
+    <p>
+      <strong>Bridges to real action.</strong> Every module ends with a concrete commitment — something the learner will actually do that week. The learning isn't complete when the module ends. It's complete when they have the conversation.
+    </p>
+
+    <div class="screenshot">
+      <p>📸 Add the 4-week system overview visual from the pitch deck here</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       THE EXPERIENCE
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">The Experience</p>
+    <h2>Module 1: Give It — Following Margo's path</h2>
+
+    <p>
+      The prototype is a fully working interactive experience built in React. It follows Margo, an EMEA new hire who's excited about Netflix's feedback culture but feels too new to speak up.
+    </p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-content">
+          <h3>Check-In</h3>
+          <p>Two quick questions surface the learner's barrier and route them to the right scenario path. No region selector, no role assignment — the learner tells us what's holding them back.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-content">
+          <h3>Setup</h3>
+          <p>A clip from Emily in Paris sets the scene. Emily — a new hire in a foreign office — has feedback for her creative director but isn't sure she has standing. The scene is entertaining, but it's doing real work: normalizing the feeling of being new and having something to say.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-content">
+          <h3>Practice</h3>
+          <p>The learner works through Emily's situation step by step, assembling feedback using the I/B/I/A framework (Intention, Behavior, Impact, Action). At each step, they choose from options and get immediate coaching — not just right or wrong, but why one approach lands better.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-content">
+          <h3>Takeaway</h3>
+          <p>The learner writes their own real feedback script using what they practiced, then commits to one conversation they'll have this week. The module doesn't end with a quiz score. It ends with a plan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screenshot">
+      <p>📸 Add 2-3 annotated screenshots from the prototype here — check-in screen, coaching screen, takeaway screen</p>
+    </div>
+
+    <div class="proto-cta">
+      <h3>Try the prototype yourself</h3>
+      <p>Module 1: Give It — about 5 minutes, works on desktop and mobile</p>
+      <a href="https://gn3tfl.csb.app/" target="_blank" rel="noopener">Launch Prototype →</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       KEY DESIGN DECISIONS
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">Key Design Decisions</p>
+    <h2>Four choices that shaped the experience</h2>
+
+    <div class="decisions-grid">
+      <div class="decision-card">
+        <h3>Netflix IP instead of generic scenarios</h3>
+        <p>Netflix has a content library no other company has. Using clips from Emily in Paris makes the experience feel like a Netflix product, not a training module. It gives learners an emotional hook that stock scenarios never could.</p>
+      </div>
+      <div class="decision-card">
+        <h3>Slack delivery instead of LMS notifications</h3>
+        <p>Slack is where Netflix employees already work. Meeting learners there means feedback practice doesn't feel like a separate task. Docebo's native Slack integration makes this technically feasible, not just conceptually nice.</p>
+      </div>
+      <div class="decision-card">
+        <h3>Weekly pacing instead of self-paced</h3>
+        <p>A single session doesn't build a habit. Spacing it out — one module per week — gives learners time to actually have the real conversation before the next skill drops.</p>
+      </div>
+      <div class="decision-card">
+        <h3>Self-selection instead of assigned paths</h3>
+        <p>The check-in asks about the learner's barrier, and the experience adapts. A new hire in London and a director in São Paulo might select the same barrier — and get the same path, because their need is the same.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       WHAT I'D DO NEXT
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">What I'd Do Next</p>
+    <h2>This prototype is Module 1 of four</h2>
+
+    <p>
+      <strong>Complete the system.</strong> Build Modules 2 (Receive It), 3 (Seek It), and 4 (Do It) to the same depth. Each follows the same flow but focuses on a different feedback skill with its own scenarios and IP clips.
+    </p>
+    <p>
+      <strong>Partner with PM&O for sustainment.</strong> After Week 4, the experience transitions from structured modules to micro-prompts embedded in existing team rituals — standups, 1:1s, retros. This requires a real partnership with People Management & Operations to make feedback part of the operating system, not just the learning system.
+    </p>
+    <p>
+      <strong>Build the measurement layer.</strong> Track not just completion, but behavior change — are feedback conversations happening more often? Are barrier patterns shifting over time? The xAPI telemetry from Docebo would feed this, but the real signal comes from pairing learning data with sentiment data.
+    </p>
+    <p>
+      <strong>Refine through iteration.</strong> Run a pilot with one region, gather real learner data, and use it to improve the scenarios, pacing, and adaptive logic before scaling globally.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TOOLS & CREDITS
+  ══════════════════════════════════ -->
+  <section class="cs-section case-study-body fade-in">
+    <p class="cs-section-label">Tools &amp; Credits</p>
+    <h2>How it was built</h2>
+
+    <div class="tools-list">
+      <div class="tool-item">
+        <label>Prototype</label>
+        <span>React, hosted on CodeSandbox</span>
+      </div>
+      <div class="tool-item">
+        <label>Platform</label>
+        <span>Docebo LMS (SCORM + xAPI)</span>
+      </div>
+      <div class="tool-item">
+        <label>Presentation</label>
+        <span>pptxgenjs, Google Slides</span>
+      </div>
+      <div class="tool-item">
+        <label>AI Tools</label>
+        <span>Claude (Anthropic)</span>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+      All design strategy, instructional logic, content, and creative decisions are my own. AI accelerated the build — knowing what to build is the skill. Getting it built fast is the advantage.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Laura <!-- LASTNAME -->. Built with intention.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
