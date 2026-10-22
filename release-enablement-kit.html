@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Release Enablement Kit — Laura Dewing</title>
+  <meta name="description" content="An interactive launch-readiness kit for a fictional AI feature, designed for engineers, PMs, and support. Concept build by Laura Dewing.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#about">About</a>
+        <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="cs-hero">
+    <div class="narrow fade-in">
+      <a href="index.html#work" class="back">&larr; All work</a><br>
+      <span class="eyebrow">Launch enablement &middot; Concept build</span>
+      <h1>Release enablement kit for an AI feature</h1>
+      <p class="lede">Launching an AI feature across engineering, product, and support, from &ldquo;what is this?&rdquo; to launch-ready in about 15 minutes.</p>
+      <div class="cs-meta">
+        <div><label>Type</label><span>Concept build</span></div>
+        <div><label>Audiences</label><span>Engineers, PMs, support</span></div>
+        <div><label>Methods</label><span>Action Mapping, Kirkpatrick</span></div>
+        <div><label>Built with</label><span>React, Claude Code</span></div>
+      </div>
+      <p class="note">Luminary and its AI Assistant are fictional. The scenario is invented; the method is the one I've used on real launches.</p>
+    </div>
+    <div class="wide fade-in">
+      <figure class="shot"><div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>luminary / launch overview</span></div><img src="images/lum-overview.webp" alt="Launch overview screen with launch date, users impacted, and rollout phases"></div></figure>
+    </div>
+  </header>
+
+  <main class="narrow">
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Why I built it</span>
+      <h2>Showing enablement design I can't share from real launches</h2>
+      <p>Most of my launch work can't be shared publicly, so I built this to show how I approach enablement in practice: a kit for a fictional AI feature launch that takes three very different audiences to launch-ready through role-specific content, realistic scenarios, and a knowledge check.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Approach</span>
+      <h2>One launch, three tailored experiences</h2>
+      <div class="principles">
+        <div class="principle"><b>Role-based learning paths</b><span>Engineers need architecture and debugging context, PMs need positioning and timelines, support needs FAQs and escalation paths. I used Action Mapping to find the decisions each audience makes after launch, and designed backwards.</span></div>
+        <div class="principle"><b>Scenario-based practice</b><span>Reading about a product and handling a live situation are different things. Scenarios put learners in realistic, ambiguous situations where they have to apply what they learned.</span></div>
+        <div class="principle"><b>Embedded assessment</b><span>The knowledge check is a readiness gate (Kirkpatrick level 2). In production, its data would show which topics need reinforcement.</span></div>
+        <div class="principle"><b>Connected to real work</b><span>It mirrors how I ran launch readiness for Audiobooks and Wrapped at Spotify: role-specific content, hands-on practice, and feedback loops.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="wide fade-in">
+    <div class="shots two">
+      <figure class="shot">
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="images/lum-scenario.webp" alt="Support scenario asking what the learner would do" loading="lazy"></div>
+        <figcaption><b>Scenarios</b>Real post-launch situations, such as a user getting irrelevant search results. Learners pick the best response.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><div class="frame-bar"><i></i><i></i><i></i></div><img src="images/lum-check.webp" alt="Knowledge check question about data permissions" loading="lazy"></div>
+        <figcaption><b>Readiness check</b>Questions tuned to each role, like explaining what the assistant can and can't access.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <main class="narrow">
+    <div class="proto-cta fade-in">
+      <div>
+        <h3>Try the kit</h3>
+        <p>Pick a role and work through the scenarios. About 15 minutes.</p>
+      </div>
+      <a href="https://luminary-product-enablement.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">Open the kit &rarr;</a>
+    </div>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">How it would launch</span>
+      <h2>Part of a launch campaign, not a standalone course</h2>
+      <p>The kit would live as a web app connected to the LMS for tracking. The core module (overview, scenarios, and knowledge check) is required for all three audiences before launch day; role deep dives are recommended. It would ship alongside product documentation, internal comms, and team briefings.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Measuring impact</span>
+      <h2>Designed with all four Kirkpatrick levels in mind</h2>
+      <table class="data">
+        <thead><tr><th>Level</th><th>What I'd measure</th></tr></thead>
+        <tbody>
+          <tr><td>1. Reaction</td><td>A short survey on relevance, with prompts on what was missing or unclear</td></tr>
+          <tr><td>2. Learning</td><td>Knowledge check and scenario scores together; scenarios are the stronger signal of applied understanding</td></tr>
+          <tr><td>3. Behavior</td><td>Ticket quality, escalation patterns, and manager observations after launch</td></tr>
+          <tr><td>4. Results</td><td>Fewer AI-related tickets, a lower escalation rate, and higher feature adoption, correlated with completion data</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Tools and methods</span>
+      <div class="toolrow" style="margin-top:12px">
+        <span>Action Mapping</span><span>Kirkpatrick evaluation</span><span>ADDIE</span><span>Scenario-based learning</span><span>Cross-functional enablement</span><span>React</span><span>Claude Code</span>
+      </div>
+    </section>
+
+    <div class="next-cs">
+      <span class="eyebrow">Next case study</span>
+      <a href="privacy-fluency.html" class="big">Designing privacy fluency through experience &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

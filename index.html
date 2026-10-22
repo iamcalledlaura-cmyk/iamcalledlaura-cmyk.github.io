@@ -3,101 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laura — Learning Experience Designer</title>
+  <title>Laura Dewing — Learning Experience Design and AI Enablement</title>
+  <meta name="description" content="Laura Dewing designs learning systems that help global teams understand, adopt, and confidently use complex products and AI.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-name">Laura Dewing</a>
+      <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
       <div class="nav-links">
         <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
         <a href="#about">About</a>
+        <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero fade-in">
-    <p class="hero-intro">Learning Experience Designer</p>
-    <h1>I design learning that<br>changes behavior,<br>not just scores.</h1>
-    <p class="hero-sub">
-      Scenario-based experiences, spaced learning systems, and strategic L&D — built to meet people where they work, not where training lives.
-    </p>
-  </header>
-
-  <section id="work" class="container work-section">
-    <div class="work-section-header fade-in">
-      <h2>Selected Work</h2>
-    </div>
-
-    <a href="feedback-in-the-moment.html" class="case-card fade-in">
-      <div class="case-card-image">
-        <div class="placeholder">
-          <!-- Replace this div with: <img src="images/fitm-cover.jpg" alt="Feedback in the Moment prototype"> -->
-          Screenshot of prototype or deck cover slide
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="fade-in">
+        <span class="chip"><span class="dot"></span>Learning design + AI enablement</span>
+        <h1>I design how teams learn new products, <span class="hl">and build the tools that teach them.</span></h1>
+        <p class="hero-sub">Eight years of onboarding, certification, launch readiness, and compliance programs for global teams, measured in ramp time and error rates, not completions.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">See the work &rarr;</a>
+          <a href="https://www.linkedin.com/in/lauradewing" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
         </div>
       </div>
-      <div class="case-card-content">
-        <span class="case-card-tag">Learning Design &bull; Netflix</span>
-        <h3>Feedback in the Moment</h3>
-        <p>
-          A scenario-based learning experience that helps employees build everyday feedback habits — delivered through Slack into Docebo, personalized by barrier, and anchored in Netflix IP.
-        </p>
-        <span class="case-card-cta">Read case study →</span>
+      <div class="stack fade-in" aria-hidden="true">
+        <div class="frame f1">
+          <div class="frame-bar"><i></i><i></i><i></i><span>launch-kit / overview</span></div>
+          <img src="images/lum-overview.webp" alt="">
+        </div>
+        <div class="frame f2">
+          <div class="frame-bar"><i></i><i></i><i></i><span>feedback / step 1</span></div>
+          <img src="images/fitm-coaching.webp" alt="">
+        </div>
+        <div class="pill"><b>96.6%</b>completion on a<br>global recertification</div>
       </div>
-    </a>
+    </div>
+  </header>
 
-    <!-- ═══ FUTURE CASE STUDY CARDS ═══
-    Copy the <a class="case-card"> block above and change the content.
-    They'll stack vertically. To make a 2-column grid, change
-    .work-section to use CSS grid on the cards. -->
-
+  <section class="container fade-in" aria-label="Results">
+    <div class="metrics">
+      <div class="metric"><b>33<em>%</em></b><span>faster ramp for 2,000+ global support advisors</span></div>
+      <div class="metric"><b>25<em>%</em></b><span>fewer critical privacy errors, sustained for a year</span></div>
+      <div class="metric"><b>60 <em>days</em></b><span>to design and launch a global certification</span></div>
+      <div class="metric"><b>96.6<em>%</em></b><span>completion across 850 certified professionals</span></div>
+    </div>
   </section>
 
-  <section id="about" class="container about-section fade-in">
-    <div class="about-inner">
-      <h2>About</h2>
-      <p>
-        <!-- REWRITE THIS IN YOUR VOICE — this is placeholder copy -->
-        I'm a Learning Experience Designer who builds experiences that actually change how people work. My background spans Spotify, Groupon, and COPC consulting — designing onboarding programs, compliance training, and product launch enablement.
-      </p>
-      <p>
-        I think of L&D as a strategic function, not a support one. The best learning doesn't feel like training. It feels like practice, with stakes low enough to experiment and high enough to matter.
-      </p>
-      <div class="about-links">
-        <a href="https://www.linkedin.com/in/YOURPROFILE" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:your@email.com">Email</a>
-        <!-- Add more links as needed -->
+  <section id="work" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div>
+          <span class="eyebrow">Selected work</span>
+          <h2>Case studies and live builds</h2>
+        </div>
+        <p>Most of my client and employer work is under NDA. These are written up with confidential details removed, alongside prototypes you can click through yourself.</p>
+      </div>
+
+      <div class="work-grid">
+
+        <a href="privacy-fluency.html" class="card fade-in">
+          <div class="card-media">
+            <div class="illus" aria-hidden="true">
+              <div class="illus-panel">
+                <div class="k" style="margin-bottom:10px">Scenario practice</div>
+                <div class="bubble user">&ldquo;Delete all my data, please.&rdquo;</div>
+                <div class="choice">Send the self-serve deletion link</div>
+                <div class="choice ok">Verify identity, then route the request</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag blue">Case study</span><span class="tag">Spotify</span><span class="tag">Compliance</span></div>
+            <h3>Designing privacy fluency through experience</h3>
+            <p>Turning GDPR and CCPA requirements into practice on real customer requests for 2,000+ support advisors.</p>
+            <div class="card-foot"><span class="go">Read case study &rarr;</span><span class="stat">&minus;25% critical errors</span></div>
+          </div>
+        </a>
+
+        <a href="global-recertification.html" class="card fade-in">
+          <div class="card-media">
+            <div class="illus" aria-hidden="true">
+              <div class="illus-panel">
+                <div class="row"><span class="k">Enrolled</span><span>850</span></div>
+                <div class="row"><span class="k">Completed</span><span class="bar"><i style="width:96.6%"></i></span></div>
+                <div class="row"><span class="k">Eventual pass rate</span><span class="bar"><i style="width:95.5%"></i></span></div>
+                <div class="row"><span class="k">Satisfaction</span><span class="bar"><i style="width:97%"></i></span></div>
+                <div class="row"><span class="k">Languages</span><span>EN ES FR PT ZH JA</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag blue">Case study</span><span class="tag">Certification</span><span class="tag">Global</span></div>
+            <h3>Recertifying a global standard without a classroom</h3>
+            <p>A delta-only upskill path and scenario-based exam that moved a worldwide certified population onto a new standard release.</p>
+            <div class="card-foot"><span class="go">Read case study &rarr;</span><span class="stat">96.6% completion</span></div>
+          </div>
+        </a>
+
+        <a href="feedback-in-the-moment.html" class="card fade-in">
+          <div class="card-media dark"><img src="images/fitm-checkin.webp" alt="Check-in screen from the Feedback in the Moment prototype"></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag blue">Live prototype</span><span class="tag">Netflix design exercise</span></div>
+            <h3>Feedback in the Moment</h3>
+            <p>A four-week, Slack-delivered system that builds everyday feedback habits, adapted to each learner's barrier.</p>
+            <div class="card-foot"><span class="go">Read case study &rarr;</span><span class="stat">React prototype</span></div>
+          </div>
+        </a>
+
+        <a href="release-enablement-kit.html" class="card fade-in">
+          <div class="card-media"><img src="images/lum-welcome.webp" alt="Welcome screen of the AI Assistant Launch Kit"></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag blue">Concept build</span><span class="tag">Launch enablement</span></div>
+            <h3>Release enablement kit for an AI feature</h3>
+            <p>Role-based paths, scenario practice, and a readiness check that take engineers, PMs, and support from &ldquo;what is this?&rdquo; to launch-ready.</p>
+            <div class="card-foot"><span class="go">Read case study &rarr;</span><span class="stat">Interactive kit</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="section">
+    <div class="container">
+      <div class="section-head fade-in">
+        <div>
+          <span class="eyebrow">Approach</span>
+          <h2>How I work</h2>
+        </div>
+        <p>Same method whatever the audience: the people change, the discipline doesn't.</p>
+      </div>
+      <div class="approach">
+        <div class="ap fade-in">
+          <span class="num">01</span>
+          <h3>Design for what people do</h3>
+          <p>I start from the decisions someone has to make on the job and design backwards, so practice looks like the real work.</p>
+        </div>
+        <div class="ap fade-in">
+          <span class="num">02</span>
+          <h3>Treat data as design feedback</h3>
+          <p>Pilots, item-level exam data, and QA results tell me where my design is failing. I fix it in the open, fast.</p>
+        </div>
+        <div class="ap fade-in">
+          <span class="num">03</span>
+          <h3>Build with AI, every day</h3>
+          <p>I prototype simulations, produce video, and automate the admin that slows learning teams down. I also run an AI enablement pipeline from intake to adoption.</p>
+        </div>
+      </div>
+      <div class="toolrow fade-in">
+        <span>Claude and Claude Code</span><span>ElevenLabs</span><span>Synthesia</span><span>Zapier</span><span>Articulate Storyline and Rise</span><span>React</span><span>Skilljar</span><span>Docebo</span><span>Action Mapping</span><span>Kirkpatrick</span><span>SCORM and xAPI</span><span>WCAG</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about fade-in">
+        <div>
+          <span class="eyebrow">About</span>
+          <h2>Hi, I'm Laura.</h2>
+        </div>
+        <div>
+          <p>I design learning systems that help global teams understand, adopt, and confidently use complex products and AI.</p>
+          <p>For 8+ years I've built onboarding, certification, product education, release readiness, and compliance programs for audiences of thousands, across languages and time zones at <strong>Spotify</strong>, <strong>Groupon</strong>, and in my current consulting work. I care about what people do differently after learning, so I measure my work in ramp time, error rates, cost, and real performance.</p>
+          <p>I'm a builder. Alongside learning design, I lead an AI enablement pipeline, taking ideas from intake through evaluation, prototyping, and adoption.</p>
+          <p>Based in Greater Chicago, working remote first, and open to senior learning experience design, enablement, and AI enablement roles.</p>
+          <div class="about-links">
+            <a href="mailto:iamcalledlaura@gmail.com" class="primary">iamcalledlaura@gmail.com</a>
+            <a href="https://www.linkedin.com/in/lauradewing" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Laura Dewing. Built with intention.</p>
+      <span>&copy; 2026 Laura Dewing</span>
+      <span>Designed and built with Claude Code</span>
     </div>
   </footer>
 
-  <script>
-    // Nav shadow on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Fade in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
-
+  <script src="site.js"></script>
 </body>
 </html>
