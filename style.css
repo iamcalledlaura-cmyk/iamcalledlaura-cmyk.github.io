@@ -109,7 +109,7 @@ h1, h2, h3, h4 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; 
   pointer-events: none;
 }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; position: relative; }
-.hero h1 { font-size: clamp(38px, 5vw, 60px); margin: 22px 0 20px; letter-spacing: -0.035em; }
+.hero h1 { font-size: clamp(30px, 3.6vw, 46px); margin: 22px 0 20px; letter-spacing: -0.035em; }
 .hero h1 .hl { color: var(--blue-600); }
 .hero-sub { font-size: 19px; color: var(--ink-2); max-width: 520px; }
 .hero-actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
