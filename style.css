@@ -129,7 +129,7 @@ h1, h2, h3, h4 { color: var(--ink); line-height: 1.15; letter-spacing: -0.02em; 
 .stack .f2 .frame-bar span { color: #8A8A8A; }
 .frame-media { position: relative; }
 .frame-media img { display: block; width: 100%; aspect-ratio: 16 / 7.6; object-fit: cover; object-position: center top; }
-.frame-media .play { position: absolute; left: 84%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(255,255,255,.92); box-shadow: 0 10px 30px -8px rgba(0,0,0,.35); }
+.frame-media .play { position: absolute; left: 58%; top: 44%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(255,255,255,.92); box-shadow: 0 10px 30px -8px rgba(0,0,0,.35); }
 .frame-media .play::after { content: ""; position: absolute; left: 26px; top: 20px; border-left: 18px solid var(--blue-600); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
 .stack .pill {
   position: absolute; right: 6%; bottom: 14%; background: var(--surface); border: 1px solid var(--line);
