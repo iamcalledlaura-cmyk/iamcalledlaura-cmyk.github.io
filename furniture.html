@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dewing Designs — Furniture Restoration by Laura Dewing</title>
   <meta name="description" content="Furniture restoration and refinishing by Laura Dewing: before-and-after pieces from Dewing Designs.">
-  <link rel="stylesheet" href="style.css?v=20261102b">
+  <link rel="stylesheet" href="style.css?v=20261102c">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
   <section class="wide fade-in" aria-label="Before and after gallery">
     <div class="fx-head">
       <span class="eyebrow">Recent pieces</span>
-      <p>Use the toggle on each photo to see where a piece started.</p>
+      <p>Tap a photo to see it full size. Use the toggle to see where a piece started.</p>
     </div>
     <div class="fx-grid" id="fx-grid"></div>
   </section>
@@ -129,7 +129,7 @@
         grid.parentNode.style.display = 'none';
         return;
       }
-      PIECES.forEach(function (p) {
+      PIECES.forEach(function (p, i) {
         var fig = document.createElement('figure');
         fig.className = 'fx';
         var media = document.createElement('div');
@@ -154,6 +154,16 @@
           btns[1].onclick = function () { media.classList.remove('show-before'); btns[1].setAttribute('aria-pressed', 'true'); btns[0].setAttribute('aria-pressed', 'false'); };
           media.appendChild(toggle);
         }
+        media.tabIndex = 0;
+        media.setAttribute('role', 'button');
+        media.setAttribute('aria-label', 'Enlarge photos of the ' + p.title.toLowerCase());
+        media.addEventListener('click', function (e) {
+          if (e.target.closest('.fx-toggle')) return;
+          window.fxOpen && window.fxOpen(i, media.classList.contains('show-before'), media);
+        });
+        media.addEventListener('keydown', function (e) {
+          if ((e.key === 'Enter' || e.key === ' ') && e.target === media) { e.preventDefault(); window.fxOpen && window.fxOpen(i, media.classList.contains('show-before'), media); }
+        });
         fig.appendChild(media);
         var cap = document.createElement('figcaption');
         cap.innerHTML = '<b></b><span></span>';
@@ -161,6 +171,89 @@
         cap.querySelector('span').textContent = p.note || '';
         fig.appendChild(cap);
         grid.appendChild(fig);
+      });
+    })();
+  </script>
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lb-btn lb-close" aria-label="Close">&times;</button>
+    <button type="button" class="lb-btn lb-prev" aria-label="Previous piece">&lsaquo;</button>
+    <button type="button" class="lb-btn lb-next" aria-label="Next piece">&rsaquo;</button>
+    <figure class="lb-fig">
+      <div class="lb-stage"><img class="lb-img" alt=""></div>
+      <figcaption class="lb-bar">
+        <div class="lb-cap"><b></b><span></span></div>
+        <div class="fx-toggle lb-toggle"><button type="button"></button><button type="button"></button></div>
+        <span class="lb-count"></span>
+      </figcaption>
+    </figure>
+  </div>
+  <script>
+    (function () {
+      var items = PIECES.slice();
+      document.querySelectorAll('.fx-details figure').forEach(function (f) {
+        var img = f.querySelector('img'), cap = f.querySelector('figcaption');
+        var idx = items.length;
+        items.push({ title: cap ? cap.textContent : '', after: img.getAttribute('src'), alt: img.alt });
+        img.tabIndex = 0; img.setAttribute('role', 'button'); img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function () { open(idx, false, img); });
+        img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(idx, false, img); } });
+      });
+
+      var lb = document.getElementById('lb'), img = lb.querySelector('.lb-img'),
+          capB = lb.querySelector('.lb-cap b'), capS = lb.querySelector('.lb-cap span'),
+          tog = lb.querySelector('.lb-toggle'), tb = tog.querySelectorAll('button'),
+          count = lb.querySelector('.lb-count'), closeBtn = lb.querySelector('.lb-close');
+      var cur = 0, showBefore = false, returnTo = null;
+
+      function render() {
+        var p = items[cur], hasB = !!p.before, lbl = p.labels || ['Before', 'After'];
+        var useB = hasB && showBefore;
+        img.src = useB ? p.before : p.after;
+        img.alt = p.alt || (p.title + (hasB ? ', ' + (useB ? lbl[0] : lbl[1]).toLowerCase() : ''));
+        capB.textContent = p.title; capS.textContent = p.note || '';
+        tog.style.display = hasB ? '' : 'none';
+        tb[0].textContent = lbl[0]; tb[1].textContent = lbl[1];
+        tb[0].setAttribute('aria-pressed', useB ? 'true' : 'false');
+        tb[1].setAttribute('aria-pressed', useB ? 'false' : 'true');
+        count.textContent = (cur + 1) + ' / ' + items.length;
+        [items[(cur + 1) % items.length], items[(cur - 1 + items.length) % items.length]].forEach(function (n) {
+          [n.after, n.before].forEach(function (u) { if (u) { var x = new Image(); x.src = u; } });
+        });
+      }
+      function open(i, before, from) {
+        cur = i; showBefore = !!before; returnTo = from || null;
+        render(); lb.hidden = false; document.body.style.overflow = 'hidden'; closeBtn.focus();
+      }
+      function close() {
+        lb.hidden = true; document.body.style.overflow = '';
+        if (returnTo) returnTo.focus();
+      }
+      function go(d) { cur = (cur + d + items.length) % items.length; showBefore = false; render(); }
+      window.fxOpen = open;
+
+      tb[0].onclick = function () { showBefore = true; render(); };
+      tb[1].onclick = function () { showBefore = false; render(); };
+      closeBtn.onclick = close;
+      lb.querySelector('.lb-prev').onclick = function () { go(-1); };
+      lb.querySelector('.lb-next').onclick = function () { go(1); };
+      lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-stage')) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') go(1);
+        else if (e.key === 'ArrowLeft') go(-1);
+        else if (e.key === 'Tab') {
+          var f = Array.prototype.filter.call(lb.querySelectorAll('button'), function (b) { return b.offsetParent !== null; });
+          var first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      var sx = null;
+      lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+        if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
       });
     })();
   </script>
