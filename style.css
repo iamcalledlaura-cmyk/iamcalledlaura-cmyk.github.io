@@ -388,3 +388,20 @@ table.data td.num { font-variant-numeric: tabular-nums; color: var(--ink); font-
   .card-feature .card-media { aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--line); }
   .card-feature .card-body { padding: 22px 24px 24px; }
 }
+
+/* ── Furniture gallery (furniture.html) ── */
+.fx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fx { margin: 0; }
+.fx-media { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--blue-50); box-shadow: var(--shadow); }
+.fx-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease; }
+.fx-media .fx-before { opacity: 0; }
+.fx-media.show-before .fx-before { opacity: 1; }
+.fx-toggle { position: absolute; left: 12px; bottom: 12px; display: flex; background: rgba(255,255,255,.94); border-radius: 99px; padding: 3px; box-shadow: 0 6px 18px -6px rgba(11,23,48,.35); }
+.fx-toggle button { font: 500 13px var(--sans); border: 0; background: none; color: var(--ink-2); padding: 6px 12px; border-radius: 99px; cursor: pointer; }
+.fx-toggle button[aria-pressed="true"] { background: var(--blue-600); color: #fff; }
+.fx figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+.fx figcaption b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 2px; }
+.more-link { display: inline-block; margin-top: 18px; font-size: 14.5px; color: var(--sky); position: relative; z-index: 1; }
+.more-link:hover { color: #fff; }
+@media (max-width: 960px) { .fx-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px) { .fx-grid { grid-template-columns: 1fr; } }

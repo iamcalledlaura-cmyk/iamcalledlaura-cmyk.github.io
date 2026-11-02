@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dewing Designs — Furniture Restoration by Laura Dewing</title>
+  <meta name="description" content="Furniture restoration and refinishing by Laura Dewing: before-and-after pieces from Dewing Designs.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#about">About</a>
+        <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="cs-hero">
+    <div class="narrow fade-in">
+      <a href="index.html" class="back">&larr; Back to learning design</a><br>
+      <span class="eyebrow">Off the clock &middot; Dewing Designs</span>
+      <h1>Furniture restoration and refinishing</h1>
+      <p class="lede">Outside of learning design, I rescue tired furniture and give it a second life. Dressers, side tables, and cabinets come in scuffed and dated, and leave ready for another few decades of use.</p>
+      <div class="cs-meta">
+        <div><label>Studio</label><span>Dewing Designs</span></div>
+        <div><label>Work</label><span>Restoration, refinishing, flips</span></div>
+        <div><label>Based in</label><span>Greater Chicago</span></div>
+        <div><label>Follow</label><span><a href="https://www.instagram.com/dewing_designs/" target="_blank" rel="noopener">@dewing_designs</a></span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="wide fade-in" aria-label="Before and after gallery">
+    <div class="fx-grid" id="fx-grid"></div>
+  </section>
+
+  <main class="narrow">
+    <section class="cs-section fade-in">
+      <span class="eyebrow">How I work on a piece</span>
+      <h2>The same habits as my day job</h2>
+      <p>Every piece starts with a diagnosis and ends with a finish I'd be happy to live with. In between, it's a lot of testing small before committing big.</p>
+      <div class="steps">
+        <div class="step"><div><h4>Assess</h4><p>Check the structure, the wood, and the existing finish to decide what's worth saving and what needs fixing first.</p></div></div>
+        <div class="step"><div><h4>Strip and repair</h4><p>Remove the old finish, fix joints and veneer, fill damage, and sand back to a clean surface.</p></div></div>
+        <div class="step"><div><h4>Prime and block</h4><p>Choose a primer for the wood in front of me. When tannins bled through the paint on one dresser, I switched from a shellac-based primer to an oil-based stain blocker.</p></div></div>
+        <div class="step"><div><h4>Finish and style</h4><p>Paint, stain, or seal for durability, update the hardware, and photograph the result.</p></div></div>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <div class="proto-cta">
+        <div>
+          <h3>See every piece on Instagram</h3>
+          <p>Works in progress, finished flips, and the occasional refinishing lesson learned the hard way.</p>
+        </div>
+        <a href="https://www.instagram.com/dewing_designs/" target="_blank" rel="noopener" class="btn btn-primary">@dewing_designs &rarr;</a>
+      </div>
+    </section>
+
+    <div class="next-cs">
+      <span class="eyebrow">Back to the day job</span>
+      <a href="index.html#work" class="big">Learning design case studies &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
+  </footer>
+
+  <script>
+    /* Gallery: add one entry per piece. Put photos in images/furniture/.
+       "before" is optional; with it, the card shows a before/after toggle. */
+    var PIECES = [
+      // { title: 'Six-drawer dresser', note: 'Stripped, stain-blocked, painted, new brass pulls', before: 'images/furniture/dresser-before.jpg', after: 'images/furniture/dresser-after.jpg' },
+    ];
+
+    (function () {
+      var grid = document.getElementById('fx-grid');
+      if (!PIECES.length) {
+        grid.parentNode.style.display = 'none';
+        return;
+      }
+      PIECES.forEach(function (p) {
+        var fig = document.createElement('figure');
+        fig.className = 'fx';
+        var media = document.createElement('div');
+        media.className = 'fx-media';
+        var after = new Image();
+        after.src = p.after; after.alt = p.title + ' after restoration'; after.loading = 'lazy';
+        media.appendChild(after);
+        if (p.before) {
+          var before = new Image();
+          before.src = p.before; before.alt = p.title + ' before restoration'; before.loading = 'lazy';
+          before.className = 'fx-before';
+          media.appendChild(before);
+          var toggle = document.createElement('div');
+          toggle.className = 'fx-toggle';
+          toggle.innerHTML = '<button type="button" aria-pressed="false">Before</button><button type="button" aria-pressed="true">After</button>';
+          var btns = toggle.querySelectorAll('button');
+          btns[0].onclick = function () { media.classList.add('show-before'); btns[0].setAttribute('aria-pressed', 'true'); btns[1].setAttribute('aria-pressed', 'false'); };
+          btns[1].onclick = function () { media.classList.remove('show-before'); btns[1].setAttribute('aria-pressed', 'true'); btns[0].setAttribute('aria-pressed', 'false'); };
+          media.appendChild(toggle);
+        }
+        fig.appendChild(media);
+        var cap = document.createElement('figcaption');
+        cap.innerHTML = '<b></b><span></span>';
+        cap.querySelector('b').textContent = p.title;
+        cap.querySelector('span').textContent = p.note || '';
+        fig.appendChild(cap);
+        grid.appendChild(fig);
+      });
+    })();
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>
