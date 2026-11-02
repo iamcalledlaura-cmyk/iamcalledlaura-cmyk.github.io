@@ -37,7 +37,37 @@
   </header>
 
   <section class="wide fade-in" aria-label="Before and after gallery">
+    <div class="fx-head">
+      <span class="eyebrow">Recent pieces</span>
+      <p>Use the Before / After toggle to see where each piece started.</p>
+    </div>
     <div class="fx-grid" id="fx-grid"></div>
+  </section>
+
+  <section class="wide fade-in fx-feature" aria-label="One piece, start to finish">
+    <div class="fx-feature-text">
+      <span class="eyebrow">One piece, start to finish</span>
+      <h2>The striped chest</h2>
+      <p>This cherry chest came in with a chipped, water-marked top and worn edges. I repaired and primed it, hand-painted navy and pale blue stripes across the top and base, added scalloped trim down the sides, and lined the drawers in gingham.</p>
+    </div>
+    <figure class="fx-video">
+      <video src="videos/furniture/stripe-chest-before.mp4" poster="videos/furniture/stripe-chest-before.jpg" muted loop playsinline controls preload="metadata"></video>
+      <figcaption><b>Before</b>Worn finish and a damaged top</figcaption>
+    </figure>
+    <figure class="fx-video">
+      <video src="videos/furniture/stripe-chest-reveal.mp4" poster="videos/furniture/stripe-chest-reveal.jpg" muted loop playsinline controls preload="metadata"></video>
+      <figcaption><b>After</b>Hand-painted stripes and scalloped trim</figcaption>
+    </figure>
+  </section>
+
+  <section class="wide fade-in" aria-label="Finish details">
+    <div class="fx-head"><span class="eyebrow">In the details</span></div>
+    <div class="fx-details">
+      <figure><img src="images/furniture/stripe-chest-drawer.webp" alt="Open drawer of the striped chest showing a red gingham liner" loading="lazy"><figcaption>Gingham drawer liners</figcaption></figure>
+      <figure><img src="images/furniture/nine-drawer-top.webp" alt="Stained walnut-tone top on a white nine-drawer dresser" loading="lazy"><figcaption>Stained top on a painted base</figcaption></figure>
+      <figure><img src="images/furniture/bamboo-detail.webp" alt="Corner of the pale blue faux bamboo dresser with painted cane panel and brass pull" loading="lazy"><figcaption>Painted cane and faux bamboo</figcaption></figure>
+      <figure><img src="images/furniture/mahogany-chest-detail.webp" alt="Side view of a restored mahogany chest with beaded trim and oval brass pulls" loading="lazy"><figcaption>Restored mahogany grain</figcaption></figure>
+    </div>
   </section>
 
   <main class="narrow">
@@ -76,8 +106,19 @@
   <script>
     /* Gallery: add one entry per piece. Put photos in images/furniture/.
        "before" is optional; with it, the card shows a before/after toggle. */
+    var F = 'images/furniture/';
     var PIECES = [
-      // { title: 'Six-drawer dresser', note: 'Stripped, stain-blocked, painted, new brass pulls', before: 'images/furniture/dresser-before.jpg', after: 'images/furniture/dresser-after.jpg' },
+      { title: 'Faux bamboo dresser and chest', note: 'Painted pale blue, including the cane panels, with warm brass pulls', before: F+'bamboo-set-before.webp', after: F+'bamboo-set-after.webp' },
+      { title: 'Bow-front dresser', note: 'Painted near-black to let the oval brass pulls stand out', before: F+'bowfront-dresser-before.webp', after: F+'bowfront-dresser-after.webp', pos: 'center 72%', bpos: 'center 62%' },
+      { title: 'Nine-drawer dresser', note: 'Painted base, top stripped and stained, brass knobs', before: F+'nine-drawer-progress.webp', after: F+'nine-drawer-after.webp', pos: 'center 72%', bpos: 'center 58%' },
+      { title: 'Mid-century dresser', note: 'Painted soft black, original sculpted hardware kept', before: F+'mcm-dresser-before.webp', after: F+'mcm-dresser-after.webp', pos: 'center 75%' },
+      { title: 'Two-tone credenza', note: 'Wood fronts refinished, case painted charcoal, new tapered legs', before: F+'credenza-before.webp', after: F+'credenza-after.webp', pos: 'center 72%' },
+      { title: 'Cabana-stripe chest', note: 'Hand-painted blue and cream stripes, brass knobs', before: F+'stripe-highboy-before.webp', after: F+'stripe-highboy-after.webp', pos: 'center 62%', bpos: 'center 42%' },
+      { title: 'Striped scalloped chest', note: 'Navy and pale blue stripes, scalloped trim (see the video below)', after: F+'stripe-chest-after.webp', pos: 'center 72%' },
+      { title: 'Mahogany chest', note: 'Finish restored to bring back the grain', after: F+'mahogany-chest-after.webp', pos: 'center 72%' },
+      { title: 'Carved antique chest', note: 'Wood restored, original carved pulls kept', after: F+'carved-chest-after.webp', pos: 'center 72%' },
+      { title: 'Serpentine dresser', note: 'Painted soft black with gold pulls', after: F+'serpentine-dresser-after.webp', pos: 'center 75%' },
+      { title: 'Teak sideboard', note: 'Teak cleaned and refinished', after: F+'teak-sideboard-after.webp', pos: 'center 70%' },
     ];
 
     (function () {
@@ -92,12 +133,14 @@
         var media = document.createElement('div');
         media.className = 'fx-media';
         var after = new Image();
-        after.src = p.after; after.alt = p.title + ' after restoration'; after.loading = 'lazy';
+        after.src = p.after; after.alt = p.title + (p.before ? ' after restoration' : ''); after.loading = 'lazy';
+        if (p.pos) after.style.objectPosition = p.pos;
         media.appendChild(after);
         if (p.before) {
           var before = new Image();
           before.src = p.before; before.alt = p.title + ' before restoration'; before.loading = 'lazy';
           before.className = 'fx-before';
+          if (p.bpos) before.style.objectPosition = p.bpos;
           media.appendChild(before);
           var toggle = document.createElement('div');
           toggle.className = 'fx-toggle';
@@ -115,6 +158,15 @@
         fig.appendChild(cap);
         grid.appendChild(fig);
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { var pr = e.target.play(); if (pr) pr.catch(function () {}); } else e.target.pause(); });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('.fx-video video').forEach(function (v) { io.observe(v); });
     })();
   </script>
   <script src="site.js"></script>
