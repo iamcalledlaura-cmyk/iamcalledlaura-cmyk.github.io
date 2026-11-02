@@ -16,6 +16,7 @@
         <a href="index.html#work">Work</a>
         <a href="index.html#approach">Approach</a>
         <a href="index.html#about">About</a>
+        <a href="furniture.html" aria-current="page">Furniture</a>
         <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
       </div>
     </div>
@@ -39,7 +40,7 @@
   <section class="wide fade-in" aria-label="Before and after gallery">
     <div class="fx-head">
       <span class="eyebrow">Recent pieces</span>
-      <p>Use the Before / After toggle to see where each piece started.</p>
+      <p>Use the toggle on each photo to see where a piece started.</p>
     </div>
     <div class="fx-grid" id="fx-grid"></div>
   </section>
@@ -66,7 +67,7 @@
       <figure><img src="images/furniture/stripe-chest-drawer.webp" alt="Open drawer of the striped chest showing a red gingham liner" loading="lazy"><figcaption>Gingham drawer liners</figcaption></figure>
       <figure><img src="images/furniture/nine-drawer-top.webp" alt="Stained walnut-tone top on a white nine-drawer dresser" loading="lazy"><figcaption>Stained top on a painted base</figcaption></figure>
       <figure><img src="images/furniture/bamboo-detail.webp" alt="Corner of the pale blue faux bamboo dresser with painted cane panel and brass pull" loading="lazy"><figcaption>Painted cane and faux bamboo</figcaption></figure>
-      <figure><img src="images/furniture/mahogany-chest-detail.webp" alt="Side view of a restored mahogany chest with beaded trim and oval brass pulls" loading="lazy"><figcaption>Restored mahogany grain</figcaption></figure>
+      <figure><img src="images/furniture/glass-cabinet-one-open.webp" alt="Black cabinet with one door open, showing oak shelves and dark botanical wallpaper inside" loading="lazy" style="object-position:center 60%"><figcaption>Wallpapered cabinet interior</figcaption></figure>
     </div>
   </section>
 
@@ -110,12 +111,12 @@
     var PIECES = [
       { title: 'Faux bamboo dresser and chest', note: 'Painted pale blue, including the cane panels, with warm brass pulls', before: F+'bamboo-set-before.webp', after: F+'bamboo-set-after.webp' },
       { title: 'Flat file cabinet', note: 'Oak flat file painted near-black, brass pulls and label holders, new tapered legs', before: F+'flat-file-before.webp', after: F+'flat-file-after.webp', pos: 'center 42%', bpos: 'center 62%' },
+      { title: 'Art glass cabinet', note: 'Painted near-black outside, oak doors and shelves kept inside, botanical wallpaper on the back', labels: ['Open', 'Closed'], before: F+'glass-cabinet-open.webp', after: F+'glass-cabinet-closed.webp', pos: 'center 62%', bpos: 'center 62%' },
       { title: 'Bow-front dresser', note: 'Painted near-black to let the oval brass pulls stand out', before: F+'bowfront-dresser-before.webp', after: F+'bowfront-dresser-after.webp', pos: 'center 72%', bpos: 'center 62%' },
       { title: 'Nine-drawer dresser', note: 'Painted base, top stripped and stained, brass knobs', before: F+'nine-drawer-progress.webp', after: F+'nine-drawer-after.webp', pos: 'center 72%', bpos: 'center 58%' },
       { title: 'Mid-century dresser', note: 'Painted soft black, original sculpted hardware kept', before: F+'mcm-dresser-before.webp', after: F+'mcm-dresser-after.webp', pos: 'center 75%' },
       { title: 'Two-tone credenza', note: 'Wood fronts refinished, case painted charcoal, new tapered legs', before: F+'credenza-before.webp', after: F+'credenza-after.webp', pos: 'center 72%' },
       { title: 'Cabana-stripe chest', note: 'Hand-painted blue and cream stripes, brass knobs', before: F+'stripe-highboy-before.webp', after: F+'stripe-highboy-after.webp', pos: 'center 62%', bpos: 'center 42%' },
-      { title: 'Striped scalloped chest', note: 'Navy and pale blue stripes, scalloped trim (see the video below)', after: F+'stripe-chest-after.webp', pos: 'center 72%' },
       { title: 'Mahogany chest', note: 'Finish restored to bring back the grain', after: F+'mahogany-chest-after.webp', pos: 'center 72%' },
       { title: 'Carved antique chest', note: 'Wood restored, original carved pulls kept', after: F+'carved-chest-after.webp', pos: 'center 72%' },
       { title: 'Serpentine dresser', note: 'Painted soft black with gold pulls', after: F+'serpentine-dresser-after.webp', pos: 'center 75%' },
@@ -134,18 +135,20 @@
         var media = document.createElement('div');
         media.className = 'fx-media';
         var after = new Image();
-        after.src = p.after; after.alt = p.title + (p.before ? ' after restoration' : ''); after.loading = 'lazy';
+        after.src = p.after; after.alt = p.title + (p.labels ? ', ' + p.labels[1].toLowerCase() : (p.before ? ' after restoration' : '')); after.loading = 'lazy';
         if (p.pos) after.style.objectPosition = p.pos;
         media.appendChild(after);
         if (p.before) {
           var before = new Image();
-          before.src = p.before; before.alt = p.title + ' before restoration'; before.loading = 'lazy';
+          before.src = p.before; before.alt = p.title + (p.labels ? ', ' + p.labels[0].toLowerCase() : ' before restoration'); before.loading = 'lazy';
           before.className = 'fx-before';
           if (p.bpos) before.style.objectPosition = p.bpos;
           media.appendChild(before);
           var toggle = document.createElement('div');
           toggle.className = 'fx-toggle';
-          toggle.innerHTML = '<button type="button" aria-pressed="false">Before</button><button type="button" aria-pressed="true">After</button>';
+          var lb = p.labels || ['Before', 'After'];
+          toggle.innerHTML = '<button type="button" aria-pressed="false"></button><button type="button" aria-pressed="true"></button>';
+          toggle.children[0].textContent = lb[0]; toggle.children[1].textContent = lb[1];
           var btns = toggle.querySelectorAll('button');
           btns[0].onclick = function () { media.classList.add('show-before'); btns[0].setAttribute('aria-pressed', 'true'); btns[1].setAttribute('aria-pressed', 'false'); };
           btns[1].onclick = function () { media.classList.remove('show-before'); btns[1].setAttribute('aria-pressed', 'true'); btns[0].setAttribute('aria-pressed', 'false'); };

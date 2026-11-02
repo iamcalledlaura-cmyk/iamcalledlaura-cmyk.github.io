@@ -420,3 +420,14 @@ table.data td.num { font-variant-numeric: tabular-nums; color: var(--ink); font-
 .fx-details img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
 @media (max-width: 960px) { .fx-feature { grid-template-columns: 1fr 1fr; } .fx-feature-text { grid-column: 1 / -1; } .fx-details { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 680px) { .fx-feature { gap: 16px; } }
+
+/* Homepage furniture teaser */
+.otc { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 40px; box-shadow: var(--shadow); color: inherit; transition: border-color .2s ease, box-shadow .2s ease; }
+.otc:hover { color: inherit; border-color: var(--blue-200); box-shadow: var(--shadow-lg); }
+.otc h2 { font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -0.03em; margin: 10px 0 14px; }
+.otc p { color: var(--ink-2); margin-bottom: 24px; }
+.otc-photos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.otc-photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
+.otc-photos img:nth-child(2) { transform: translateY(-14px); }
+.nav-links a[aria-current="page"] { color: var(--blue-700); background: var(--blue-50); }
+@media (max-width: 860px) { .otc { grid-template-columns: 1fr; padding: 28px 22px; gap: 28px; } .otc-photos img:nth-child(2) { transform: none; } }
