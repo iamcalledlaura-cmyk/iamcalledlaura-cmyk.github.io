@@ -381,7 +381,7 @@
     });
     var hero = document.querySelector('.cs-hero .howto') || document.querySelector('.cs-hero .lede');
     var wrap = document.createElement('div'); wrap.className = 'rl-switch-wrap';
-    wrap.innerHTML = '<div class="rl-switch" role="group" aria-label="Which version to show"><button type="button" data-v="draft" aria-pressed="false">AI first draft</button><button type="button" data-v="final" aria-pressed="true">After my review</button></div><span>This page went through my own review gate. Flip it to see the AI\u2019s first draft.</span>';
+    wrap.innerHTML = '<div class="rl-switch" role="group" aria-label="Which version to show"><button type="button" data-v="draft" aria-pressed="false">AI first draft</button><button type="button" data-v="final" aria-pressed="true">After my review</button></div><span>This page went through my own review gate. Flip it to see what a typical AI first draft looks like.</span>';
     hero.parentNode.insertBefore(wrap, hero.nextSibling);
     var prl = document.createElement('button'); prl.type = 'button'; prl.className = 'pager-rl'; prl.setAttribute('aria-pressed', 'false'); prl.textContent = 'Show AI draft';
     document.getElementById('pager').insertBefore(prl, document.getElementById('pg-prev'));
