@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Source to Ship — Laura Dewing</title>
   <meta name="description" content="Converting multi-day live training into self-paced eLearning with an AI-assisted pipeline and a human review gate at every stage. Case study by Laura Dewing.">
-  <link rel="stylesheet" href="style.css?v=20261103b">
+  <link rel="stylesheet" href="style.css?v=20261103d">
 </head>
-<body>
+<body class="bp">
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -33,6 +33,8 @@
         <div><label>Scope</label><span>Six multi-day live courses</span></div>
         <div><label>Method</label><span>ADDIE with AI-assisted drafting</span></div>
         <div><label>Format</label><span>Fully self-paced eLearning</span></div>
+        <div><label>Drawn by</label><span>L. Dewing</span></div>
+        <div><label>Rev</label><span>B &middot; Nov 2026</span></div>
       </div>
       <p class="note">Client details are withheld. Examples are recreated on a neutral topic: handling escalations.</p>
       <div class="stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
@@ -120,6 +122,11 @@
         <div class="day"><span class="k">Day 3</span><h4>Owning the resolution</h4><p>6 hrs &rarr; ~3 hrs</p></div>
         <div class="day"><span class="k">Day 4</span><h4>Written and digital escalations</h4><p>6 hrs &rarr; ~3 hrs</p></div>
         <div class="day"><span class="k">Day 5</span><h4>Coaching, quality, and final assessment</h4><p>6 hrs &rarr; ~3.8 hrs</p></div>
+      </div>
+
+      <div class="dim" aria-label="Total seat time: 30 hours live, about 15 hours self-paced">
+        <div class="dim-row"><span class="dim-k">Live</span><span class="dim-line" style="width:100%"><b>30 hrs</b></span></div>
+        <div class="dim-row"><span class="dim-k">Self-paced</span><span class="dim-line sp" style="width:50%"><b>~15 hrs</b></span></div>
       </div>
 
       <h3>Zoom in: Day 2, de-escalation on live contacts</h3>
@@ -288,7 +295,7 @@
     <button type="button" class="pager-arrow" id="pg-prev" aria-label="Previous section">&larr;</button>
     <div class="pager-dots" id="pg-dots"></div>
     <span class="pager-label" id="pg-label" aria-live="polite"></span>
-    <button type="button" class="pager-arrow" id="pg-next" aria-label="Next section">&rarr;</button>
+    <button type="button" class="pager-arrow pager-next" id="pg-next" aria-label="Next section"><span class="pn-txt">Next</span> &rarr;</button>
   </nav>
 
   <footer class="footer">
@@ -330,6 +337,26 @@
     all.forEach(function (el) { if (ids.indexOf(el.dataset.slide) < 0) ids.push(el.dataset.slide); });
     var labels = ids.map(function (id) { return document.querySelector('[data-slide="' + id + '"][data-label]').dataset.label; });
     var cur = 0, dots = document.getElementById('pg-dots');
+    var lede = document.querySelector('.cs-hero .lede');
+    if (lede) {
+      var how = document.createElement('p'); how.className = 'howto';
+      how.innerHTML = '<b>' + ids.length + ' sheets.</b> Move through them with the <b>Next</b> button or dots at the bottom of the screen, or your arrow keys. On a phone, swipe.';
+      lede.parentNode.insertBefore(how, lede.nextSibling);
+    }
+    ids.forEach(function (id, i) {
+      if (i === ids.length - 1) return;
+      var group = document.querySelectorAll('[data-slide="' + id + '"]');
+      var last = group[group.length - 1];
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'next-sheet';
+      b.innerHTML = '<span>Next sheet ' + String(i + 2).padStart(2, '0') + '</span><b></b><i aria-hidden="true">&rarr;</i>';
+      b.querySelector('b').textContent = labels[i + 1];
+      b.addEventListener('click', function () { go(i + 1); });
+      (last.querySelector('.narrow') || last).appendChild(b);
+    });
+    ids.forEach(function (id, i) {
+      var first = document.querySelector('[data-slide="' + id + '"] .eyebrow');
+      if (first) { var t = document.createElement('span'); t.className = 'sheet'; t.textContent = 'Sheet ' + String(i + 1).padStart(2, '0') + ' / ' + String(ids.length).padStart(2, '0'); first.parentNode.insertBefore(t, first); }
+    });
     document.body.classList.add('paged');
     document.getElementById('pager').hidden = false;
     ids.forEach(function (id, i) {
