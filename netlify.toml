@@ -1,0 +1,5 @@
+# Netlify hosts only the scoring function for practice-coach.html.
+# The site itself stays on GitHub Pages.
+[build]
+  publish = "."
+  functions = "netlify/functions"

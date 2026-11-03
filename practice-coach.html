@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalation Practice Coach — Laura Dewing</title>
+  <meta name="description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a five-part de-escalation rubric. Built by Laura Dewing.">
+  <link rel="stylesheet" href="style.css?v=20261103a">
+  <style>
+    .coach { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; margin: 32px 0 8px; }
+    .coach-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 1px solid var(--line); background: #FAFBFD; }
+    .coach-steps { display: flex; gap: 6px; }
+    .coach-steps span { width: 28px; height: 6px; border-radius: 99px; background: var(--line-2); }
+    .coach-steps span.on { background: var(--blue-600); }
+    .coach-steps span.done { background: var(--blue-200); }
+    .mood { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+    .coach-body { padding: 22px 20px 24px; display: grid; gap: 18px; }
+    .cust { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--blue-100); color: var(--blue-700); display: grid; place-items: center; font-weight: 600; }
+    .cust .who { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    .cust .say { background: #F3F5F9; border: 1px solid var(--line); border-radius: 4px 14px 14px 14px; padding: 12px 14px; color: var(--ink); font-size: 16px; line-height: 1.55; }
+    .ctx { font-size: 14px; color: var(--muted); }
+    label.lbl { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+    textarea { width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; line-height: 1.5; }
+    textarea:focus-visible, .cbtn:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .cbtn { font: inherit; font-size: 15px; font-weight: 500; border-radius: 10px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); display: inline-flex; gap: 8px; align-items: center; }
+    .cbtn.primary { background: var(--blue-600); border-color: var(--blue-600); color: #fff; }
+    .cbtn.primary:hover { background: var(--blue-700); }
+    .cbtn:disabled { opacity: .5; cursor: not-allowed; }
+    .cbtn.rec { border-color: #E5484D; color: #B42318; }
+    .cbtn.rec .dot { width: 9px; height: 9px; border-radius: 50%; background: #E5484D; animation: pulse 1.2s infinite; }
+    @keyframes pulse { 50% { opacity: .3; } }
+    @media (prefers-reduced-motion: reduce) { .cbtn.rec .dot { animation: none; } }
+    .hint { font-size: 13.5px; color: var(--muted); }
+    .result { border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 14px; }
+    .total { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .total b { font-size: 34px; letter-spacing: -0.03em; color: var(--blue-600); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .total span { color: var(--ink-2); }
+    .crit { display: grid; gap: 8px; }
+    .ci { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
+    .ci h4 { font-size: 15px; margin: 0; }
+    .ci p { grid-column: 1 / -1; font-size: 14px; margin: 0; color: var(--ink-2); }
+    .pips { display: flex; gap: 4px; align-items: center; }
+    .pips i { width: 18px; height: 8px; border-radius: 99px; background: var(--line-2); }
+    .pips i.on { background: var(--blue-600); }
+    .quote { border-left: 3px solid var(--blue-500); padding: 4px 0 4px 14px; font-style: italic; color: var(--ink); }
+    .tip { background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: 12px; padding: 12px 14px; color: var(--blue-900); font-size: 15px; }
+    .tip b { display: block; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--blue-700); margin-bottom: 4px; font-weight: 500; }
+    .mode { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+    .mode::before { content: 'i'; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--mono); font-size: 11px; margin-top: 1px; }
+    .done-card { text-align: left; display: grid; gap: 10px; }
+    .done-card table { margin: 6px 0 0; }
+    @media (max-width: 520px) { .coach-body { padding: 18px 14px 20px; } .cust { grid-template-columns: 36px 1fr; } .avatar { width: 36px; height: 36px; font-size: 14px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#about">About</a>
+        <a href="furniture.html">Furniture</a>
+        <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="cs-hero" style="padding-bottom:0">
+    <div class="narrow">
+      <a href="source-to-ship.html" class="back">&larr; Back to the case study</a><br>
+      <span class="eyebrow">Prototype &middot; Self-paced role-play</span>
+      <h1>Escalation Practice Coach</h1>
+      <p class="lede">An upset customer is on the line. Reply out loud or type it, then see how you did on five de-escalation skills.</p>
+      <p class="note">Nothing you say or type is saved. Voice uses your browser&rsquo;s speech-to-text and works best in Chrome or Edge.</p>
+    </div>
+  </header>
+
+  <main class="narrow">
+    <div class="coach" id="coach">
+      <div class="coach-top">
+        <div class="coach-steps" id="steps" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="mood" id="mood"></span>
+      </div>
+      <div class="coach-body" id="body">
+        <div class="cust">
+          <div class="avatar" aria-hidden="true">D</div>
+          <div><div class="who">Dana, customer</div><div class="say" id="say"></div></div>
+        </div>
+        <p class="ctx" id="ctx"></p>
+        <div>
+          <label class="lbl" for="reply">Your reply</label>
+          <textarea id="reply" placeholder="Type what you'd say, or use the microphone."></textarea>
+        </div>
+        <div class="row">
+          <button type="button" class="cbtn" id="mic" hidden><span class="dot" hidden></span><span id="mic-lbl">Speak your reply</span></button>
+          <button type="button" class="cbtn primary" id="score" disabled>Get feedback</button>
+          <span class="hint" id="status" aria-live="polite"></span>
+        </div>
+        <div class="result" id="result" hidden aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="mock-label">Scoring reads your words only, so it can&rsquo;t judge tone of voice yet.</p>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it&rsquo;s scored</span>
+      <h2>Five skills, two points each</h2>
+      <table class="data">
+        <thead><tr><th>Skill</th><th>What earns full marks</th></tr></thead>
+        <tbody>
+          <tr><td>Acknowledges the emotion</td><td>Names what the customer is feeling, in your own words</td></tr>
+          <tr><td>Takes ownership</td><td>No blaming the customer, the system, or another team</td></tr>
+          <tr><td>Plain language</td><td>No jargon or policy-speak</td></tr>
+          <tr><td>Clear next step</td><td>Says what happens next and when</td></tr>
+          <tr><td>Stays in control</td><td>Calm boundaries, especially when they ask for a manager</td></tr>
+        </tbody>
+      </table>
+      <p>Before AI scoring goes live, I score a set of sample replies myself and tune the rubric until the AI agrees with me. A person also spot-checks scored replies over time.</p>
+    </section>
+
+    <div class="next-cs">
+      <span class="eyebrow">Part of</span>
+      <a href="source-to-ship.html" class="big">Source to ship: converting live training &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
+  </footer>
+  <script src="site.js"></script>
+  <script>
+  (function () {
+    // Live AI scoring endpoint. Leave empty to run demo scoring.
+    var SCORE_URL = '';
+
+    var TURNS = [
+      { mood: 'Frustrated', ctx: 'Dana was promised a refund within five days. It has been ten.',
+        say: "Hi, I'm calling again about my refund. I was told it would be back in my account in five days and it's been ten. Can someone actually tell me what's going on?" },
+      { mood: 'Angry', ctx: 'Dana has called three times. The last agent told her the refund was processed. It was not.',
+        say: "This is ridiculous. Every time I call I get a different answer. The last person told me it was processed. It wasn't. I've wasted hours on this." },
+      { mood: 'Wants a manager', ctx: 'Dana has lost patience and wants to go over your head.',
+        say: "I'm done. I don't want to go through this again with you. Put me through to a manager right now." }
+    ];
+    var CRIT = [
+      { k: 'acknowledge', n: 'Acknowledges the emotion', tip: 'Name what Dana is feeling and why, in your own words. "Three calls and still no refund. I\'d be fed up too." lands better than a scripted line.' },
+      { k: 'ownership', n: 'Takes ownership', tip: 'Speak for yourself and the company. Swap "the system" or "the last agent" for "I\'m going to sort this out."' },
+      { k: 'plain', n: 'Plain language', tip: 'Drop the policy words. Say it the way you would to a friend, in short sentences.' },
+      { k: 'nextstep', n: 'Clear next step', tip: 'Tell Dana exactly what happens next and when. "I\'m checking the refund now, and you\'ll have an answer before we hang up."' },
+      { k: 'control', n: 'Stays in control', tip: 'Offer what you can do before handing off. "I can fix this right now. If you still want a manager after, I\'ll arrange it."' }
+    ];
+
+    var $ = function (id) { return document.getElementById(id); };
+    var turn = 0, history = [];
+
+    function render() {
+      var t = TURNS[turn];
+      $('say').textContent = '“' + t.say + '”';
+      $('ctx').textContent = t.ctx;
+      $('mood').textContent = 'Customer ' + (turn + 1) + ' of 3 · ' + t.mood;
+      Array.prototype.forEach.call($('steps').children, function (s, i) { s.className = i < turn ? 'done' : (i === turn ? 'on' : ''); });
+      $('reply').value = ''; $('result').hidden = true; $('result').innerHTML = '';
+      $('status').textContent = ''; updateBtn();
+    }
+    function updateBtn() { $('score').disabled = $('reply').value.trim().length < 8; }
+    $('reply').addEventListener('input', updateBtn);
+
+    // Voice input (browser speech-to-text)
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, listening = false;
+    if (SR) {
+      $('mic').hidden = false;
+      $('mic').addEventListener('click', function () {
+        if (listening) { rec.stop(); return; }
+        rec = new SR(); rec.lang = 'en-US'; rec.interimResults = true; rec.continuous = true;
+        var base = $('reply').value ? $('reply').value.trim() + ' ' : '';
+        rec.onresult = function (e) {
+          var txt = '';
+          for (var i = 0; i < e.results.length; i++) txt += e.results[i][0].transcript;
+          $('reply').value = base + txt.trim(); updateBtn();
+        };
+        rec.onerror = function (e) {
+          $('status').textContent = e.error === 'not-allowed' ? 'Microphone access was blocked. You can type your reply instead.' : 'Voice input stopped. You can type your reply instead.';
+        };
+        rec.onend = function () { listening = false; setMic(); };
+        try { rec.start(); listening = true; setMic(); $('status').textContent = 'Listening. Tap again when you finish.'; }
+        catch (err) { $('status').textContent = 'Voice input is unavailable here. Type your reply instead.'; }
+      });
+    }
+    function setMic() {
+      $('mic').classList.toggle('rec', listening);
+      $('mic').querySelector('.dot').hidden = !listening;
+      $('mic-lbl').textContent = listening ? 'Stop' : 'Speak your reply';
+      if (!listening && /Listening/.test($('status').textContent)) $('status').textContent = '';
+    }
+
+    // Demo scoring: transparent rules that mirror the rubric
+    function has(s, list) { return list.some(function (w) { return s.indexOf(w) > -1; }); }
+    function demoScore(reply, t) {
+      var s = ' ' + reply.toLowerCase().replace(/[’]/g, "'") + ' ';
+      var r = {};
+      var emotion = has(s, ['frustrat', 'upset', 'annoy', 'angry', 'fed up', 'exhausting', 'not okay', 'not ok', 'unacceptable', 'makes sense', 'i hear', 'i get why', "i'd be", 'i would be', 'sorry', 'apolog']);
+      var scripted = has(s, ['completely understand your frustration', 'understand your frustration', 'i understand how you feel']);
+      var specific = has(s, ['refund', 'ten days', '10 days', 'three', 'third', 'again', 'different answer', 'processed', 'hours', 'waited']);
+      r.acknowledge = emotion && specific && !scripted ? 2 : (emotion ? 1 : 0);
+      var blame = has(s, ['policy', 'the system', 'another team', 'other department', 'not my', "wasn't me", 'you should have', 'you need to', "there's nothing i can", 'nothing i can do', 'calm down', 'the last agent was wrong', 'not our fault']);
+      var own = has(s, ["i'll", 'i will', "i'm going to", 'let me', 'i can', "i'm taking", 'i am going to', "i'm checking", 'i am checking', "i'm on it", "i've got", 'i am on it', "i'm looking"]);
+      r.ownership = blame ? 0 : (own ? 2 : 1);
+      var jargon = ['per our', 'as per', 'policy', 'ticket', 'case number', 'sla', 'escalate', 'queue', 'protocol', 'procedure', 'unfortunately', 'kindly', 'at this time'].filter(function (w) { return s.indexOf(w) > -1; }).length;
+      var longest = Math.max.apply(null, reply.split(/[.!?]+/).map(function (x) { return x.trim().split(/\s+/).length; }));
+      r.plain = jargon === 0 && longest <= 28 ? 2 : (jargon <= 1 ? 1 : 0);
+      var action = has(s, ["i'll", 'i will', "i'm going to", 'next', 'let me', "i'm checking", 'i am going to', 'i can']);
+      var when = has(s, ['today', 'tomorrow', 'right now', 'now', 'minute', 'hour', 'by ', 'within', 'before we', 'end of', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'this call', 'while we']);
+      r.nextstep = action && when ? 2 : (action || when ? 1 : 0);
+      var transferFirst = /^\W*(sure|okay|ok|of course|certainly)?[\s,]*(i('ll| will)|let me) (transfer|put you through|get (you )?(a |my )?manager|get my supervisor)/.test(s.trim()) || has(s, ['transfer you now', 'putting you through now']);
+      var offer = has(s, ['i can', "i'm able", 'let me try', 'before i', 'if you still', 'if you would still', "if you'd still", "i'll stay", 'stay with you', 'happy to get', 'i can also']);
+      var harsh = has(s, ['calm down', 'no need to shout', "don't yell", 'there is no need']);
+      if (turn === 2) r.control = harsh || transferFirst ? 0 : (offer ? 2 : 1);
+      else r.control = harsh ? 0 : (offer || own ? 2 : 1);
+
+      var sentences = reply.match(/[^.!?]+[.!?]?/g) || [reply];
+      var best = sentences.filter(function (x) { return x.trim().split(/\s+/).length > 3; });
+      var pick = best.find(function (x) { var l = x.toLowerCase(); return has(l, ["i'll", 'i will', "i'm going", 'let me']); }) || best[0] || reply;
+      var why = {
+        acknowledge: ['No acknowledgment of how Dana feels.', 'You acknowledged the feeling. Make it specific to her situation, and skip scripted lines.', 'You named her feeling and tied it to what happened.'],
+        ownership: ['Some of this shifts blame away from you.', 'Neutral. Add a line where you personally take it on.', 'You took it on yourself.'],
+        plain: ['Several policy or jargon words crept in.', 'Mostly plain, with a jargon word or a long sentence.', 'Clear, everyday language.'],
+        nextstep: ['Dana still doesn’t know what happens next.', 'Half there. Say both what you’ll do and when.', 'She knows what happens next and when.'],
+        control: ['This could escalate things or hands off too fast.', 'Calm, but you could offer more before any handoff.', 'Calm, with an offer of what you can do.']
+      };
+      var out = { scores: {}, quote: pick.trim(), tip: '' };
+      var lowest = null;
+      CRIT.forEach(function (c) { out.scores[c.k] = { score: r[c.k], why: why[c.k][r[c.k]] }; if (lowest === null || r[c.k] < r[lowest]) lowest = c.k; });
+      out.tip = r[lowest] === 2 ? 'Strong reply. Try saying it out loud next time so it feels natural on a real call.' : CRIT.filter(function (c) { return c.k === lowest; })[0].tip;
+      return out;
+    }
+
+    function liveScore(reply, t) {
+      return fetch(SCORE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ customer: t.say, context: t.ctx, mood: t.mood, reply: reply }) })
+        .then(function (res) { if (!res.ok) throw new Error('status ' + res.status); return res.json(); })
+        .then(function (d) { if (!d || !d.scores) throw new Error('bad shape'); return d; });
+    }
+
+    function showResult(d, mode) {
+      var total = 0;
+      var rows = CRIT.map(function (c) {
+        var it = d.scores[c.k] || { score: 0, why: '' };
+        var sc = Math.max(0, Math.min(2, Number(it.score) || 0)); total += sc;
+        return '<div class="ci"><h4>' + c.n + '</h4><span class="pips" aria-label="' + sc + ' of 2"><i class="' + (sc > 0 ? 'on' : '') + '"></i><i class="' + (sc > 1 ? 'on' : '') + '"></i></span><p></p></div>';
+      }).join('');
+      var el = $('result');
+      el.innerHTML = '<div class="total"><b>' + total + '/10</b><span>' + (total >= 8 ? 'Dana is calming down.' : total >= 5 ? 'Dana is listening, but not convinced yet.' : 'Dana is getting angrier.') + '</span></div>' +
+        '<div class="crit">' + rows + '</div>' +
+        (d.quote ? '<div><label class="lbl">From your reply</label><div class="quote"></div></div>' : '') +
+        '<div class="tip"><b>Try next time</b><span></span></div>' +
+        '<p class="mode"></p>' +
+        '<div class="row"><button type="button" class="cbtn" id="retry">Try again</button><button type="button" class="cbtn primary" id="next">' + (turn < 2 ? 'Next customer' : 'See summary') + '</button></div>';
+      var ps = el.querySelectorAll('.ci p');
+      CRIT.forEach(function (c, i) { ps[i].textContent = (d.scores[c.k] && d.scores[c.k].why) || ''; });
+      if (d.quote) el.querySelector('.quote').textContent = '“' + d.quote + '”';
+      el.querySelector('.tip span').textContent = d.tip || '';
+      el.querySelector('.mode').textContent = mode === 'live' ? 'Scored by AI against the rubric. A person spot-checks scores over time.' : 'Demo scoring: simple rules that mirror the rubric. Live AI scoring is being calibrated against human scores.';
+      el.hidden = false;
+      history[turn] = total;
+      $('retry').addEventListener('click', function () { el.hidden = true; $('reply').focus(); });
+      $('next').addEventListener('click', function () { if (turn < 2) { turn++; render(); $('say').scrollIntoView({ behavior: 'smooth', block: 'center' }); } else summary(); });
+    }
+
+    function summary() {
+      var rows = TURNS.map(function (t, i) { return '<tr><td>' + (i + 1) + '. ' + t.mood + '</td><td class="num">' + (history[i] == null ? '-' : history[i] + '/10') + '</td></tr>'; }).join('');
+      $('body').innerHTML = '<div class="done-card"><span class="eyebrow">Session complete</span><h2 style="font-size:28px;margin:0">Nice work with Dana</h2>' +
+        '<p>Escalations get harder as the customer gets angrier. Your scores across the three turns:</p>' +
+        '<table class="data"><thead><tr><th>Customer</th><th>Score</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        '<div class="row"><button type="button" class="cbtn primary" id="again">Practice again</button><a class="cbtn" href="source-to-ship.html">Read the case study</a></div></div>';
+      Array.prototype.forEach.call($('steps').children, function (s) { s.className = 'done'; });
+      $('mood').textContent = 'Summary';
+      $('again').addEventListener('click', function () { location.reload(); });
+    }
+
+    $('score').addEventListener('click', function () {
+      if (listening && rec) rec.stop();
+      var reply = $('reply').value.trim(), t = TURNS[turn];
+      if (reply.length > 1500) { $('status').textContent = 'Keep it under 1,500 characters, the length of a real reply.'; return; }
+      $('score').disabled = true; $('status').textContent = 'Scoring…';
+      var done = function (d, mode) { $('status').textContent = ''; $('score').disabled = false; showResult(d, mode); };
+      if (SCORE_URL) liveScore(reply, t).then(function (d) { done(d, 'live'); }).catch(function () { done(demoScore(reply, t), 'demo'); });
+      else setTimeout(function () { done(demoScore(reply, t), 'demo'); }, 350);
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
