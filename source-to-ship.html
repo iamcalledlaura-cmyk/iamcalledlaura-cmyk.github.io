@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Converting Live Training with AI — Laura Dewing</title>
   <meta name="description" content="Converting multi-day live training into self-paced eLearning with an AI-assisted pipeline and a human review gate at every stage. Case study by Laura Dewing.">
-  <link rel="stylesheet" href="style.css?v=20261103e">
+  <link rel="stylesheet" href="style.css?v=20261103g">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
     </div>
   </nav>
 
-  <header class="cs-hero" data-slide="overview" data-label="Overview">
+  <header class="cs-hero" data-slide="overview" data-label="Overview" data-log="Cut the buzzwords from the title|Halved the intro|Fixed an overclaim: 50% is projected, not measured|Removed two made-up stats">
     <div class="narrow fade-in">
       <a href="index.html#work" class="back">&larr; All work</a><br>
       <span class="eyebrow">AI-assisted learning design &middot; Global customer experience consultancy</span>
@@ -35,7 +35,13 @@
         <div><label>Format</label><span>Fully self-paced eLearning</span></div>
       </div>
       <p class="note">Client details are withheld. Examples are recreated on a neutral topic: handling escalations.</p>
-      <div class="stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+      <div class="stats v-draft" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+        <div class="stat-card"><b>6</b><span>courses transformed</span></div>
+        <div class="stat-card"><b>50%</b><span>reduction in seat time</span></div>
+        <div class="stat-card"><b>3x</b><span>faster development</span></div>
+        <div class="stat-card"><b>100%</b><span>AI-powered workflow</span></div>
+      </div>
+      <div class="stats v-final" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
         <div class="stat-card"><b>6</b><span>live courses in conversion</span></div>
         <div class="stat-card"><b>5-day</b><span>live courses redesigned as self-paced</span></div>
         <div class="stat-card"><b>~50%</b><span>less seat time, projected with stakeholders</span></div>
@@ -53,12 +59,20 @@
       <p>The catch: converting six courses by hand would take months, and quick conversions usually end up as narrated slide decks.</p>
     </section>
 
-    <section class="cs-section fade-in" data-slide="pipeline" data-label="The pipeline">
+    <section class="cs-section fade-in" data-slide="pipeline" data-label="The pipeline" data-log="Added a missing stage: the draft skipped launch|Mapped every stage to ADDIE|Added a human gate to each stage">
       <span class="eyebrow">The pipeline</span>
       <h2 data-draft="A Comprehensive AI-Driven Development Framework" data-note="Give them the shape: how many stages, and where the gates are.">Seven stages, five ADDIE phases, a human gate at each one</h2>
       <p data-draft="Our innovative framework harnesses the power of artificial intelligence across every stage of the instructional design lifecycle, ensuring efficiency and quality.">AI drafts fast. Every stage has a checkpoint where I review before anything moves on. Tap a stage to see how it works.</p>
 
-      <div class="pipe" id="pipe">
+      <ol class="draft-list v-draft">
+        <li><b>Analysis</b>AI reviews existing training materials.</li>
+        <li><b>Content extraction</b>AI extracts key content from slides and transcripts.</li>
+        <li><b>Design</b>AI generates learning objectives and storyboards.</li>
+        <li><b>Development</b>AI creates scripts, scenarios and assessments.</li>
+        <li><b>Translation</b>AI translates content into multiple languages.</li>
+        <li><b>Reporting</b>AI analyzes learner data and generates insights.</li>
+      </ol>
+      <div class="pipe v-final" id="pipe">
         <div class="pipe-bands" role="group" aria-label="Pipeline stages by ADDIE phase">
           <div class="pipe-band">
             <span class="k">Analyze</span>
@@ -106,11 +120,11 @@
         </div>
       </div>
 
-      <p>AI does most of the lifting in Analyze and Develop. I carry more of the weight in Design and Evaluate, where the calls are about learners and data.</p>
+      <p class="v-final">AI does most of the lifting in Analyze and Develop. I carry more of the weight in Design and Evaluate, where the calls are about learners and data.</p>
       <p style="font-size:15px;color:var(--muted)">Tools: Claude, Claude Code, Articulate Rise, ElevenLabs, xAPI, Zapier.</p>
     </section>
 
-    <section class="cs-section fade-in" data-slide="conversion" data-label="Conversion map">
+    <section class="cs-section fade-in" data-slide="conversion" data-label="Conversion map" data-log="Replaced a narrated lecture video with an interactive module|Replaced watch-and-quiz role-play with real practice|Used real numbers in the title">
       <span class="eyebrow">The conversion map</span>
       <h2 data-draft="Optimizing Seat Time Through Strategic Redesign" data-note="Use the real numbers.">Thirty live hours, redesigned as about fifteen</h2>
       <p data-draft="By strategically reimagining every component of the live experience, we achieved dramatic reductions in seat time while maintaining learning effectiveness.">Here&rsquo;s the recreated course, day by day.</p>
@@ -123,7 +137,19 @@
       </div>
 
       <h3>Zoom in: Day 2, de-escalation on live contacts</h3>
-      <div class="cmap" role="table" aria-label="Day 2 conversion from live blocks to self-paced replacements">
+      <table class="data draft-table v-draft">
+        <thead><tr><th>Live block</th><th>Self-paced version</th></tr></thead>
+        <tbody>
+          <tr><td>Welcome and icebreaker (45 min)</td><td>Welcome video (10 min)</td></tr>
+          <tr><td>Lecture: the escalation cycle (75 min)</td><td>Narrated slide video (60 min)</td></tr>
+          <tr><td>Facilitator stories (60 min)</td><td>Text summary of key stories (20 min)</td></tr>
+          <tr><td>Role-play rounds (90 min)</td><td>Video of a recorded role-play, then a quiz (40 min)</td></tr>
+          <tr><td>Q&amp;A (60 min)</td><td>FAQ PDF (15 min)</td></tr>
+          <tr><td>Debrief (30 min)</td><td>10-question knowledge check (15 min)</td></tr>
+          <tr><td>6 hours live</td><td>About 2.7 hours, mostly watching</td></tr>
+        </tbody>
+      </table>
+      <div class="cmap v-final" role="table" aria-label="Day 2 conversion from live blocks to self-paced replacements">
         <div class="cmap-head" role="row"><span role="columnheader">Live block</span><span></span><span role="columnheader">Self-paced replacement</span></div>
         <div class="cmap-row" role="row">
           <div role="cell"><span class="lbl">Welcome, recap, icebreaker<small>45 min</small></span><div class="bars" style="width:50%"></div></div>
@@ -166,11 +192,16 @@
       </ul>
     </section>
 
-    <section class="cs-section fade-in" data-slide="role-play" data-label="Replacing the role-play">
+    <section class="cs-section fade-in" data-slide="role-play" data-label="Replacing the role-play" data-log="Swapped a passive video for two kinds of practice|Cut a weak &quot;all of the above&quot; quiz item">
       <span class="eyebrow">Replacing the role-play</span>
       <h2 data-draft="Innovative Approaches to Interactive Practice" data-note="Name the hard part instead of praising the solution.">The hardest thing to convert</h2>
       <p data-draft="Traditional role-play exercises were transformed into cutting-edge AI-powered simulations that deliver personalized, engaging practice for every learner.">Role-play is where people actually learn to calm someone down. With no facilitator, two kinds of practice take its place.</p>
-      <div class="two-col">
+      <div class="draft-box v-draft">
+        <h4>Recorded role-play video</h4>
+        <p>Learners watch an expert agent handle an escalation, then answer a short quiz.</p>
+        <div class="draft-q"><span>Q3. What should the agent do first?</span><span>a) Apologize</span><span>b) Transfer the call</span><span>c) Escalate to a supervisor</span><span>d) All of the above</span></div>
+      </div>
+      <div class="two-col v-final">
         <div class="col-card accent"><h4>Branching scenario</h4><ul>
           <li>Pick a reply as the customer gets angrier</li>
           <li>Each choice changes how they react</li>
@@ -180,7 +211,7 @@
           <li>Good replies calm them down; scripted ones don&rsquo;t</li>
         </ul></div>
       </div>
-      <div class="mock">
+      <div class="mock v-final">
         <div class="frame-bar"><i></i><i></i><i></i><span>branching scenario, recreated</span></div>
         <div class="mock-body">
           <span class="eyebrow">Turn 2 of 5</span>
@@ -190,14 +221,14 @@
           <div class="choice ok">&ldquo;Three calls with no refund is not okay. I&rsquo;m going to find out what happened right now, and I&rsquo;ll stay with you until it&rsquo;s sorted.&rdquo;</div>
         </div>
       </div>
-      <p class="mock-label">Illustrative scenario turn on the recreated escalations course.</p>
+      <p class="mock-label v-final">Illustrative scenario turn on the recreated escalations course.</p>
       <div class="proto-cta">
         <div><h3>Escalation Practice Coach</h3><p>Hear an angry customer, say your reply out loud, and get instant feedback.</p></div>
         <a href="practice-coach.html" class="btn btn-primary">Try the prototype &rarr;</a>
       </div>
     </section>
 
-    <section class="cs-section fade-in" data-slide="steered" data-label="Where I steered">
+    <section class="cs-section fade-in" data-slide="steered" data-label="Where I steered" data-log="Showed the edits instead of naming the concept|Cut the intro to two sentences">
       <span class="eyebrow">Where I steered</span>
       <h2 data-draft="Ensuring Quality Through Human-in-the-Loop Oversight" data-note="Show the edits. Don&rsquo;t just name the concept.">The small calls that shape what learners get</h2>
       <p data-draft="Human oversight was applied at every stage to ensure all AI-generated content met the highest quality standards.">AI drafts are rarely wrong. They&rsquo;re often just not quite right for the learner. Four small calls from the Day 2 build:</p>
@@ -225,10 +256,11 @@
       </div>
     </section>
 
-    <section class="cs-section fade-in" data-slide="quality" data-label="Quality gates">
+    <section class="cs-section fade-in" data-slide="quality" data-label="Quality gates" data-log="Replaced &quot;robust QA&quot; with the actual checklist">
       <span class="eyebrow">Quality gates</span>
       <h2 data-draft="Robust Quality Assurance Processes" data-note="Too vague. What actually gets checked?">What every draft has to pass</h2>
-      <table class="data">
+      <p class="draft-box v-draft">All content undergoes robust quality assurance processes to ensure accuracy, engagement and alignment with instructional design best practices.</p>
+      <table class="data v-final">
         <thead><tr><th>Design review (Stage 3)</th><th>What I check</th></tr></thead>
         <tbody>
           <tr><td>Objectives</td><td>About doing, and each one gets practiced</td></tr>
@@ -239,10 +271,10 @@
           <tr><td>Inclusion</td><td>Works across regions and languages</td></tr>
         </tbody>
       </table>
-      <p>Before launch, every build also gets an accessibility check (WCAG) and every scenario branch is tested end to end.</p>
+      <p class="v-final">Before launch, every build also gets an accessibility check (WCAG) and every scenario branch is tested end to end.</p>
     </section>
 
-    <section class="cs-section fade-in" data-slide="launch" data-label="Pilot, launch and data">
+    <section class="cs-section fade-in" data-slide="launch" data-label="Pilot, launch and data" data-log="Corrected my role: I advise on launch, I don’t own it|Added the pilot step|Swapped a vague analytics claim for three real patterns">
       <span class="eyebrow">Pilot and launch</span>
       <h2 data-draft="Driving Adoption Through Strategic Go-to-Market Alignment" data-note="Plain English. And I advise on launch. I don&rsquo;t own it.">Every promise traces back to the design</h2>
       <p data-draft="I led the go-to-market strategy for each course, partnering with sales and marketing to drive revenue growth and adoption.">I advise marketing and sales on positioning and check their launch copy. My one rule: every claim has to match something the course actually does. Then a pilot group goes first, and I adjust before full rollout.</p>
@@ -252,7 +284,8 @@
       <span class="eyebrow">Measure and iterate</span>
       <h2 data-draft="Leveraging Data Analytics for Continuous Improvement" data-note="Who makes the call? Say so.">AI finds the patterns. I decide what they mean.</h2>
       <p>xAPI shows me which choices people make, where they drop off, and what they miss. Three recreated examples:</p>
-      <div class="decisions">
+      <p class="draft-box v-draft">Learning analytics dashboards provide actionable insights that drive continuous improvement across the program, ensuring optimal learner outcomes.</p>
+      <div class="decisions v-final">
         <div class="decision"><span class="vs">Most learners chose &ldquo;transfer&rdquo; at one point</span><h4>Learners knew the answer but hesitated</h4><p>A confidence gap. I added a short model response just before that decision.</p></div>
         <div class="decision"><span class="vs">Drop-off spiked mid-module</span><h4>The module ran too long</h4><p>I split it into two shorter modules.</p></div>
         <div class="decision"><span class="vs">Nearly everyone missed one question</span><h4>The question was ambiguous</h4><p>I rewrote the question and left the content alone.</p></div>
@@ -260,10 +293,19 @@
       </div>
     </section>
 
-    <section class="cs-section fade-in" data-slide="results" data-label="Results">
+    <section class="cs-section fade-in" data-slide="results" data-label="Results" data-log="Removed three invented results|Labeled the projection as a projection">
       <span class="eyebrow">Results and what&rsquo;s next</span>
       <h2 data-draft="Transformational Results and Measurable Impact" data-note="Nothing is measured yet. Don&rsquo;t claim it.">Projected now, measured soon</h2>
-      <table class="data">
+      <table class="data draft-table v-draft">
+        <thead><tr><th>Results</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Seat time</td><td class="num">50% reduction</td></tr>
+          <tr><td>Learner satisfaction</td><td class="num">96%</td></tr>
+          <tr><td>Completion rate</td><td class="num">98%</td></tr>
+          <tr><td>Development time</td><td class="num">3x faster</td></tr>
+        </tbody>
+      </table>
+      <table class="data v-final">
         <thead><tr><th>So far</th><th>Result</th></tr></thead>
         <tbody>
           <tr><td>Live courses in conversion</td><td class="num">6</td></tr>
@@ -271,7 +313,7 @@
           <tr><td>Delivery</td><td class="num">Fully self-paced, piloted before rollout</td></tr>
         </tbody>
       </table>
-      <p>I&rsquo;ll swap in measured numbers as pilot data comes in.</p>
+      <p class="v-final">I&rsquo;ll swap in measured numbers as pilot data comes in.</p>
       <div class="principles">
         <div class="principle"><b>Escalation Practice Coach</b><span>Spoken practice with AI feedback, checked against human scoring.</span></div>
         <div class="principle"><b>Reusable pipeline</b><span>Prompts and checklists turned into templates for future courses.</span></div>
@@ -356,40 +398,51 @@
       b.addEventListener('click', function () { go(i); });
       dots.appendChild(b);
     });
-    // Redline review layer
+    // Review layer: tap-to-reveal edits, review logs, draft/review switch
     var edited = Array.prototype.slice.call(document.querySelectorAll('[data-draft]'));
+    var tagN = 0;
     edited.forEach(function (el) {
       el.dataset.final = el.innerHTML;
-      el.classList.add('rl-edited');
-      if (el.dataset.note) {
-        var box = document.createElement('div'); box.className = 'rl';
-        var d = document.createElement('del'); d.textContent = el.dataset.draft;
-        var n = document.createElement('span'); n.className = 'rl-note';
-        n.innerHTML = '<b>LD</b><span></span>'; n.lastChild.textContent = el.dataset.note;
-        box.appendChild(d); box.appendChild(n);
-        el.parentNode.insertBefore(box, el);
-      }
+      if (!el.dataset.note) return;
+      var id = 'rl-pop-' + (++tagN);
+      var box = document.createElement('div'); box.className = 'rl';
+      box.innerHTML = '<button type="button" class="rl-tag" aria-expanded="false" aria-controls="' + id + '"><span class="rl-dot" aria-hidden="true"></span>Edited</button>' +
+        '<div class="rl-pop" id="' + id + '" hidden><div class="rl-was"><span>AI draft</span><s></s></div><div class="rl-why"><b>LD</b><span></span></div></div>';
+      box.querySelector('s').textContent = el.dataset.draft;
+      box.querySelector('.rl-why span').textContent = el.dataset.note;
+      el.parentNode.insertBefore(box, el);
+      var btn = box.querySelector('.rl-tag'), pop = box.querySelector('.rl-pop');
+      btn.addEventListener('click', function () { var open = pop.hidden; pop.hidden = !open; btn.setAttribute('aria-expanded', String(open)); });
     });
+    var total = 0;
     ids.forEach(function (id) {
+      var head = document.querySelector('[data-slide="' + id + '"][data-label]');
+      var items = (head.dataset.log || '').split('|').filter(Boolean);
+      total += items.length;
       var group = Array.prototype.filter.call(document.querySelectorAll('[data-slide="' + id + '"]'), function (g) { return !g.classList.contains('next-cs'); });
       var last = group[group.length - 1];
       var host = last.querySelector('.narrow') || last;
-      var st = document.createElement('div'); st.className = 'stamp'; st.setAttribute('role', 'note');
-      st.innerHTML = '<b>Approved</b><span>LD &middot; Gate passed</span>';
-      var nx = host.querySelector(':scope > .next-sheet');
-      host.insertBefore(st, nx);
+      var rv = document.createElement('div'); rv.className = 'review';
+      rv.innerHTML = '<div class="stamp" role="note"><b>Approved</b><span>LD &middot; Gate passed</span></div>' +
+        '<div class="rl-log"><span class="rl-log-k">' + items.length + (items.length === 1 ? ' edit' : ' edits') + ' at this gate</span><ul></ul></div>';
+      var ul = rv.querySelector('ul');
+      items.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      host.insertBefore(rv, host.querySelector(':scope > .next-sheet'));
     });
     var hero = document.querySelector('.cs-hero .howto') || document.querySelector('.cs-hero .lede');
     var wrap = document.createElement('div'); wrap.className = 'rl-switch-wrap';
-    wrap.innerHTML = '<div class="rl-switch" role="group" aria-label="Which version to show"><button type="button" data-v="draft" aria-pressed="false">AI first draft</button><button type="button" data-v="final" aria-pressed="true">After my review</button></div><span>This page went through my own review gate. Flip it to see what a typical AI first draft looks like.</span>';
+    wrap.innerHTML = '<div class="rl-switch" role="group" aria-label="Which version to show"><button type="button" data-v="draft" aria-pressed="false">AI first draft</button><button type="button" data-v="final" aria-pressed="true">After my review</button></div>' +
+      '<span><b>' + total + ' edits</b> across ' + ids.length + ' sections. Flip it to see what a typical AI first draft looks like, then look for the <span class="rl-dot inline" aria-hidden="true"></span> Edited tags.</span>';
     hero.parentNode.insertBefore(wrap, hero.nextSibling);
     var prl = document.createElement('button'); prl.type = 'button'; prl.className = 'pager-rl'; prl.setAttribute('aria-pressed', 'false'); prl.textContent = 'Show AI draft';
     document.getElementById('pager').insertBefore(prl, document.getElementById('pg-prev'));
     function setMode(draft) {
       document.body.classList.toggle('rl-draft', draft);
       edited.forEach(function (el) { if (draft) el.textContent = el.dataset.draft; else el.innerHTML = el.dataset.final; });
+      document.querySelectorAll('.rl-pop').forEach(function (p) { p.hidden = true; });
+      document.querySelectorAll('.rl-tag').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
       document.querySelectorAll('.stamp').forEach(function (st) {
-        st.innerHTML = draft ? '<b>Draft</b><span>Awaiting review</span>' : '<b>Approved</b><span>LD &middot; Gate passed</span>';
+        st.innerHTML = draft ? '<b>Draft</b><span>Not reviewed yet</span>' : '<b>Approved</b><span>LD &middot; Gate passed</span>';
       });
       wrap.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.v === 'draft') === draft)); });
       prl.setAttribute('aria-pressed', String(draft)); prl.textContent = draft ? 'Show my review' : 'Show AI draft';
