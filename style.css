@@ -545,3 +545,24 @@ table.data td.num { font-variant-numeric: tabular-nums; color: var(--ink); font-
 @media (max-width: 680px) {
   .days { grid-template-columns: 1fr; }
 }
+
+/* ── Paged case study (one section per screen) ── */
+.paged [data-slide]:not(.slide-on) { display: none; }
+.paged .cs-section { padding-top: 40px; }
+.paged .cs-hero + main > .cs-section.slide-on:first-child { padding-top: 0; }
+.paged main { padding-bottom: 120px; min-height: 60vh; }
+.paged .next-cs { margin-top: 56px; }
+.pager { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: 99px; box-shadow: var(--shadow); padding: 6px 8px; max-width: calc(100% - 32px); }
+.pager-dots { display: flex; gap: 2px; }
+.pager-dot { width: 22px; height: 28px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; padding: 0; }
+.pager-dot::after { content: ''; width: 8px; height: 8px; border-radius: 99px; background: var(--line-2); transition: width .2s ease, background .2s ease; }
+.pager-dot:hover::after { background: var(--blue-200); }
+.pager-dot.on::after { width: 20px; background: var(--blue-600); }
+.pager-dot.on { width: 30px; }
+.pager-label { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; letter-spacing: .02em; }
+.pager-arrow { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 15px; flex: none; }
+.pager-arrow:hover:not(:disabled) { border-color: var(--blue-200); background: var(--blue-50); color: var(--blue-700); }
+.pager-arrow:disabled { opacity: .35; cursor: default; }
+.pager button:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
+@media (max-width: 680px) { .pager-label { display: none; } .pager { gap: 6px; } }
+@media (prefers-reduced-motion: reduce) { .pager-dot::after { transition: none; } }

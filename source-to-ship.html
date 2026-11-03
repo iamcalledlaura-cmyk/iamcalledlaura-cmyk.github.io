@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Source to Ship — Laura Dewing</title>
   <meta name="description" content="Converting multi-day live training into self-paced eLearning with an AI-assisted pipeline and a human review gate at every stage. Case study by Laura Dewing.">
-  <link rel="stylesheet" href="style.css?v=20261103a">
+  <link rel="stylesheet" href="style.css?v=20261103b">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
     </div>
   </nav>
 
-  <header class="cs-hero">
+  <header class="cs-hero" data-slide="overview" data-label="Overview">
     <div class="narrow fade-in">
       <a href="index.html#work" class="back">&larr; All work</a><br>
       <span class="eyebrow">AI-assisted learning design &middot; Global customer experience consultancy</span>
@@ -46,14 +46,14 @@
 
   <main class="narrow">
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="overview">
       <span class="eyebrow">Why now</span>
       <h2>Live training had a ceiling</h2>
       <p>Every live course needed a facilitator, a time slot, and a full room. A new learning platform meant courses could reach anyone, anytime, and bring in revenue that live delivery capped.</p>
       <p>The catch: converting six courses by hand would take months, and quick conversions usually end up as narrated slide decks.</p>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="pipeline" data-label="The pipeline">
       <span class="eyebrow">The pipeline</span>
       <h2>Seven stages, five ADDIE phases, a human gate at each one</h2>
       <p>AI drafts fast. Every stage has a checkpoint where I review before anything moves on. Tap a stage to see how it works.</p>
@@ -110,7 +110,7 @@
       <p style="font-size:15px;color:var(--muted)">Tools: Claude, Claude Code, Articulate Rise, ElevenLabs, xAPI, Zapier.</p>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="conversion" data-label="Conversion map">
       <span class="eyebrow">The conversion map</span>
       <h2>Thirty live hours, redesigned as about fifteen</h2>
       <p>Here&rsquo;s the recreated course, day by day.</p>
@@ -166,7 +166,7 @@
       </ul>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="role-play" data-label="Replacing the role-play">
       <span class="eyebrow">Replacing the role-play</span>
       <h2>The hardest thing to convert</h2>
       <p>Role-play is where people actually learn to calm someone down. With no facilitator, two kinds of practice take its place.</p>
@@ -197,7 +197,7 @@
       </div>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="steered" data-label="Where I steered">
       <span class="eyebrow">Where I steered</span>
       <h2>The small calls that shape what learners get</h2>
       <p>AI drafts are rarely wrong. They&rsquo;re often just not quite right for the learner. Four small calls from the Day 2 build:</p>
@@ -225,7 +225,7 @@
       </div>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="quality" data-label="Quality gates">
       <span class="eyebrow">Quality gates</span>
       <h2>What every draft has to pass</h2>
       <table class="data">
@@ -242,13 +242,13 @@
       <p>Before launch, every build also gets an accessibility check (WCAG) and every scenario branch is tested end to end.</p>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="launch" data-label="Pilot, launch and data">
       <span class="eyebrow">Pilot and launch</span>
       <h2>Every promise traces back to the design</h2>
       <p>I advise marketing and sales on positioning and check their launch copy. My one rule: every claim has to match something the course actually does. Then a pilot group goes first, and I adjust before full rollout.</p>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="launch">
       <span class="eyebrow">Measure and iterate</span>
       <h2>AI finds the patterns. I decide what they mean.</h2>
       <p>xAPI shows me which choices people make, where they drop off, and what they miss. Three recreated examples:</p>
@@ -260,7 +260,7 @@
       </div>
     </section>
 
-    <section class="cs-section fade-in">
+    <section class="cs-section fade-in" data-slide="results" data-label="Results">
       <span class="eyebrow">Results and what&rsquo;s next</span>
       <h2>Projected now, measured soon</h2>
       <table class="data">
@@ -278,11 +278,18 @@
       </div>
     </section>
 
-    <div class="next-cs">
+    <div class="next-cs" data-slide="results">
       <span class="eyebrow">Next case study</span>
       <a href="advisor-onboarding.html" class="big">Onboarding 2,000+ advisors into Spotify Customer Service &rarr;</a>
     </div>
   </main>
+
+  <nav class="pager" id="pager" aria-label="Case study sections" hidden>
+    <button type="button" class="pager-arrow" id="pg-prev" aria-label="Previous section">&larr;</button>
+    <div class="pager-dots" id="pg-dots"></div>
+    <span class="pager-label" id="pg-label" aria-live="polite"></span>
+    <button type="button" class="pager-arrow" id="pg-next" aria-label="Next section">&rarr;</button>
+  </nav>
 
   <footer class="footer">
     <div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
@@ -314,6 +321,62 @@
     }
     btns.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.s); }); });
     show(0);
+  })();
+  </script>
+  <script>
+  (function () {
+    var all = Array.prototype.slice.call(document.querySelectorAll('[data-slide]'));
+    var ids = [];
+    all.forEach(function (el) { if (ids.indexOf(el.dataset.slide) < 0) ids.push(el.dataset.slide); });
+    var labels = ids.map(function (id) { return document.querySelector('[data-slide="' + id + '"][data-label]').dataset.label; });
+    var cur = 0, dots = document.getElementById('pg-dots');
+    document.body.classList.add('paged');
+    document.getElementById('pager').hidden = false;
+    ids.forEach(function (id, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'pager-dot';
+      b.setAttribute('aria-label', (i + 1) + '. ' + labels[i]);
+      b.title = labels[i];
+      b.addEventListener('click', function () { go(i); });
+      dots.appendChild(b);
+    });
+    function go(i, quiet) {
+      cur = Math.max(0, Math.min(ids.length - 1, i));
+      all.forEach(function (el) {
+        var on = el.dataset.slide === ids[cur];
+        el.classList.toggle('slide-on', on);
+        if (on) el.classList.add('visible');
+      });
+      Array.prototype.forEach.call(dots.children, function (d, j) {
+        d.classList.toggle('on', j === cur);
+        if (j === cur) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+      });
+      document.getElementById('pg-label').textContent = (cur + 1) + ' / ' + ids.length + '  \u00b7  ' + labels[cur];
+      document.getElementById('pg-prev').disabled = cur === 0;
+      document.getElementById('pg-next').disabled = cur === ids.length - 1;
+      if (!quiet) {
+        try { history.replaceState(null, '', '#' + ids[cur]); } catch (e) {}
+        window.scrollTo(0, 0);
+      }
+    }
+    document.getElementById('pg-prev').addEventListener('click', function () { go(cur - 1); });
+    document.getElementById('pg-next').addEventListener('click', function () { go(cur + 1); });
+    document.addEventListener('keydown', function (e) {
+      if (/input|textarea|select/i.test(e.target.tagName)) return;
+      if (e.key === 'ArrowRight') go(cur + 1);
+      if (e.key === 'ArrowLeft') go(cur - 1);
+    });
+    var sx = null, sy = null;
+    document.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && !e.target.closest('.cmap, table')) go(cur + (dx < 0 ? 1 : -1));
+      sx = null;
+    }, { passive: true });
+    function fromHash() { var i = ids.indexOf(location.hash.slice(1)); go(i < 0 ? 0 : i, true); }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
   })();
   </script>
 </body>
