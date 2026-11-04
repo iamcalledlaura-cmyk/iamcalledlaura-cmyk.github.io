@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laura Dewing — Learning Experience Design and AI Enablement</title>
   <meta name="description" content="Laura Dewing designs learning systems that help global teams understand, adopt, and confidently use complex products and AI.">
-  <link rel="stylesheet" href="style.css?v=20261103h">
+  <link rel="stylesheet" href="style.css?v=20261104a">
 </head>
 <body>
 
@@ -26,11 +26,21 @@
     <div class="container hero-grid">
       <div class="fade-in">
         <span class="chip"><span class="dot"></span>Learning design + AI enablement</span>
-        <h1>I figure out what teams need to learn, I build the experiences that teach it, <span class="hl">and I measure success by what people do differently.</span></h1>
-        <p class="hero-sub">For 8+ years I&rsquo;ve built onboarding, certification, product education, release readiness, and compliance programs for audiences of thousands, across languages and time zones.</p>
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">See the work &rarr;</a>
-          <a href="https://www.linkedin.com/in/lauradewing" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        <h1>Hi, I&rsquo;m Laura. <span class="hl">What are you looking for?</span></h1>
+        <p class="hero-sub">For 8+ years I&rsquo;ve built onboarding, certification, product education, release readiness, and compliance programs for audiences of thousands. Pick what you&rsquo;re hiring for and I&rsquo;ll show you the work that fits.</p>
+        <div class="pick" role="group" aria-label="Choose what you're looking for">
+          <button type="button" class="pick-all" data-path="all">
+            <span><b>Just show me everything</b><small>The full portfolio, every case study</small></span>
+            <span class="pick-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+          <span class="pick-label">Or I&rsquo;m hiring for&hellip;</span>
+          <div class="pick-list">
+            <button type="button" class="pick-opt" data-path="sales">Sales and revenue enablement</button>
+            <button type="button" class="pick-opt" data-path="support">Customer support and CX</button>
+            <button type="button" class="pick-opt" data-path="technical">Technical and product enablement</button>
+            <button type="button" class="pick-opt" data-path="ai">AI in learning</button>
+            <button type="button" class="pick-opt" data-path="onboarding">Onboarding and certification</button>
+          </div>
         </div>
       </div>
       <div class="stack fade-in" aria-hidden="true">
@@ -47,7 +57,20 @@
     </div>
   </header>
 
-  <section class="container fade-in" aria-label="Results">
+  <section id="path" class="container path" aria-live="polite" hidden>
+    <div class="path-bar">
+      <span>You&rsquo;re viewing: <b id="path-label"></b></span>
+      <button type="button" class="path-change" id="path-change">&larr; Choose a different path</button>
+    </div>
+    <div class="path-head">
+      <span class="eyebrow" id="path-kicker"></span>
+      <h2 id="path-title"></h2>
+      <p id="path-intro"></p>
+    </div>
+    <div class="metrics path-metrics" id="path-stats"></div>
+  </section>
+
+  <section class="container fade-in" id="all-metrics" aria-label="Results">
     <div class="metrics">
       <div class="metric"><b>33<em>%</em></b><span>faster ramp for 2,000+ global support advisors</span></div>
       <div class="metric"><b>25<em>%</em></b><span>fewer critical privacy errors, measured on the job for 12 months after launch</span></div>
@@ -238,5 +261,6 @@
   </footer>
 
   <script src="site.js"></script>
+  <script src="paths.js?v=20261104a"></script>
 </body>
 </html>
