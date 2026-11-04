@@ -101,6 +101,7 @@
   document.querySelectorAll('[data-path]').forEach(function (b) {
     b.addEventListener('click', function () {
       var key = b.dataset.path;
+      if (window.ldTrack) window.ldTrack('path-' + key, 'Picked path: ' + (PATHS[key] ? PATHS[key].label : 'Everything'));
       try { history.replaceState(null, '', key === 'all' ? '#work' : '#for-' + key); } catch (e) {}
       show(key, true);
     });
@@ -113,5 +114,9 @@
   window.addEventListener('hashchange', function () { var k = fromHash(); if (k) show(k, true); });
 
   var start = fromHash();
-  if (start) show(start, false);
+  if (start) {
+    show(start, false);
+    // Arrived on a shared path link, e.g. #for-sales
+    setTimeout(function () { if (window.ldTrack) window.ldTrack('link-' + start, 'Arrived via path link: ' + PATHS[start].label); }, 1500);
+  }
 })();
