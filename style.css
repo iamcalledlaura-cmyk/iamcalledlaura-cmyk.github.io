@@ -717,7 +717,8 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
 
 /* Note above the metrics, pointing down at them */
 .metrics-wrap { position: relative; }
-.scribble-metrics { font-size: 24px; text-align: right; margin: 0 8px 8px 0; transform: rotate(-2deg); transform-origin: right bottom; }
+.scribble-metrics { font-size: 24px; text-align: right; margin: 0 28px -10px 0; transform: rotate(-2deg); transform-origin: right bottom; position: relative; z-index: 1; }
+.scribble-metrics .arrow-down { vertical-align: top; margin: 10px 0 0 2px; }
 
 /* Sticky notes on the work cards */
 .wg-card { position: relative; }
@@ -782,7 +783,7 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
 
 @media (max-width: 860px) {
   .try { grid-template-columns: 1fr; gap: 24px; }
-  .scribble-metrics { text-align: left; transform: rotate(-1.5deg); transform-origin: left bottom; font-size: 22px; }
+  .scribble-metrics { text-align: left; transform: rotate(-1.5deg); transform-origin: left bottom; font-size: 22px; margin: 0 0 -10px 8px; }
 }
 @media (max-width: 420px) {
   .try-card { padding: 18px; }
