@@ -1,5 +1,5 @@
 /* Laura Dewing portfolio — product studio, blue */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Caveat:wght@600&display=swap');
 
 :root {
   --ink: #0B1730;
@@ -698,3 +698,98 @@ a.frame:hover { box-shadow: var(--shadow-lg); translate: 0 -3px; color: inherit;
 a.frame:hover .play { background: #fff; }
 a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { a.frame, .wg-card, .wg-thumb img { transition: none; } }
+
+/* ===== Personality pass: handwritten notes, try-it scenario, before/after ===== */
+:root {
+  --hand: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  --note: #FFE98A;
+  --note-ink: #3A2E05;
+  --ok: #157A4A;
+  --ok-bg: #E6F5EC;
+  --no: #B4332B;
+  --no-bg: #FCEBEA;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.scribble { font-family: var(--hand); font-weight: 600; color: var(--blue-600); line-height: 1.1; margin: 0; }
+.scribble svg { display: inline-block; vertical-align: middle; }
+
+/* Note above the metrics, pointing down at them */
+.metrics-wrap { position: relative; }
+.scribble-metrics { font-size: 24px; text-align: right; margin: 0 8px 8px 0; transform: rotate(-2deg); transform-origin: right bottom; }
+
+/* Sticky notes on the work cards */
+.wg-card { position: relative; }
+.card-note {
+  position: absolute; z-index: 2; top: 12px; right: 12px; white-space: nowrap;
+  background: var(--note); color: var(--note-ink);
+  font-size: 19px; padding: 6px 10px 5px; border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(58,46,5,.12), 0 8px 16px -8px rgba(58,46,5,.35);
+  transform: rotate(2.2deg); transition: transform .3s var(--ease-out);
+}
+.wg-card:nth-child(even) .card-note { transform: rotate(-1.8deg); }
+@media (hover: hover) and (pointer: fine) {
+  .wg-card:hover .card-note { transform: rotate(0deg) translateY(-1px); }
+}
+
+/* Try it: Protocol Match */
+.try { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
+.try-intro h2 { font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -0.03em; margin: 10px 0 14px; text-wrap: balance; }
+.try-intro p { color: var(--ink-2); max-width: 46ch; }
+.scribble-try { font-size: 26px; margin-top: 18px; transform: rotate(-3deg); display: inline-block; }
+.try-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-lg); padding: 24px; min-width: 0; }
+.try-top { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12.5px; color: var(--muted); letter-spacing: .02em; }
+.try-score { color: var(--blue-700); }
+.try-msg { display: flex; gap: 12px; align-items: flex-start; margin: 18px 0 20px; }
+.try-avatar { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--blue-100); box-shadow: inset 0 0 0 1px var(--blue-200); display: grid; place-items: center; color: var(--blue-600); overflow: hidden; }
+.try-msg p { margin: 0; background: var(--blue-50); border: 1px solid var(--blue-100); color: var(--ink); font-size: 19px; font-weight: 500; padding: 12px 16px; border-radius: 4px 16px 16px 16px; }
+.try-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.try-options button {
+  font: 500 16px/1 var(--sans); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line-2); border-radius: 12px; padding: 15px 12px; cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .12s var(--ease-out);
+}
+.try-options button:active { transform: scale(.97); }
+.try-options button:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .try-options button:not(:disabled):hover { border-color: var(--blue-500); background: var(--blue-50); } }
+.try-options button.is-right { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+.try-options button.is-wrong { border-color: var(--no); background: var(--no-bg); color: var(--no); }
+.try-options button:disabled { cursor: default; }
+.try-options button.is-dim { opacity: .45; }
+.try-feedback { min-height: 3.2em; margin: 16px 0 0; color: var(--ink-2); font-size: 15.5px; }
+.try-feedback b { color: var(--ink); }
+.try-actions [hidden] { display: none !important; }
+.try-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.try-feedback.pop { animation: tryPop .35s var(--ease-out); }
+@keyframes tryPop { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Furniture before / after */
+.ba { position: relative; margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 3 / 4; max-height: 560px; justify-self: center; width: 100%; max-width: 420px; touch-action: pan-y; background: var(--blue-50); }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
+.ba-after { clip-path: inset(0 0 0 var(--pos)); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 0 1px rgba(11,23,48,.15); pointer-events: none; }
+.ba-handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #fff; box-shadow: 0 4px 14px rgba(11,23,48,.3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1730' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E"); background-size: 22px; background-repeat: no-repeat; background-position: center; }
+.ba input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.ba input[type=range]:focus-visible ~ .ba-handle::after { outline: 3px solid var(--blue-500); outline-offset: 3px; }
+.ba-tag { position: absolute; top: 12px; font: 500 12px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.92); color: var(--ink); pointer-events: none; }
+.ba-tag-b { left: 12px; }
+.ba-tag-a { right: 12px; }
+.scribble-ba { position: absolute; left: 14px; bottom: 14px; font-size: 26px; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.55); pointer-events: none; transition: opacity .3s ease; }
+.ba.touched .scribble-ba { opacity: 0; }
+.otc .otc-text .btn { display: inline-flex; }
+
+@media (max-width: 860px) {
+  .try { grid-template-columns: 1fr; gap: 24px; }
+  .scribble-metrics { text-align: left; transform: rotate(-1.5deg); transform-origin: left bottom; font-size: 22px; }
+}
+@media (max-width: 420px) {
+  .try-card { padding: 18px; }
+  .try-options button { padding: 14px 8px; font-size: 15px; }
+  .card-note { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-note, .try-options button { transition: none; }
+  .try-feedback.pop { animation: none; }
+}

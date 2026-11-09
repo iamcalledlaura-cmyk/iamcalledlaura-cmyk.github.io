@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laura Dewing — Learning Experience Design and AI Enablement</title>
   <meta name="description" content="Laura Dewing designs learning systems that help global teams understand, adopt, and confidently use complex products and AI.">
-  <link rel="stylesheet" href="style.css?v=20261104d">
+  <link rel="stylesheet" href="style.css?v=20261109a">
 </head>
 <body>
 
@@ -47,12 +47,41 @@
     </div>
   </header>
 
-  <section class="container fade-in" aria-label="Results">
+  <section class="container fade-in metrics-wrap" aria-label="Results">
+    <p class="scribble scribble-metrics" aria-hidden="true">real outcomes, not completion rates <svg viewBox="0 0 60 30" width="46" height="23"><path d="M2 6 C 20 4, 40 10, 52 24 M44 22 L53 25 L54 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
     <div class="metrics">
       <div class="metric"><b>33<em>%</em></b><span>faster ramp for 2,000+ global support advisors</span></div>
       <div class="metric"><b>25<em>%</em></b><span>fewer critical privacy errors, measured on the job for 12 months after launch</span></div>
       <div class="metric"><b>$50K<em>/yr</em></b><span>saved by modernizing and automating L&amp;D tools and processes</span></div>
       <div class="metric"><b>$680K<em>+</em></b><span>projected first-year benefit from the AI-enabled learning platform I&rsquo;m now rolling out</span></div>
+    </div>
+  </section>
+
+  <section id="try" class="section try-section">
+    <div class="container">
+      <div class="try fade-in">
+        <div class="try-intro">
+          <span class="eyebrow">Try 30 seconds of my work</span>
+          <h2>Which privacy right is this customer using?</h2>
+          <p>This is Protocol Match, one activity from the Privacy League course I built for 2,000+ Spotify support advisors. Each request is one advisors really got.</p>
+          <p class="scribble scribble-try" aria-hidden="true">go on, have a go</p>
+        </div>
+        <div class="try-card" aria-live="polite">
+          <div class="try-top"><span class="try-count" id="tryCount">Request 1 of 4</span><span class="try-score" id="tryScore"></span></div>
+          <div class="try-msg"><span class="try-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c.6-4 3.7-6.5 7.5-6.5s6.9 2.5 7.5 6.5z"/></svg></span><p id="tryQuote"></p></div>
+          <div class="try-options" id="tryOptions" role="group" aria-label="Choose a privacy right">
+            <button type="button" data-right="access">Access</button>
+            <button type="button" data-right="erasure">Erasure</button>
+            <button type="button" data-right="rectification">Rectification</button>
+            <button type="button" data-right="objection">Objection</button>
+          </div>
+          <p class="try-feedback" id="tryFeedback"></p>
+          <div class="try-actions">
+            <button type="button" class="btn btn-primary" id="tryNext" hidden>Next request &rarr;</button>
+            <a href="privacy-fluency.html" class="btn btn-ghost" id="tryCase" hidden>See the full case study</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -68,6 +97,7 @@
 
       <div class="wgrid">
         <a href="advisor-onboarding.html" class="wg-card fade-in">
+          <span class="scribble card-note">60 → 40 days to proficiency</span>
           <span class="wg-thumb" aria-hidden="true"><img src="videos/cs-1-welcome.jpg" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Case study</span>Spotify &middot; Onboarding &middot; Video</span>
@@ -76,6 +106,7 @@
           </span>
         </a>
         <a href="privacy-fluency.html" class="wg-card fade-in">
+          <span class="scribble card-note">measured on real QA errors</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/pl-shield.webp" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Case study</span>Spotify &middot; Compliance</span>
@@ -84,6 +115,7 @@
           </span>
         </a>
         <a href="global-recertification.html" class="wg-card fade-in">
+          <span class="scribble card-note">821 of 850 finished</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-recert.webp" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Case study</span>Certification &middot; Global</span>
@@ -92,6 +124,7 @@
           </span>
         </a>
         <a href="source-to-ship.html" class="wg-card fade-in">
+          <span class="scribble card-note">AI drafts. I decide what ships.</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-source.webp" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Case study</span>AI pipeline &middot; ILT to eLearning</span>
@@ -153,19 +186,24 @@
 
   <section id="off-the-clock" class="section">
     <div class="container">
-      <a href="furniture.html" class="otc fade-in">
+      <div class="otc fade-in">
         <div class="otc-text">
           <span class="eyebrow">Off the clock &middot; Dewing Designs</span>
-          <h2>See what else I can do</h2>
-          <p>When I'm not designing learning, I'm restoring and refinishing vintage furniture: dressers, flat files, credenzas, and cabinets brought back to life with paint, stain, and a lot of sanding.</p>
-          <span class="btn btn-primary">See the furniture &rarr;</span>
+          <h2>Same job, different material</h2>
+          <p>When I'm not designing learning, I'm restoring and refinishing vintage furniture: dressers, flat files, credenzas, and cabinets brought back to life with paint, stain, and a lot of sanding. It's the same thing I do at work, really. Start with what's there, then change what it does.</p>
+          <a href="furniture.html" class="btn btn-primary">See the furniture &rarr;</a>
         </div>
-        <div class="otc-photos" aria-hidden="true">
-          <img src="images/furniture/stripe-chest-after.webp" alt="" loading="lazy" style="object-position:center 70%">
-          <img src="images/furniture/carved-chest-after.webp" alt="" loading="lazy" style="object-position:center 70%">
-          <img src="images/furniture/flat-file-after.webp" alt="" loading="lazy" style="object-position:center 55%">
-        </div>
-      </a>
+        <figure class="ba" id="ba" style="--pos:50%">
+          <img src="images/furniture/flat-file-slider-before.webp" alt="Vintage oak flat file cabinet before refinishing, in a garage" loading="lazy" width="810" height="1080">
+          <img class="ba-after" src="images/furniture/flat-file-slider-after.webp" alt="The same flat file cabinet after, painted black with brass pulls" loading="lazy" width="810" height="1080">
+          <span class="ba-tag ba-tag-b" aria-hidden="true">Before</span>
+          <span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
+          <span class="ba-handle" aria-hidden="true"></span>
+          <label class="visually-hidden" for="baRange">Drag to compare the flat file before and after</label>
+          <input type="range" id="baRange" min="0" max="100" value="50">
+          <p class="scribble scribble-ba" aria-hidden="true">drag me <svg viewBox="0 0 60 30" width="40" height="20"><path d="M58 6 C 40 4, 20 10, 8 24 M16 22 L7 25 L6 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -197,7 +235,7 @@
     </div>
   </footer>
 
-  <script src="site.js?v=20261104a"></script>
+  <script src="site.js?v=20261109a"></script>
   <script data-goatcounter="https://lauradewing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
