@@ -38,36 +38,36 @@
   els.forEach(function (el) { io.observe(el); });
 })();
 
-// Try it: live sales call simulation (in-workflow coaching, concept build)
+// Try it: Wrapped launch-day support chat (seasonal readiness practice)
 (function () {
   var opts = document.getElementById('simOptions');
   if (!opts) return;
   var moments = [
     {
-      them: '“Our spreadsheets work fine. Why change?”',
-      coach: 'Status quo. Don’t pitch, dig.',
+      them: '“It says you don’t have my Wrapped this year?? I listen every day!”',
+      coach: 'Check Private Session first.',
       replies: [
-        { t: 'Spreadsheets can’t scale. We automate it all.', d: -10, why: 'That’s a pitch. She hasn’t named a problem yet.' },
-        { t: 'What happens to your routes when a driver calls in sick?', d: 25, best: true, why: 'Now she’s describing the problem, not you.' },
-        { t: 'Fair. I’ll send you a case study.', d: -15, why: 'You just gave her an easy exit.' }
+        { t: 'Try reinstalling the app, that usually fixes it.', d: -10, why: 'Sends them off to fail. A reinstall can’t create a Wrapped.' },
+        { t: 'Was Private Session on? That listening doesn’t count.', d: 25, best: true, why: 'Top cause, checked first. Private Session listening never reaches Wrapped.' },
+        { t: 'Sorry, I’ll escalate this to engineering.', d: -15, why: 'Not a bug. Escalating it clogs the queue on launch day.' }
       ]
     },
     {
-      them: '“We redo routes by hand. Two hours, and we still miss windows.”',
-      coach: 'Pain found. Get a number.',
+      them: '“My #1 song is one I barely know. Is Wrapped broken?”',
+      coach: 'Plays over 30 seconds count. Ask who else listens.',
       replies: [
-        { t: 'Great news, we do that in seconds!', d: 5, why: 'No number yet, so the value stays vague.' },
-        { t: 'Honestly, two hours isn’t bad.', d: -10, why: 'Never shrink the buyer’s pain.' },
-        { t: 'How many missed windows a week, and what does each cost?', d: 25, best: true, why: 'Her numbers will sell it for you.' }
+        { t: 'Does anyone else use your account, or play it on a speaker?', d: 25, best: true, why: 'Shared listening is the usual culprit. Ask before you explain.' },
+        { t: 'Wrapped is algorithmic, so sometimes it’s just wrong.', d: -10, why: 'Undermines the product and gives them nothing to do.' },
+        { t: 'I can delete that song from your Wrapped.', d: -15, why: 'Advisors can’t edit Wrapped. Never promise a fix you can’t make.' }
       ]
     },
     {
-      them: '“Six a week, $400 each. But my CFO will balk at the price.”',
-      coach: '6 × $400 × 52 ≈ $125K a year.',
+      them: '“Can you just redo it so it’s right?”',
+      coach: 'Can’t regenerate. Give a fix for next year.',
       replies: [
-        { t: '20% off if you sign this month.', d: -10, why: 'Discounting says your price is soft.' },
-        { t: 'That’s about $125K a year. Want help pitching your CFO?', d: 25, best: true, why: 'Her numbers, now her business case.' },
-        { t: 'We’re priced in line with the market.', d: 0, why: 'Gives her nothing for the CFO.' }
+        { t: 'Unfortunately there’s nothing I can do.', d: -10, why: 'True, but it ends the chat on a dead end.' },
+        { t: 'I’ll raise a ticket and someone will update it.', d: -15, why: 'Nobody will. That’s a repeat contact next week.' },
+        { t: 'I can’t redo it, but Private Session or “exclude from Taste Profile” keeps this off next year’s.', d: 25, best: true, why: 'Honest no, plus something they can actually do.' }
       ]
     }
   ];
@@ -87,7 +87,7 @@
 
   function load() {
     var m = moments[step];
-    stepEl.textContent = 'Moment ' + (step + 1) + ' of ' + moments.length;
+    stepEl.textContent = 'Customer ' + (step + 1) + ' of ' + moments.length;
     quote.textContent = m.them;
     coachText.textContent = m.coach;
     replay(coach, 'pop');
@@ -130,22 +130,22 @@
     if (step < moments.length - 1) {
       next.hidden = false; next.focus({ preventScroll: true });
     } else {
-      next.textContent = 'See how the call ended →';
+      next.textContent = 'See how the shift went →';
       next.hidden = false; next.focus({ preventScroll: true });
     }
   }
 
   function finish() {
     body.hidden = true; next.hidden = true;
-    stepEl.textContent = 'Call ended';
+    stepEl.textContent = 'Shift over';
     var out;
-    if (bestCount === 3) out = 'CFO meeting booked.';
-    else if (bestCount === 2) out = 'Follow-up agreed, no date.';
-    else out = '“Send me some info.” Deal goes quiet.';
+    if (bestCount === 3) out = 'All three solved first time. No escalations.';
+    else if (bestCount === 2) out = 'Two solved. One will be back tomorrow.';
+    else out = 'Repeat contacts and escalations. The queue grows.';
     result.textContent = out;
     end.hidden = false; again.hidden = false; talk.hidden = false;
     replay(end, 'fade-swap');
-    if (window.ldTrack) window.ldTrack('try-sales-call-done', 'Finished sales call sim (' + bestCount + '/3 strong)');
+    if (window.ldTrack) window.ldTrack('try-wrapped-done', 'Finished Wrapped launch sim (' + bestCount + '/3 strong)');
   }
 
   next.addEventListener('click', function () {
@@ -154,7 +154,7 @@
   });
   again.addEventListener('click', function () {
     step = 0; bestCount = 0; bar.classList.remove('is-down'); setBar(40);
-    next.textContent = 'Next moment →';
+    next.textContent = 'Next customer →';
     end.hidden = true; again.hidden = true; talk.hidden = true; body.hidden = false;
     load(); replay(body, 'fade-swap');
   });
