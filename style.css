@@ -870,3 +870,38 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
   .how-row, .how-row:first-child, .how-row:last-child { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line-2); }
   .how-row:first-child { border-top: 0; padding-top: 0; }
 }
+
+/* ===== Try it: music-app skin for the launch-day sim (original palette) ===== */
+.sim.sim-music {
+  --surface: #17152E; --ink: #F5F2FF; --ink-2: #CBC4EC; --muted: #9C95C4;
+  --line: #2C2950; --line-2: #3A3668;
+  --blue-50: #221F44; --blue-100: #2E2A5A; --blue-200: #433E80;
+  --blue-500: #FFB547; --blue-600: #7B5CFF; --blue-700: #FFB547; --sky: #FFB547;
+  --ok: #63DBA2; --ok-bg: rgba(99,219,162,.13); --no: #FF8F80; --no-bg: rgba(255,143,128,.12);
+  background: radial-gradient(120% 70% at 100% 0%, #2B2160 0%, rgba(43,33,96,0) 60%), #17152E;
+  border-color: #2C2950; color: var(--ink);
+  box-shadow: 0 24px 48px -20px rgba(23,21,46,.55);
+}
+.sim-music .sim-bar { background: rgba(255,255,255,.04); border-bottom: 1px solid var(--line); color: var(--ink); }
+.sim-music .sim-who { color: var(--muted); }
+.sim-music .sim-meter { background: transparent; border-bottom: 0; padding-bottom: 4px; }
+.sim-music .sim-meter-track { height: 4px; background: rgba(255,255,255,.14); overflow: visible; position: relative; }
+.sim-music .sim-meter-track i { position: relative; background: linear-gradient(90deg, #7B5CFF, #FFB547); }
+.sim-music .sim-meter-track i::after { content: ""; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255,181,71,.35); }
+.sim-music .sim-meter-track i.is-down { background: linear-gradient(90deg, #7B5CFF, #FF8F80); }
+.sim-music .sim-avatar { border-radius: 8px; background: linear-gradient(135deg, #7B5CFF 0%, #FF6FB5 55%, #FFB547 100%); box-shadow: none; color: #fff; }
+.sim-music .sim-them p { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); color: var(--ink); }
+.sim-music .sim-you p { background: #7B5CFF; }
+.sim-music .sim-options button { background: rgba(255,255,255,.04); border-color: var(--line-2); color: var(--ink); border-radius: 20px; padding: 11px 18px; }
+@media (hover: hover) and (pointer: fine) { .sim-music .sim-options button:not(:disabled):hover { background: rgba(255,181,71,.1); border-color: #FFB547; } }
+.sim-music .sim-options button.is-best { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.sim-music .sim-options button.is-weak { background: var(--no-bg); border-color: var(--no); color: var(--no); }
+.sim-music .try-feedback, .sim-music .sim-end-note { color: var(--ink-2); }
+.sim-music .try-feedback b, .sim-music .sim-end-result { color: var(--ink); }
+.sim-music .btn-primary { background: #FFB547; color: #17152E; border-color: #FFB547; }
+.sim-music .btn-ghost { color: var(--ink); border-color: var(--line-2); background: transparent; }
+.sim-eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; }
+.sim-eq i { width: 3px; height: 100%; border-radius: 1px; background: #FFB547; transform-origin: bottom; animation: simEq 1s ease-in-out infinite; }
+.sim-eq i:nth-child(2) { animation-delay: -.4s; } .sim-eq i:nth-child(3) { animation-delay: -.7s; } .sim-eq i:nth-child(4) { animation-delay: -.2s; }
+@keyframes simEq { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .sim-eq i { animation: none; transform: scaleY(.7); } }
