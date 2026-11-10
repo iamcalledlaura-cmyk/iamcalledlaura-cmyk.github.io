@@ -44,30 +44,33 @@
   if (!opts) return;
   var moments = [
     {
-      them: '“It says you don’t have my Wrapped this year?? I listen every day!”',
+      who: 'Maya · Premium', ini: 'MA',
+      them: 'ok so everyone’s posting their Wrapped and mine just says you don’t have one?? I listen literally every day 😭',
       coach: 'Check Private Session first.',
       replies: [
-        { t: 'Try reinstalling the app, that usually fixes it.', d: -10, why: 'Sends them off to fail. A reinstall can’t create a Wrapped.' },
-        { t: 'Was Private Session on? That listening doesn’t count.', d: 25, best: true, why: 'Top cause, checked first. Private Session listening never reaches Wrapped.' },
-        { t: 'Sorry, I’ll escalate this to engineering.', d: -15, why: 'Not a bug. Escalating it clogs the queue on launch day.' }
+        { t: 'Have you tried deleting and reinstalling the app?', d: -10, why: 'Feels helpful, but a reinstall can’t create a Wrapped. She’ll be back, and crosser.' },
+        { t: 'Ugh, not on launch day! Quick question: did you use Private Session much this year? That listening doesn’t count.', d: 25, best: true, why: 'Empathy first, then the most likely cause. Private Session listening never reaches Wrapped.' },
+        { t: 'I’ll pass this on to our technical team.', d: -15, why: 'It isn’t a bug. Escalating it clogs the queue and she waits for nothing.' }
       ]
     },
     {
-      them: '“My #1 song is one I barely know. Is Wrapped broken?”',
-      coach: 'Plays over 30 seconds count. Ask who else listens.',
+      who: 'Dev · Family plan', ini: 'DV',
+      them: 'my #1 song is a kids’ cartoon theme. I am 34. please explain 😂',
+      coach: 'Shared listening? Ask, don’t assume.',
       replies: [
-        { t: 'Does anyone else use your account, or play it on a speaker?', d: 25, best: true, why: 'Shared listening is the usual culprit. Ask before you explain.' },
-        { t: 'Wrapped is algorithmic, so sometimes it’s just wrong.', d: -10, why: 'Undermines the product and gives them nothing to do.' },
-        { t: 'I can delete that song from your Wrapped.', d: -15, why: 'Advisors can’t edit Wrapped. Never promise a fix you can’t make.' }
+        { t: 'Ha, I believe you! Does anyone else listen on your account, maybe in the car or on a speaker?', d: 25, best: true, why: 'Match their humor, then ask the question that usually cracks it.' },
+        { t: 'Wrapped is based on an algorithm, so it isn’t always accurate.', d: -10, why: 'Blames the product and leaves them with nothing to do.' },
+        { t: 'I can remove that song from your Wrapped for you.', d: -15, why: 'Advisors can’t edit Wrapped. Never promise a fix you can’t make.' }
       ]
     },
     {
-      them: '“Can you just redo it so it’s right?”',
-      coach: 'Can’t regenerate. Give a fix for next year.',
+      who: 'Dev · Family plan', ini: 'DV',
+      them: 'omg yes. my niece had my phone ALL summer. can you just redo it?',
+      coach: 'Can’t regenerate. Give them next year’s fix.',
       replies: [
-        { t: 'Unfortunately there’s nothing I can do.', d: -10, why: 'True, but it ends the chat on a dead end.' },
-        { t: 'I’ll raise a ticket and someone will update it.', d: -15, why: 'Nobody will. That’s a repeat contact next week.' },
-        { t: 'I can’t redo it, but Private Session or “exclude from Taste Profile” keeps this off next year’s.', d: 25, best: true, why: 'Honest no, plus something they can actually do.' }
+        { t: 'Unfortunately that’s not something I can do.', d: -10, why: 'True, but it ends the chat on a dead end.' },
+        { t: 'Let me raise a ticket so someone can update it.', d: -15, why: 'No one will. That’s a repeat contact next week.' },
+        { t: 'I can’t redo this one, sorry! Next time she borrows it, switch on Private Session and her songs won’t count.', d: 25, best: true, why: 'An honest no, plus something they can actually use.' }
       ]
     }
   ];
@@ -76,7 +79,9 @@
   var quote = $('simQuote'), coach = $('simCoach'), coachText = $('simCoachText'),
       you = $('simYou'), youText = $('simYouText'), fb = $('simFeedback'),
       stepEl = $('simStep'), bar = $('simBar'), body = $('simBody'), end = $('simEnd'),
-      result = $('simResult'), next = $('simNext'), again = $('simAgain'), talk = $('simTalk');
+      result = $('simResult'), next = $('simNext'), again = $('simAgain'), talk = $('simTalk'),
+      nameEl = $('simName'), avatarEl = $('simAvatar'), typingTimer = null,
+      calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function setBar(v) {
     momentum = Math.max(5, Math.min(100, v));
@@ -87,14 +92,25 @@
 
   function load() {
     var m = moments[step];
-    stepEl.textContent = 'Customer ' + (step + 1) + ' of ' + moments.length;
-    quote.textContent = m.them;
-    coachText.textContent = m.coach;
-    replay(coach, 'pop');
+    stepEl.textContent = 'Chat ' + (step + 1) + ' of ' + moments.length;
+    nameEl.textContent = m.who;
+    avatarEl.textContent = m.ini;
     you.hidden = true;
-    fb.textContent = 'Pick your reply.';
     next.hidden = true;
     opts.innerHTML = '';
+    coach.hidden = true;
+    fb.textContent = '';
+    quote.innerHTML = '<span class="sim-typing" aria-label="typing"><i></i><i></i><i></i></span>';
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(function () { reveal(m); }, calm ? 0 : 1100);
+  }
+
+  function reveal(m) {
+    quote.textContent = m.them;
+    coach.hidden = false;
+    coachText.textContent = m.coach;
+    replay(coach, 'pop');
+    fb.textContent = 'What do you say?';
     m.replies.forEach(function (r) {
       var b = document.createElement('button');
       b.type = 'button';
@@ -116,7 +132,7 @@
       bestCount++;
       b.classList.add('is-best');
       btns.forEach(function (o) { if (o !== b) o.classList.add('is-dim'); });
-      say('<b>Strong.</b> ' + r.why);
+      say('<b>Nice.</b> ' + r.why);
     } else {
       b.classList.add('is-weak');
       m.replies.forEach(function (x, i) {
@@ -130,7 +146,7 @@
     if (step < moments.length - 1) {
       next.hidden = false; next.focus({ preventScroll: true });
     } else {
-      next.textContent = 'See how the shift went →';
+      next.textContent = 'See how your shift went →';
       next.hidden = false; next.focus({ preventScroll: true });
     }
   }
@@ -139,9 +155,9 @@
     body.hidden = true; next.hidden = true;
     stepEl.textContent = 'Shift over';
     var out;
-    if (bestCount === 3) out = 'All three solved first time. No escalations.';
-    else if (bestCount === 2) out = 'Two solved. One will be back tomorrow.';
-    else out = 'Repeat contacts and escalations. The queue grows.';
+    if (bestCount === 3) out = 'Everyone sorted first time. Maya even sent a 🎉.';
+    else if (bestCount === 2) out = 'Mostly sorted. One of them will be back tomorrow.';
+    else out = 'Escalations piling up, and your team lead is walking over.';
     result.textContent = out;
     end.hidden = false; again.hidden = false; talk.hidden = false;
     replay(end, 'fade-swap');
@@ -154,7 +170,7 @@
   });
   again.addEventListener('click', function () {
     step = 0; bestCount = 0; bar.classList.remove('is-down'); setBar(40);
-    next.textContent = 'Next customer →';
+    next.textContent = 'Next chat →';
     end.hidden = true; again.hidden = true; talk.hidden = true; body.hidden = false;
     load(); replay(body, 'fade-swap');
   });
