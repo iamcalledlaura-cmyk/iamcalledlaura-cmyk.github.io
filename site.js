@@ -38,66 +38,126 @@
   els.forEach(function (el) { io.observe(el); });
 })();
 
-// Try it: Protocol Match (requests and rights from the Privacy League course)
+// Try it: live sales call simulation (in-workflow coaching, concept build)
 (function () {
-  var card = document.getElementById('tryOptions');
-  if (!card) return;
-  var rounds = [
-    { q: '“Delete all my Spotify data.”', a: 'erasure',
-      why: 'They want their data gone. That’s the right to erasure under GDPR, and the right to delete under CCPA.' },
-    { q: '“Can I download my listening history?”', a: 'access',
-      why: 'They want a copy of what Spotify holds about them. That’s the right of access, and portability lets them take it elsewhere.' },
-    { q: '“Stop using my data for ads.”', a: 'objection',
-      why: 'They’re fine with Spotify keeping their data, just not using it for ads. That’s the right to object (under CCPA, opting out).' },
-    { q: '“My birthdate is wrong.”', a: 'rectification',
-      why: 'Something on file is inaccurate and they want it fixed. That’s the right to rectification.' }
+  var opts = document.getElementById('simOptions');
+  if (!opts) return;
+  var moments = [
+    {
+      them: '“Our spreadsheets work fine. Why change?”',
+      coach: 'Status quo. Don’t pitch, dig.',
+      replies: [
+        { t: 'Spreadsheets can’t scale. We automate it all.', d: -10, why: 'That’s a pitch. She hasn’t named a problem yet.' },
+        { t: 'What happens to your routes when a driver calls in sick?', d: 25, best: true, why: 'Now she’s describing the problem, not you.' },
+        { t: 'Fair. I’ll send you a case study.', d: -15, why: 'You just gave her an easy exit.' }
+      ]
+    },
+    {
+      them: '“We redo routes by hand. Two hours, and we still miss windows.”',
+      coach: 'Pain found. Get a number.',
+      replies: [
+        { t: 'Great news, we do that in seconds!', d: 5, why: 'No number yet, so the value stays vague.' },
+        { t: 'Honestly, two hours isn’t bad.', d: -10, why: 'Never shrink the buyer’s pain.' },
+        { t: 'How many missed windows a week, and what does each cost?', d: 25, best: true, why: 'Her numbers will sell it for you.' }
+      ]
+    },
+    {
+      them: '“Six a week, $400 each. But my CFO will balk at the price.”',
+      coach: '6 × $400 × 52 ≈ $125K a year.',
+      replies: [
+        { t: '20% off if you sign this month.', d: -10, why: 'Discounting says your price is soft.' },
+        { t: 'That’s about $125K a year. Want help pitching your CFO?', d: 25, best: true, why: 'Her numbers, now her business case.' },
+        { t: 'We’re priced in line with the market.', d: 0, why: 'Gives her nothing for the CFO.' }
+      ]
+    }
   ];
-  var names = { access: 'access', erasure: 'erasure', rectification: 'rectification', objection: 'objection' };
-  var hints = {
-    access: 'Access is about getting a copy of your data.',
-    erasure: 'Erasure is about deleting data.',
-    rectification: 'Rectification is about correcting data that’s wrong.',
-    objection: 'Objection is about stopping a particular use of data.'
-  };
-  var i = 0, score = 0, firstTry = true;
-  var quote = document.getElementById('tryQuote'), count = document.getElementById('tryCount'),
-      fb = document.getElementById('tryFeedback'), next = document.getElementById('tryNext'),
-      kase = document.getElementById('tryCase'), scoreEl = document.getElementById('tryScore');
-  var btns = Array.prototype.slice.call(card.querySelectorAll('button'));
+  var step = 0, momentum = 40, bestCount = 0;
+  var $ = function (id) { return document.getElementById(id); };
+  var quote = $('simQuote'), coach = $('simCoach'), coachText = $('simCoachText'),
+      you = $('simYou'), youText = $('simYouText'), fb = $('simFeedback'),
+      stepEl = $('simStep'), bar = $('simBar'), body = $('simBody'), end = $('simEnd'),
+      result = $('simResult'), next = $('simNext'), again = $('simAgain'), talk = $('simTalk');
 
-  function say(html) { fb.classList.remove('pop'); void fb.offsetWidth; fb.innerHTML = html; fb.classList.add('pop'); }
-  function load() {
-    var r = rounds[i]; firstTry = true;
-    quote.textContent = r.q;
-    count.textContent = 'Request ' + (i + 1) + ' of ' + rounds.length;
-    fb.textContent = 'Tap the right this customer is using.';
-    btns.forEach(function (b) { b.disabled = false; b.className = ''; });
-    next.hidden = true;
+  function setBar(v) {
+    momentum = Math.max(5, Math.min(100, v));
+    bar.style.width = momentum + '%';
   }
-  btns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var r = rounds[i], pick = b.getAttribute('data-right');
-      if (pick === r.a) {
-        if (firstTry) score++;
-        b.classList.add('is-right');
-        btns.forEach(function (o) { o.disabled = true; if (o !== b) o.classList.add('is-dim'); });
-        scoreEl.textContent = score + ' right first time';
-        if (i < rounds.length - 1) {
-          say('<b>Yes.</b> ' + r.why);
-          next.hidden = false; next.focus({ preventScroll: true });
-        } else {
-          say('<b>Yes.</b> ' + r.why + ' In the real course, advisors then chose whether to answer, escalate, or ask a question.');
-          kase.hidden = false;
-          if (window.ldTrack) window.ldTrack('try-protocol-match-done', 'Finished Protocol Match (' + score + '/4)');
-        }
-      } else {
-        firstTry = false;
-        b.classList.add('is-wrong'); b.disabled = true;
-        say('<b>Not quite.</b> ' + hints[pick] + ' Have another look at what they’re asking for.');
-      }
+  function say(html) { fb.classList.remove('pop'); void fb.offsetWidth; fb.innerHTML = html; fb.classList.add('pop'); }
+  function replay(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+  function load() {
+    var m = moments[step];
+    stepEl.textContent = 'Moment ' + (step + 1) + ' of ' + moments.length;
+    quote.textContent = m.them;
+    coachText.textContent = m.coach;
+    replay(coach, 'pop');
+    you.hidden = true;
+    fb.textContent = 'Pick your reply.';
+    next.hidden = true;
+    opts.innerHTML = '';
+    m.replies.forEach(function (r) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = r.t;
+      b.addEventListener('click', function () { choose(r, b); });
+      opts.appendChild(b);
     });
+  }
+
+  function choose(r, b) {
+    var m = moments[step];
+    var btns = Array.prototype.slice.call(opts.querySelectorAll('button'));
+    btns.forEach(function (o) { o.disabled = true; });
+    youText.textContent = r.t;
+    you.hidden = false;
+    bar.classList.toggle('is-down', r.d < 0);
+    setBar(momentum + r.d);
+    if (r.best) {
+      bestCount++;
+      b.classList.add('is-best');
+      btns.forEach(function (o) { if (o !== b) o.classList.add('is-dim'); });
+      say('<b>Strong.</b> ' + r.why);
+    } else {
+      b.classList.add('is-weak');
+      m.replies.forEach(function (x, i) {
+        if (x.best) {
+          btns[i].classList.add('is-best');
+          btns[i].insertAdjacentHTML('afterbegin', '<span class="sim-tag">Better</span>');
+        } else if (btns[i] !== b) { btns[i].classList.add('is-dim'); }
+      });
+      say('<b>' + (r.d > 0 ? 'Close.' : 'Ouch.') + '</b> ' + r.why);
+    }
+    if (step < moments.length - 1) {
+      next.hidden = false; next.focus({ preventScroll: true });
+    } else {
+      next.textContent = 'See how the call ended →';
+      next.hidden = false; next.focus({ preventScroll: true });
+    }
+  }
+
+  function finish() {
+    body.hidden = true; next.hidden = true;
+    stepEl.textContent = 'Call ended';
+    var out;
+    if (bestCount === 3) out = 'CFO meeting booked.';
+    else if (bestCount === 2) out = 'Follow-up agreed, no date.';
+    else out = '“Send me some info.” Deal goes quiet.';
+    result.textContent = out;
+    end.hidden = false; again.hidden = false; talk.hidden = false;
+    replay(end, 'fade-swap');
+    if (window.ldTrack) window.ldTrack('try-sales-call-done', 'Finished sales call sim (' + bestCount + '/3 strong)');
+  }
+
+  next.addEventListener('click', function () {
+    if (step < moments.length - 1) { step++; load(); replay(body, 'fade-swap'); }
+    else finish();
   });
-  next.addEventListener('click', function () { i++; load(); });
+  again.addEventListener('click', function () {
+    step = 0; bestCount = 0; bar.classList.remove('is-down'); setBar(40);
+    next.textContent = 'Next moment →';
+    end.hidden = true; again.hidden = true; talk.hidden = true; body.hidden = false;
+    load(); replay(body, 'fade-swap');
+  });
   load();
 })();
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laura Dewing — Learning Experience Design and AI Enablement</title>
   <meta name="description" content="Laura Dewing designs learning systems that help global teams understand, adopt, and confidently use complex products and AI.">
-  <link rel="stylesheet" href="style.css?v=20261109a">
+  <link rel="stylesheet" href="style.css?v=20261110b">
 </head>
 <body>
 
@@ -62,23 +62,44 @@
       <div class="try fade-in">
         <div class="try-intro">
           <span class="eyebrow">Try 30 seconds of my work</span>
-          <h2>Which privacy right is this customer using?</h2>
-          <p>This is Protocol Match, one activity from the Privacy League course I built for 2,000+ Spotify support advisors. Each request is one advisors really got.</p>
-          <p class="scribble scribble-try" aria-hidden="true">go on, have a go</p>
+          <h2>You&rsquo;re on a live sales call. What do you say next?</h2>
+          <p>A concept build of in-workflow sales coaching: the nudge shows up mid-call, right when the rep needs it.</p>
+          <p class="scribble scribble-try" aria-hidden="true">go on, close the deal</p>
         </div>
-        <div class="try-card" aria-live="polite">
-          <div class="try-top"><span class="try-count" id="tryCount">Request 1 of 4</span><span class="try-score" id="tryScore"></span></div>
-          <div class="try-msg"><span class="try-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c.6-4 3.7-6.5 7.5-6.5s6.9 2.5 7.5 6.5z"/></svg></span><p id="tryQuote"></p></div>
-          <div class="try-options" id="tryOptions" role="group" aria-label="Choose a privacy right">
-            <button type="button" data-right="access">Access</button>
-            <button type="button" data-right="erasure">Erasure</button>
-            <button type="button" data-right="rectification">Rectification</button>
-            <button type="button" data-right="objection">Objection</button>
+        <div class="try-card sim" id="sim">
+          <div class="sim-bar">
+            <span class="sim-live"><span class="sim-dot" aria-hidden="true"></span>Live call</span>
+            <span class="sim-who">Halden Freight &middot; Discovery</span>
+            <span class="sim-step" id="simStep">Moment 1 of 3</span>
           </div>
-          <p class="try-feedback" id="tryFeedback"></p>
+          <div class="sim-meter" aria-hidden="true">
+            <span class="sim-meter-label">Deal momentum</span>
+            <span class="sim-meter-track"><i id="simBar" style="width:40%"></i></span>
+          </div>
+          <div class="sim-body" id="simBody">
+            <div class="sim-line sim-them">
+              <span class="sim-avatar" aria-hidden="true">DR</span>
+              <div><span class="sim-name">Dana &middot; Ops Director</span><p id="simQuote"></p></div>
+            </div>
+            <div class="sim-coach" id="simCoach">
+              <span class="sim-coach-head">Coach &middot; just now</span>
+              <p id="simCoachText"></p>
+            </div>
+            <div class="sim-line sim-you" id="simYou" hidden>
+              <p id="simYouText"></p>
+            </div>
+            <div class="sim-options" id="simOptions" role="group" aria-label="Choose your reply"></div>
+            <p class="try-feedback" id="simFeedback" aria-live="polite"></p>
+          </div>
+          <div class="sim-end" id="simEnd" hidden>
+            <span class="sim-end-k">Call outcome</span>
+            <p class="sim-end-result" id="simResult"></p>
+            <p class="sim-end-note">In a real program, these nudges come from call recordings and live inside the call tool.</p>
+          </div>
           <div class="try-actions">
-            <button type="button" class="btn btn-primary" id="tryNext" hidden>Next request &rarr;</button>
-            <a href="privacy-fluency.html" class="btn btn-ghost" id="tryCase" hidden>See the full case study</a>
+            <button type="button" class="btn btn-primary" id="simNext" hidden>Next moment &rarr;</button>
+            <button type="button" class="btn btn-primary" id="simAgain" hidden>Try again</button>
+            <a href="mailto:iamcalledlaura@gmail.com" class="btn btn-ghost" id="simTalk" hidden>Get in touch</a>
           </div>
         </div>
       </div>
@@ -235,7 +256,7 @@
     </div>
   </footer>
 
-  <script src="site.js?v=20261109a"></script>
+  <script src="site.js?v=20261110b"></script>
   <script data-goatcounter="https://lauradewing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

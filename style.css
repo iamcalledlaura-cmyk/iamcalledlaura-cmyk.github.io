@@ -794,3 +794,59 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
   .card-note, .try-options button { transition: none; }
   .try-feedback.pop { animation: none; }
 }
+
+/* ===== Try it: live sales call simulation (in-workflow enablement) ===== */
+.sim { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.sim-bar { display: flex; align-items: center; gap: 12px; padding: 12px 18px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 12px; letter-spacing: .02em; }
+.sim-live { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+.sim-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF5A4E; box-shadow: 0 0 0 3px rgba(255,90,78,.25); animation: simPulse 1.6s ease-in-out infinite; }
+@keyframes simPulse { 50% { box-shadow: 0 0 0 6px rgba(255,90,78,0); } }
+.sim-who { color: #B9C4DA; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sim-step { color: var(--sky); white-space: nowrap; }
+.sim-meter { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--blue-50); }
+.sim-meter-label { font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); white-space: nowrap; }
+.sim-meter-track { flex: 1; height: 8px; border-radius: 99px; background: var(--blue-100); overflow: hidden; }
+.sim-meter-track i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue-500), var(--blue-700)); transition: width .6s var(--ease-out), background .3s ease; }
+.sim-meter-track i.is-down { background: var(--no); }
+.sim-body, .sim-end { padding: 20px 18px 4px; }
+.sim-line { display: flex; gap: 12px; align-items: flex-start; }
+.sim-avatar { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--blue-100); box-shadow: inset 0 0 0 1px var(--blue-200); display: grid; place-items: center; color: var(--blue-700); font: 600 13px/1 var(--sans); }
+.sim-name { display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 4px; }
+.sim-them p { margin: 0; background: var(--blue-50); border: 1px solid var(--blue-100); color: var(--ink); font-size: 17.5px; font-weight: 500; line-height: 1.4; padding: 11px 15px; border-radius: 4px 16px 16px 16px; }
+.sim-you { justify-content: flex-end; margin-top: 12px; }
+.sim-you p { margin: 0 0 0 48px; background: var(--blue-600); color: #fff; font-size: 15.5px; line-height: 1.4; padding: 10px 14px; border-radius: 16px 4px 16px 16px; }
+.sim-coach { position: relative; margin: 14px 0 16px 50px; background: var(--note); color: var(--note-ink); border-radius: 3px; padding: 9px 12px 10px; box-shadow: 0 2px 3px rgba(58,46,5,.1), 0 8px 16px -8px rgba(58,46,5,.3); transform: rotate(-.6deg); }
+.sim-coach.pop { animation: simCoach .5s var(--ease-out) .25s both; }
+@keyframes simCoach { from { opacity: 0; transform: translateY(6px) rotate(-.6deg); } to { opacity: 1; transform: rotate(-.6deg); } }
+.sim-coach-head { display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .75; margin-bottom: 2px; }
+.sim-coach p { margin: 0; font-family: var(--hand); font-size: 21px; line-height: 1.15; }
+.sim-options { display: grid; gap: 8px; }
+.sim-options button {
+  text-align: left; font: 500 15px/1.4 var(--sans); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease, transform .12s var(--ease-out), opacity .2s ease;
+}
+.sim-options button:active { transform: scale(.985); }
+.sim-options button:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .sim-options button:not(:disabled):hover { border-color: var(--blue-500); background: var(--blue-50); } }
+.sim-options button:disabled { cursor: default; }
+.sim-options button.is-best { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); }
+.sim-options button.is-weak { border-color: var(--no); background: var(--no-bg); color: var(--no); }
+.sim-options button.is-dim { opacity: .4; }
+.sim-options button .sim-tag { display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+.sim-end-k { font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.sim-end-result { margin: 6px 0 10px; font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.25; text-wrap: balance; }
+.sim-end-note { margin: 0; color: var(--ink-2); font-size: 15px; }
+.sim .try-feedback { margin-top: 12px; min-height: 1.6em; }
+.sim .try-actions { padding: 6px 18px 20px; margin-top: 0; }
+.sim-body.fade-swap { animation: tryPop .35s var(--ease-out); }
+@media (max-width: 520px) {
+  .sim-who { display: none; }
+  .sim-coach { margin-left: 0; }
+  .sim-you p { margin-left: 24px; }
+  .sim-them p { font-size: 16.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-dot, .sim-coach.pop, .sim-body.fade-swap { animation: none; }
+  .sim-meter-track i { transition: none; }
+}
