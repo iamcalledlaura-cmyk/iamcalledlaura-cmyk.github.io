@@ -850,3 +850,23 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
   .sim-dot, .sim-coach.pop, .sim-body.fade-swap { animation: none; }
   .sim-meter-track i { transition: none; }
 }
+
+/* ===== Approach: three plain columns in Laura's voice ===== */
+.how-head { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 28px; }
+.how-head .eyebrow { flex-basis: 100%; }
+.how-head h2 { font-size: clamp(30px, 3.4vw, 42px); margin: 0; letter-spacing: -0.03em; }
+.scribble-how { font-size: 26px; transform: rotate(-3deg); display: inline-block; }
+.how-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.how-row { display: flex; flex-direction: column; gap: 10px; padding: 4px 28px; border-left: 1px solid var(--line-2); min-width: 0; }
+.how-row:first-child { padding-left: 0; border-left: 0; }
+.how-row:last-child { padding-right: 0; }
+.how-row p { margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--ink-2); }
+.how-row p b { display: block; color: var(--ink); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.how-row a { margin-top: auto; font-size: 14.5px; font-weight: 500; }
+.how-row a:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 2px; border-radius: 4px; }
+.how-chips { margin-top: 32px; }
+@media (max-width: 860px) {
+  .how-list { grid-template-columns: 1fr; }
+  .how-row, .how-row:first-child, .how-row:last-child { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line-2); }
+  .how-row:first-child { border-top: 0; padding-top: 0; }
+}
