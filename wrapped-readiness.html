@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch-Ready Before Launch Day — Laura Dewing</title>
+<meta name="description" content="How Laura Dewing built a simulated practice environment so about 1,000 new Spotify advisors a year could rehearse Wrapped launch day before any Wrapped contacts existed.">
+<link rel="stylesheet" href="style.css?v=20261110r">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
+<div class="nav-links">
+<a href="index.html#work">Work</a>
+<a href="index.html#approach">Approach</a>
+<a href="index.html#about">About</a>
+<a href="furniture.html">Furniture</a>
+<a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
+</div>
+</div>
+</nav>
+
+<header class="cs-hero">
+<div class="narrow fade-in">
+<a href="index.html#work" class="back">&larr; All work</a><br>
+<span class="eyebrow">Launch readiness &middot; Spotify</span>
+<h1>Launch-ready before launch day</h1>
+<p class="lede">Every year, about 1,000 new advisors joined just before Spotify Wrapped. They needed to handle launch-day contacts before a single one existed, so I built a simulated environment where they could practice them.</p>
+<div class="cs-meta">
+<div><label>Role</label><span>Instructional designer</span></div>
+<div><label>Audience</label><span>~1,000 new advisors a season</span></div>
+<div><label>Seasons</label><span>Wrapped 2022&ndash;2025</span></div>
+<div><label>Built with</label><span>Rise, custom code simulations, in-person sessions</span></div>
+</div>
+<div class="stats">
+<div class="stat-card"><b>4</b><span>Wrapped launches, one practice environment</span></div>
+<div class="stat-card"><b>~1,000</b><span>new advisors ramped each season</span></div>
+<div class="stat-card"><b>4 &rarr; 2 wks</b><span>hire-to-launch lead time, cut from about a month to two weeks</span></div>
+<div class="stat-card"><b>Held</b><span>CSAT and SLA through a huge spike in contact volume</span></div>
+</div>
+</div>
+</header>
+
+<main class="narrow">
+
+<section class="cs-section fade-in">
+<span class="eyebrow">The problem</span>
+<h2>You can&rsquo;t learn launch day on the job, because the job doesn&rsquo;t exist yet</h2>
+<p>Wrapped questions arrive all at once, on launch day. Before that there are no real contacts to shadow, take, or learn from, yet a whole new cohort has to be ready to handle the spike from the first hour.</p>
+<ul class="list">
+<li>No live contact volume to practice on before launch</li>
+<li>A large, brand-new cohort every season</li>
+<li>Hiring about a month ahead to buy ramp time, which was slow and costly</li>
+<li>No room to dip on CSAT or SLA during the busiest moment of the year</li>
+</ul>
+</section>
+
+<section class="cs-section fade-in">
+<span class="eyebrow">The approach</span>
+<h2>Recreate launch day before launch day</h2>
+<p>Training blended in-person sessions with Rise courses. Inside Rise, I coded simulations into code blocks, so advisors could work full Wrapped contacts end to end long before real ones arrived.</p>
+<div class="steps">
+<div class="step"><div><h4>Predict the contacts</h4><p>A launch brings a predictable handful of questions. Those became the practice set.</p></div></div>
+<div class="step"><div><h4>Build the environment</h4><p>Simulations coded into Rise, so advisors could work whole contacts on their own, as many times as they needed.</p></div></div>
+<div class="step"><div><h4>Practice in the room and on screen</h4><p>In-person sessions built context and confidence. The Rise simulations gave every advisor their own reps.</p></div></div>
+<div class="step"><div><h4>Ready in two weeks, not four</h4><p>With realistic practice built in, cohorts could start two weeks before launch instead of a month.</p></div></div>
+</div>
+</section>
+</main>
+
+<section class="ws-wrap fade-in" id="try">
+<div class="narrow">
+<span class="eyebrow">Try it</span>
+<h2>Work a launch-day shift</h2>
+<p>A rebuild of the practice environment, written from public Wrapped information. Check the account and the job aid, then pick your reply. Four chats, about two minutes.</p>
+</div>
+
+<div class="ws" id="ws">
+  <div class="ws-top">
+    <span class="ws-live"><span class="sim-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Launch day &middot; Practice mode</span>
+    <span class="ws-queue-count">In queue <b id="wsWaiting">48</b></span>
+  </div>
+  <div class="ws-grid" id="wsGrid">
+    <aside class="ws-queue" aria-label="Chat queue">
+      <span class="ws-label">Your chats</span>
+      <ol id="wsQueue"></ol>
+    </aside>
+
+    <section class="ws-chat" aria-label="Conversation">
+      <header class="ws-chat-head">
+        <span class="ws-avatar" id="wsAvatar" aria-hidden="true"></span>
+        <div><b id="wsName"></b><span id="wsPlan"></span></div>
+        <span class="ws-timer" title="Time in chat" id="wsTimer">0:00</span>
+      </header>
+      <div class="ws-log" id="wsLog" aria-live="polite"></div>
+      <div class="ws-reply">
+        <span class="ws-label" id="wsPrompt">Your reply</span>
+        <div class="ws-options" id="wsOptions" role="group" aria-label="Choose your reply"></div>
+        <p class="ws-feedback" id="wsFeedback" aria-live="polite"></p>
+        <button type="button" class="btn ws-next" id="wsNext" hidden>Next chat &rarr;</button>
+      </div>
+    </section>
+
+    <aside class="ws-side" aria-label="Advisor tools">
+      <div class="ws-tabs" role="tablist">
+        <button type="button" role="tab" id="tabAccount" aria-selected="true" aria-controls="panelAccount">Account</button>
+        <button type="button" role="tab" id="tabAid" aria-selected="false" aria-controls="panelAid">Job aid</button>
+      </div>
+      <div class="ws-panel" id="panelAccount" role="tabpanel" aria-labelledby="tabAccount">
+        <div class="ws-locked" id="wsLocked">
+          <p>Customer details are one click away. Good advisors look before they answer.</p>
+          <button type="button" class="btn ws-open" id="wsOpenAccount">Open account</button>
+        </div>
+        <dl class="ws-account" id="wsAccount" hidden></dl>
+      </div>
+      <div class="ws-panel" id="panelAid" role="tabpanel" aria-labelledby="tabAid" hidden>
+        <label class="visually-hidden" for="wsSearch">Search the job aid</label>
+        <input type="search" id="wsSearch" placeholder="Search: private, offline, edit&hellip;" autocomplete="off">
+        <ul class="ws-aid" id="wsAid"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <div class="ws-score" id="wsScore" hidden>
+    <span class="ws-label">Shift over &middot; Your scorecard</span>
+    <p class="ws-score-head" id="wsScoreHead"></p>
+    <div class="ws-score-grid">
+      <div><b id="scRight">0/4</b><span>Right answer</span></div>
+      <div><b id="scEmp">0/4</b><span>Warm, human reply</span></div>
+      <div><b id="scLook">0/4</b><span>Checked the account first</span></div>
+    </div>
+    <p class="ws-score-note" id="wsScoreNote"></p>
+    <button type="button" class="btn ws-next" id="wsAgain">Run the shift again</button>
+  </div>
+</div>
+<p class="strip-note narrow">Practice content rewritten for this portfolio from public information about Wrapped. The original simulations and internal guidance stay with Spotify.</p>
+</section>
+
+<main class="narrow">
+
+<section class="cs-section fade-in">
+<span class="eyebrow">Impact</span>
+<h2>Half the lead time, and customers didn&rsquo;t feel the surge</h2>
+<ul class="list">
+<li>Hire-to-launch lead time cut from about a month to two weeks</li>
+<li>About 1,000 new advisors ramped each season, across four Wrapped launches (2022&ndash;2025)</li>
+<li>CSAT and SLA held steady despite a huge increase in contact volume at launch</li>
+<li>Two fewer weeks of pre-launch ramp for every seasonal hire</li>
+</ul>
+<p>The best measure was the one customers saw: launch day looked like any other day in the queue.</p>
+</section>
+
+<section class="cs-section fade-in">
+<span class="eyebrow">Reflection</span>
+<h2>What transfers to any seasonal surge</h2>
+<div class="principles">
+<div class="principle"><b>Practice what doesn&rsquo;t exist yet</b><span>If real contacts can&rsquo;t teach it, simulate them.</span></div>
+<div class="principle"><b>Train the drivers, not the product</b><span>A few predictable questions make up most of the spike.</span></div>
+<div class="principle"><b>Blend the room and the screen</b><span>In person for context, simulations for reps.</span></div>
+<div class="principle"><b>Measure on the queue</b><span>CSAT and SLA under peak volume, not course completions.</span></div>
+</div>
+</section>
+
+<div class="next-cs">
+<span class="eyebrow">Next case study</span>
+<a href="privacy-fluency.html" class="big">Designing privacy fluency through experience &rarr;</a>
+</div>
+</main>
+
+<footer class="footer">
+<div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
+</footer>
+<script src="site.js?v=20261110r"></script>
+<script src="wrapped-practice.js?v=20261110r"></script>
+<script data-goatcounter="https://lauradewing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
