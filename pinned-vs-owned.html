@@ -40,7 +40,7 @@
       <p class="lede">I had 170 outfit ideas saved on Pinterest and every piece of clothing I own catalogued in Alta, but no idea how much of that board I could already wear. So I built a tool with Claude that breaks every pin into pieces and checks each one against my closet.</p>
       <div class="cs-meta">
         <div><label>Built with</label><span>Claude, Claude in Chrome, Python</span></div>
-        <div><label>Inputs</label><span>171 pins, 154 closet items</span></div>
+        <div><label>Inputs</label><span>170 pins, 154 closet items</span></div>
         <div><label>Build time</label><span>One morning</span></div>
         <div><label>Output</label><span>Interactive lookbook</span></div>
       </div>
@@ -58,18 +58,18 @@
     <section class="cs-section fade-in">
       <span class="eyebrow">The question</span>
       <h2>Is my Pinterest board a shopping list, or is it already in my closet?</h2>
-      <p>Saving outfits is easy. Working out which ones I can actually put together, and which single purchase would open up the most new outfits, is the hard part, and neither app does it. Alta knows my clothes. Pinterest knows my taste. Nothing connects them.</p>
+      <p>Saving outfits is easy. Figuring out which ones I can actually put together, and which single purchase would open up the most new outfits, is the hard part, and neither app does it. Alta knows my clothes. Pinterest knows my taste. Nothing connects them.</p>
     </section>
 
     <section class="cs-section fade-in">
       <span class="eyebrow">How it works</span>
       <h2>From two apps to one answer</h2>
       <div class="steps">
-        <div class="step"><div><h4>Pull the pins</h4><p>Using Claude in Chrome, Claude read every pin on my public Outfits board: 171 images.</p></div></div>
-        <div class="step"><div><h4>Pull the closet</h4><p>Alta has no export button, but its web app does. Claude read my closet there while I was signed in: 154 items, each with a category, colors and fabric.</p></div></div>
-        <div class="step"><div><h4>Break each pin into pieces</h4><p>Claude looked at each image and listed the top, layer, bottoms and shoes. Bags, jewelry and sunglasses were left out.</p></div></div>
-        <div class="step"><div><h4>Match each piece three ways</h4><p>Own it (I have this), close enough (I have something that does the same job), or don't own.</p></div></div>
-        <div class="step"><div><h4>Score and rank</h4><p>Each outfit becomes "wear it now", "one piece away" or "two or more away". For every missing piece, the tool counts how many outfits it would complete.</p></div></div>
+        <div class="step"><div><h4>Pull the pins</h4><p>Using Claude in Chrome, Claude read every pin on my public Outfits board: 170 images.</p></div></div>
+        <div class="step"><div><h4>Pull the closet</h4><p>Alta has no export button, so Claude read my closet in its web app while I was signed in: 154 items, each with a category, colors, and fabric.</p></div></div>
+        <div class="step"><div><h4>Break each pin into pieces</h4><p>Claude looked at each image and listed the top, layer, bottoms, and shoes. It skipped bags, jewelry, and sunglasses.</p></div></div>
+        <div class="step"><div><h4>Match each piece 3 ways</h4><p>Own it (I have this), close enough (I have something that does the same job), or don't own.</p></div></div>
+        <div class="step"><div><h4>Score and rank</h4><p>Each outfit becomes "wear it now," "one piece away," or "two or more away". For every missing piece, the tool counts how many outfits it would complete.</p></div></div>
       </div>
     </section>
 
@@ -88,14 +88,14 @@
         <div class="col-card accent"><h4>Clothes</h4><p class="pv-sub">Outfits that become wearable if I add this one piece</p><div id="pvClothes"></div></div>
         <div class="col-card"><h4>Shoes</h4><p class="pv-sub">How many outfits call for this kind of shoe</p><div id="pvShoes"></div></div>
       </div>
-      <p>Shoes turned out to be the biggest gap. That says more about my catalog than my closet, though: I'd only added 5 pairs to Alta. The quickest win was adding the rest of my shoes to Alta, not buying any.</p>
+      <p>Shoes looked like the biggest gap, until I remembered I'd only added 5 pairs to Alta. The quickest win cost nothing: add the rest of my shoes.</p>
     </section>
 
     <section class="cs-section fade-in">
       <span class="eyebrow">Why it's here</span>
       <h2>It's a skills gap analysis, for clothes</h2>
       <p>This is the same move I make at work. Define the target (the outfits I want to wear), take stock of what's already there (the closet), and find the smallest set of gaps that unlocks the most. A pair of black jeans is the closet version of the one module that gets most of a team to proficient.</p>
-      <p>It's also a good example of how I like to work with AI. Claude did the slow parts: pulling data out of two apps, looking at 170 images and keeping the matching consistent. I made the judgment calls about what counts as "close enough", then checked the matches by eye.</p>
+      <p>It's also a good example of how I like to work with AI. Claude did the slow parts: pulling data out of 2 apps, looking at 170 images, and keeping the matching consistent. I made the judgment calls about what counts as "close enough", then checked the matches by eye.</p>
       <p class="note">Pin images belong to the people who made them, so this page only shows my side of the match. The full lookbook, with pins, stays private.</p>
     </section>
 
