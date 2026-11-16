@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escalation Practice Coach — Laura Dewing</title>
+  <title>Escalation Practice Coach | Laura Dewing</title>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Escalation Practice Coach — Laura Dewing">
-  <meta property="og:description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a five-part de-escalation rubric. Built by Laura Dewing.">
+  <meta property="og:title" content="Escalation Practice Coach | Laura Dewing">
+  <meta property="og:description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a 5-part de-escalation rubric. Built by Laura Dewing.">
   <meta property="og:url" content="https://iamcalledlaura-cmyk.github.io/practice-coach.html">
   <meta property="og:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
-  <meta name="description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a five-part de-escalation rubric. Built by Laura Dewing.">
+  <meta name="description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a 5-part de-escalation rubric. Built by Laura Dewing.">
   <link rel="stylesheet" href="style.css?v=20261104d">
   <style>
     .coach { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; margin: 32px 0 8px; }
@@ -83,8 +83,8 @@
       <a href="source-to-ship.html" class="back">&larr; Back to the case study</a><br>
       <span class="eyebrow">Prototype &middot; Self-paced role-play</span>
       <h1>Escalation Practice Coach</h1>
-      <p class="lede">An upset customer is on the line. Reply out loud or type it, then see how you did on five de-escalation skills.</p>
-      <p class="note">Nothing you say or type is saved. Voice uses your browser&rsquo;s speech-to-text and works best in Chrome or Edge.</p>
+      <p class="lede">An upset customer is on the line. Reply out loud or type it, then see how you did on 5 de-escalation skills.</p>
+      <p class="note">This page doesn't save anything you say or type. Voice uses your browser&rsquo;s speech-to-text and works best in Chrome or Edge.</p>
     </div>
   </header>
 
@@ -116,7 +116,7 @@
 
     <section class="cs-section">
       <span class="eyebrow">How it&rsquo;s scored</span>
-      <h2>Five skills, two points each</h2>
+      <h2>5 skills, 2 points each</h2>
       <table class="data">
         <thead><tr><th>Skill</th><th>What earns full marks</th></tr></thead>
         <tbody>
@@ -146,9 +146,9 @@
     var SCORE_URL = '';
 
     var TURNS = [
-      { mood: 'Frustrated', ctx: 'Dana was promised a refund within five days. It has been ten.',
+      { mood: 'Frustrated', ctx: 'The company promised Dana a refund within 5 days. It’s been 10.',
         say: "Hi, I'm calling again about my refund. I was told it would be back in my account in five days and it's been ten. Can someone actually tell me what's going on?" },
-      { mood: 'Angry', ctx: 'Dana has called three times. The last agent told her the refund was processed. It was not.',
+      { mood: 'Angry', ctx: 'Dana has called 3 times. The last agent told her the refund went through. It didn’t.',
         say: "This is ridiculous. Every time I call I get a different answer. The last person told me it was processed. It wasn't. I've wasted hours on this." },
       { mood: 'Wants a manager', ctx: 'Dana has lost patience and wants to go over your head.',
         say: "I'm done. I don't want to go through this again with you. Put me through to a manager right now." }
@@ -190,7 +190,7 @@
           $('reply').value = base + txt.trim(); updateBtn();
         };
         rec.onerror = function (e) {
-          $('status').textContent = e.error === 'not-allowed' ? 'Microphone access was blocked. You can type your reply instead.' : 'Voice input stopped. You can type your reply instead.';
+          $('status').textContent = e.error === 'not-allowed' ? 'Your browser blocked the microphone. You can type your reply instead.' : 'Voice input stopped. You can type your reply instead.';
         };
         rec.onend = function () { listening = false; setMic(); };
         try { rec.start(); listening = true; setMic(); $('status').textContent = 'Listening. Tap again when you finish.'; }
@@ -236,7 +236,7 @@
         ownership: ['Some of this shifts blame away from you.', 'Neutral. Add a line where you personally take it on.', 'You took it on yourself.'],
         plain: ['Several policy or jargon words crept in.', 'Mostly plain, with a jargon word or a long sentence.', 'Clear, everyday language.'],
         nextstep: ['Dana still doesn’t know what happens next.', 'Half there. Say both what you’ll do and when.', 'She knows what happens next and when.'],
-        control: ['This could escalate things or hands off too fast.', 'Calm, but you could offer more before any handoff.', 'Calm, with an offer of what you can do.']
+        control: ['This could escalate things, or it hands off too fast.', 'Calm, but you could offer more before any handoff.', 'Calm, with an offer of what you can do.']
       };
       var out = { scores: {}, quote: pick.trim(), tip: '' };
       var lowest = null;
@@ -270,7 +270,7 @@
       CRIT.forEach(function (c, i) { ps[i].textContent = (d.scores[c.k] && d.scores[c.k].why) || ''; });
       if (d.quote) el.querySelector('.quote').textContent = '“' + d.quote + '”';
       el.querySelector('.tip span').textContent = d.tip || '';
-      el.querySelector('.mode').textContent = mode === 'live' ? 'Scored by AI against the rubric. A person spot-checks scores over time.' : 'Demo scoring: simple rules that mirror the rubric. Live AI scoring is being calibrated against human scores.';
+      el.querySelector('.mode').textContent = mode === 'live' ? 'AI scored this against the rubric. A person spot-checks scores over time.' : 'Demo scoring: simple rules that mirror the rubric. I’m still calibrating live AI scoring against human scores.';
       el.hidden = false;
       history[turn] = total;
       $('retry').addEventListener('click', function () { el.hidden = true; $('reply').focus(); });
@@ -280,7 +280,7 @@
     function summary() {
       var rows = TURNS.map(function (t, i) { return '<tr><td>' + (i + 1) + '. ' + t.mood + '</td><td class="num">' + (history[i] == null ? '-' : history[i] + '/10') + '</td></tr>'; }).join('');
       $('body').innerHTML = '<div class="done-card"><span class="eyebrow">Session complete</span><h2 style="font-size:28px;margin:0">Nice work with Dana</h2>' +
-        '<p>Escalations get harder as the customer gets angrier. Your scores across the three turns:</p>' +
+        '<p>Escalations get harder as the customer gets angrier. Your scores across the 3 turns:</p>' +
         '<table class="data"><thead><tr><th>Customer</th><th>Score</th></tr></thead><tbody>' + rows + '</tbody></table>' +
         '<div class="row"><button type="button" class="cbtn primary" id="again">Practice again</button><a class="cbtn" href="source-to-ship.html">Read the case study</a></div></div>';
       Array.prototype.forEach.call($('steps').children, function (s) { s.className = 'done'; });

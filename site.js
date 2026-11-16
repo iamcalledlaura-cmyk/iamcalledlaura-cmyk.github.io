@@ -155,7 +155,7 @@
     body.hidden = true; next.hidden = true;
     stepEl.textContent = 'Shift over';
     var out;
-    if (bestCount === 3) out = 'Everyone sorted first time. Maya even sent a 🎉.';
+    if (bestCount === 3) out = 'Everyone sorted on the first try. Maya even sent a 🎉.';
     else if (bestCount === 2) out = 'Mostly sorted. One of them will be back tomorrow.';
     else out = 'Escalations piling up, and your team lead is walking over.';
     result.textContent = out;

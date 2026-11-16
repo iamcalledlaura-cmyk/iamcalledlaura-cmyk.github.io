@@ -198,12 +198,12 @@
     $('scEmp').textContent = tally.emp + '/' + n;
     $('scLook').textContent = tally.look + '/' + n;
     var head;
-    if (tally.right === n && tally.look === n) head = 'Launch-ready. Four customers sorted first time, and no escalations.';
+    if (tally.right === n && tally.look === n) head = 'Launch-ready. 4 customers sorted on the first try, and no escalations.';
     else if (tally.right >= n - 1) head = 'Nearly there. One customer will be back tomorrow.';
     else head = 'Rough shift. Repeat contacts and escalations are stacking up.';
     $('wsScoreHead').textContent = head;
     $('wsScoreNote').textContent = tally.look < n
-      ? 'Every right answer here was sitting in the account panel. Look before you answer: that’s the habit launch-day practice is for.'
+      ? 'Every right answer here sat in the account panel. Look before you answer: that’s the habit launch-day practice is for.'
       : 'You looked before you answered every time. That’s the habit launch-day practice is for.';
     if (window.ldTrack) window.ldTrack('wrapped-practice-done', 'Finished Wrapped practice shift (' + tally.right + '/' + n + ' right)');
   }
