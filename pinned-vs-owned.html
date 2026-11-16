@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinned vs. Owned | An AI build by Laura Dewing</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pinned vs. Owned | An AI build by Laura Dewing">
+  <meta property="og:description" content="I matched 170 Pinterest outfit pins against my real closet with Claude. 109 of them I could already wear.">
+  <meta property="og:url" content="https://iamcalledlaura-cmyk.github.io/pinned-vs-owned.html">
+  <meta property="og:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
+  <meta name="description" content="I matched 170 Pinterest outfit pins against my real closet with Claude. 109 of them I could already wear.">
+  <link rel="stylesheet" href="style.css?v=20261116a">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
+      <div class="nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#ai-builds" aria-current="page">AI builds</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#about">About</a>
+        <a href="furniture.html">Furniture</a>
+        <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="cs-hero">
+    <div class="narrow fade-in">
+      <a href="index.html#ai-builds" class="back">&larr; All AI builds</a><br>
+      <span class="eyebrow">AI build &middot; Personal project</span>
+      <h1>Pinned vs. Owned</h1>
+      <p class="lede">I had 170 outfit ideas saved on Pinterest and every piece of clothing I own catalogued in Alta, but no idea how much of that board I could already wear. So I built a tool with Claude that breaks every pin into pieces and checks each one against my closet.</p>
+      <div class="cs-meta">
+        <div><label>Built with</label><span>Claude, Claude in Chrome, Python</span></div>
+        <div><label>Inputs</label><span>171 pins, 154 closet items</span></div>
+        <div><label>Build time</label><span>One morning</span></div>
+        <div><label>Output</label><span>Interactive lookbook</span></div>
+      </div>
+      <div class="stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+        <div class="stat-card"><b>109 of 170</b><span>pinned outfits I can wear today with clothes I already own</span></div>
+        <div class="stat-card"><b>55</b><span>more outfits that are one piece away</span></div>
+        <div class="stat-card"><b>73 of 154</b><span>closet items that show up in at least one pin</span></div>
+        <div class="stat-card"><b>8</b><span>outfits unlocked by the top buy: a pair of black jeans</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="narrow">
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">The question</span>
+      <h2>Is my Pinterest board a shopping list, or is it already in my closet?</h2>
+      <p>Saving outfits is easy. Working out which ones I can actually put together, and which single purchase would open up the most new outfits, is the hard part, and neither app does it. Alta knows my clothes. Pinterest knows my taste. Nothing connects them.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">How it works</span>
+      <h2>From two apps to one answer</h2>
+      <div class="steps">
+        <div class="step"><div><h4>Pull the pins</h4><p>Using Claude in Chrome, Claude read every pin on my public Outfits board: 171 images.</p></div></div>
+        <div class="step"><div><h4>Pull the closet</h4><p>Alta has no export button, but its web app does. Claude read my closet there while I was signed in: 154 items, each with a category, colors and fabric.</p></div></div>
+        <div class="step"><div><h4>Break each pin into pieces</h4><p>Claude looked at each image and listed the top, layer, bottoms and shoes. Bags, jewelry and sunglasses were left out.</p></div></div>
+        <div class="step"><div><h4>Match each piece three ways</h4><p>Own it (I have this), close enough (I have something that does the same job), or don't own.</p></div></div>
+        <div class="step"><div><h4>Score and rank</h4><p>Each outfit becomes "wear it now", "one piece away" or "two or more away". For every missing piece, the tool counts how many outfits it would complete.</p></div></div>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Try it</span>
+      <h2>Pick a piece from my closet</h2>
+      <p>These are the 73 things I own that appear in my pins, most-pinned first. Select one to see how many outfits it works in and what it's usually worn with.</p>
+      <div class="pv-pick" id="pvPick" role="group" aria-label="Closet pieces"></div>
+      <div class="pv-detail" id="pvDetail" aria-live="polite"></div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">What to buy next</span>
+      <h2>The smallest purchases that unlock the most outfits</h2>
+      <div class="two-col pv-buy">
+        <div class="col-card accent"><h4>Clothes</h4><p class="pv-sub">Outfits that become wearable if I add this one piece</p><div id="pvClothes"></div></div>
+        <div class="col-card"><h4>Shoes</h4><p class="pv-sub">How many outfits call for this kind of shoe</p><div id="pvShoes"></div></div>
+      </div>
+      <p>Shoes turned out to be the biggest gap. That says more about my catalog than my closet, though: I'd only added 5 pairs to Alta. The quickest win was adding the rest of my shoes to Alta, not buying any.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <span class="eyebrow">Why it's here</span>
+      <h2>It's a skills gap analysis, for clothes</h2>
+      <p>This is the same move I make at work. Define the target (the outfits I want to wear), take stock of what's already there (the closet), and find the smallest set of gaps that unlocks the most. A pair of black jeans is the closet version of the one module that gets most of a team to proficient.</p>
+      <p>It's also a good example of how I like to work with AI. Claude did the slow parts: pulling data out of two apps, looking at 170 images and keeping the matching consistent. I made the judgment calls about what counts as "close enough", then checked the matches by eye.</p>
+      <p class="note">Pin images belong to the people who made them, so this page only shows my side of the match. The full lookbook, with pins, stays private.</p>
+    </section>
+
+    <div class="next-cs">
+      <span class="eyebrow">Back to the portfolio</span>
+      <a href="index.html#work" class="big">Selected work &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span>&copy; 2026 Laura Dewing</span><span>Designed and built with Claude Code</span></div>
+  </footer>
+  <script src="site.js?v=20261116a"></script>
+  <script>
+  (function () {
+    var D = {"items":[{"k":"C040","n":"White Crew Neck T-shirt","c":"Tops","u":29,"with":["C010","C066","C149"]},{"k":"C064","n":"Light Beige Wide Leg Jeans","c":"Bottoms","u":21,"with":["C028","C040","C086"]},{"k":"C152","n":"White Wide Leg Crop Jeans","c":"Bottoms","u":18,"with":["C114","C149","C040"]},{"k":"C065","n":"Blue Denim Wide Leg Jeans","c":"Bottoms","u":17,"with":["C042","C032","C144"]},{"k":"C028","n":"Blue White Striped Button-up Shirt","c":"Tops","u":16,"with":["C064","C067","C007"]},{"k":"C067","n":"Light Wash Denim Straight Jeans","c":"Bottoms","u":14,"with":["C028","C151","C040"]},{"k":"C066","n":"Blue Denim Straight Leg Jeans","c":"Bottoms","u":11,"with":["C040","C128","C028"]},{"k":"C074","n":"Black Wide Leg Culottes Pants","c":"Bottoms","u":11,"with":["C142","C040","C014"]},{"k":"C153","n":"Light Blue Wide-leg Jeans","c":"Bottoms","u":10,"with":["C151","C142","C040"]},{"k":"C125","n":"White Graphic Print T-shirt","c":"Tops","u":10,"with":["C064","C153","C151"]},{"k":"C010","n":"Navy Blue Crew Neck Cardigan","c":"Tops","u":9,"with":["C040","C071","C151"]},{"k":"C142","n":"White Tank","c":"Tops","u":9,"with":["C074","C028","C153"]},{"k":"C071","n":"Olive Green Drawstring Wide Leg Pants","c":"Bottoms","u":8,"with":["C129","C010","C040"]},{"k":"C151","n":"Red Suede Sneakers","c":"Shoes","u":8,"with":["C153","C040","C067"]},{"k":"C149","n":"Denim Jacket","c":"Outerwear","u":8,"with":["C040","C152","C148"]},{"k":"C081","n":"Beige Sweatpants","c":"Bottoms","u":7,"with":["C020","C142","C149"]},{"k":"C114","n":"Light Grey Textured T-shirt","c":"Tops","u":6,"with":["C152","C149","C130"]},{"k":"C128","n":"Plain Grey Crewneck Sweatshirt","c":"Tops","u":5,"with":["C040","C066","C151"]},{"k":"C020","n":"Light Beige Speckled Crewneck Sweater","c":"Tops","u":5,"with":["C081","C142","C138"]},{"k":"C043","n":"White Linen Button Up Shirt","c":"Tops","u":5,"with":["C067","C007","C064"]},{"k":"C061","n":"Striped Long Sleeve T-shirt","c":"Tops","u":4,"with":["C071","C137","C153"]},{"k":"C133","n":"White Hiking Shoes","c":"Shoes","u":4,"with":["C127","C040","C148"]},{"k":"C032","n":"Beige Linen Oversized Shirt","c":"Tops","u":4,"with":["C065","C153","C137"]},{"k":"C141","n":"Black Tank","c":"Tops","u":4,"with":["C152","C032","C074"]},{"k":"C130","n":"White Denim Wide Leg Pants","c":"Bottoms","u":4,"with":["C040","C114","C149"]},{"k":"C072","n":"Navy Blue Cropped Wide Leg Pants","c":"Bottoms","u":4,"with":["C045","C040","C012"]},{"k":"C038","n":"Beige Ribbed Sleeveless Polo Shirt","c":"Tops","u":4,"with":["C142","C074","C028"]},{"k":"C085","n":"Black Plain Cotton T-shirt","c":"Tops","u":4,"with":["C074","C130","C064"]},{"k":"C113","n":"Navy Blue Plain T-shirt","c":"Tops","u":4,"with":["C066","C073","C078"]},{"k":"C042","n":"White Embroidered Short Sleeve Blouse","c":"Tops","u":4,"with":["C065","C146","C067"]},{"k":"C137","n":"Black Converse","c":"Shoes","u":3,"with":["C061","C071","C032"]},{"k":"C144","n":"Black Chelsea Boots","c":"Shoes","u":3,"with":["C065","C149","C148"]},{"k":"C110","n":"Light Blue Crewneck T-shirt","c":"Tops","u":3,"with":["C152","C133","C153"]},{"k":"C007","n":"Brown Knit Sleeveless Tank Top","c":"Tops","u":3,"with":["C028","C152","C065"]},{"k":"C073","n":"Navy Wide Leg Cropped Pants","c":"Bottoms","u":3,"with":["C040","C010","C113"]},{"k":"C086","n":"Brown Crew Neck T-shirt","c":"Tops","u":3,"with":["C064","C149"]},{"k":"C146","n":"Brown Suede Chelsea Boots","c":"Shoes","u":3,"with":["C042","C065","C125"]},{"k":"C129","n":"White Crewneck Long Sleeve Sweatshirt","c":"Tops","u":3,"with":["C071"]},{"k":"C078","n":"Beige Cargo Pants","c":"Bottoms","u":3,"with":["C113","C040","C125"]},{"k":"C116","n":"Gray Distressed Cotton T-shirt","c":"Tops","u":2,"with":["C152","C151","C074"]},{"k":"C148","n":"Black Leggings","c":"Bottoms","u":2,"with":["C127","C040","C133"]},{"k":"C014","n":"Black White Striped Knit Sweater","c":"Tops","u":2,"with":["C142","C074","C135"]},{"k":"C030","n":"Red Textured Square Neck Top","c":"Tops","u":2,"with":["C067","C151","C065"]},{"k":"C009","n":"Black and White Striped Knit Vest","c":"Tops","u":2,"with":["C074","C137","C064"]},{"k":"C045","n":"Blue Denim Short Sleeve Shirt","c":"Tops","u":2,"with":["C040","C072","C152"]},{"k":"C068","n":"White Denim Straight Leg Jeans","c":"Bottoms","u":2,"with":["C096"]},{"k":"C012","n":"White Crew Neck Button Up Cardigan","c":"Tops","u":2,"with":["C072"]},{"k":"C041","n":"Light Blue Linen Short Sleeve Shirt","c":"Tops","u":2,"with":["C067"]},{"k":"C048","n":"Black Floral Sheer Button-up Shirt","c":"Tops","u":2,"with":["C064"]},{"k":"C089","n":"Beige Ribbed Neckline T-shirt","c":"Tops","u":2,"with":["C065","C071"]},{"k":"C027","n":"Navy White Polka Dot Blouse","c":"Tops","u":2,"with":["C065"]},{"k":"C127","n":"Grey Cotton Long Sleeve Hoodie","c":"Outerwear","u":1,"with":["C040","C148","C133"]},{"k":"C139","n":"Black Merino Scoop Tank","c":"Tops","u":1,"with":["C032","C065"]},{"k":"C099","n":"Light Blue Graphic T-shirt","c":"Tops","u":1,"with":[]},{"k":"C013","n":"Grey Graphic Knit Sweater","c":"Tops","u":1,"with":["C040","C067"]},{"k":"C138","n":"White Crop Cami","c":"Tops","u":1,"with":["C020","C064"]},{"k":"C140","n":"Black Fitted Crewneck T-shirt","c":"Tops","u":1,"with":["C065","C144"]},{"k":"C096","n":"Blue Red White Striped T-shirt","c":"Tops","u":1,"with":["C068"]},{"k":"C093","n":"White Ribbed Short Sleeve T-shirt","c":"Tops","u":1,"with":["C153"]},{"k":"C034","n":"Black White Gingham Tank Top","c":"Tops","u":1,"with":["C152"]},{"k":"C112","n":"Dark Blue Graphic T-shirt","c":"Tops","u":1,"with":["C064"]},{"k":"C003","n":"Black Crew Neck Long Sleeve T-shirt","c":"Tops","u":1,"with":["C065","C144"]},{"k":"C018","n":"Black Crew Neck Long Sleeve Sweater","c":"Tops","u":1,"with":["C040","C074"]},{"k":"C082","n":"Light Green Cargo Pants","c":"Bottoms","u":1,"with":["C114"]},{"k":"C111","n":"Pink Striped T-shirt","c":"Tops","u":1,"with":["C152"]},{"k":"C098","n":"White Graphic Print T-shirt","c":"Tops","u":1,"with":["C067"]},{"k":"C029","n":"Blue White Striped Peasant Blouse","c":"Tops","u":1,"with":["C072"]},{"k":"C135","n":"Denim Cutoff Shorts","c":"Bottoms","u":1,"with":["C014"]},{"k":"C037","n":"Striped Short Sleeve Button Up Shirt","c":"Tops","u":1,"with":["C152"]},{"k":"C021","n":"Cream Crew Neck Sweater","c":"Tops","u":1,"with":[]},{"k":"C090","n":"Black and White Striped T-shirt","c":"Tops","u":1,"with":[]},{"k":"C097","n":"Blue Cubs Baseball T-shirt","c":"Tops","u":1,"with":[]},{"k":"C126","n":"White Graphic Print Sweatshirt","c":"Tops","u":1,"with":[]}],"gaps":[{"g":"Retro sneakers","u":0,"a":37,"shoe":true},{"g":"Suede clogs","u":0,"a":24,"shoe":true},{"g":"Flat sandals","u":0,"a":30,"shoe":true},{"g":"Loafers","u":0,"a":7,"shoe":true},{"g":"White sneakers","u":0,"a":13,"shoe":true},{"g":"Mary jane flats","u":0,"a":7,"shoe":true},{"g":"Olive jacket","u":2,"a":2,"shoe":false},{"g":"Brown button-up shirt","u":2,"a":2,"shoe":false},{"g":"Ballet flats","u":0,"a":13,"shoe":true},{"g":"Red striped shirt","u":1,"a":1,"shoe":false},{"g":"Bright hoodie","u":1,"a":3,"shoe":false},{"g":"Statement vest","u":4,"a":4,"shoe":false},{"g":"Sweater vest","u":4,"a":5,"shoe":false},{"g":"Leopard flats","u":0,"a":3,"shoe":true},{"g":"Neutral bomber jacket","u":1,"a":1,"shoe":false},{"g":"Pointed flats","u":0,"a":4,"shoe":true},{"g":"Black jeans","u":8,"a":10,"shoe":false},{"g":"Brown knit","u":2,"a":4,"shoe":false},{"g":"Grey cardigan","u":1,"a":1,"shoe":false},{"g":"Dark denim jacket","u":7,"a":7,"shoe":false},{"g":"Brown trousers","u":4,"a":5,"shoe":false},{"g":"Colored overshirt","u":2,"a":2,"shoe":false},{"g":"Tailored vest","u":1,"a":1,"shoe":false},{"g":"Sweat shorts","u":1,"a":1,"shoe":false},{"g":"Gingham cardigan","u":1,"a":1,"shoe":false},{"g":"Black cropped jacket","u":1,"a":1,"shoe":false},{"g":"Red bodysuit","u":1,"a":1,"shoe":false},{"g":"Black tailored shorts","u":1,"a":1,"shoe":false},{"g":"Grey jeans","u":1,"a":1,"shoe":false},{"g":"Black straight jeans","u":0,"a":1,"shoe":false},{"g":"Barn jacket","u":0,"a":1,"shoe":false},{"g":"Striped shorts","u":1,"a":1,"shoe":false},{"g":"Striped trousers","u":4,"a":4,"shoe":false},{"g":"Denim vest top","u":1,"a":1,"shoe":false},{"g":"Strappy heels","u":0,"a":1,"shoe":true},{"g":"Red gingham bottoms","u":1,"a":3,"shoe":false},{"g":"Denim dress","u":1,"a":1,"shoe":false},{"g":"Knit lounge set","u":1,"a":1,"shoe":false}],"stats":{"pins":170,"ready":109,"one":55,"complete":20,"closet":154,"used":73}};
+    var byKey = {}; D.items.forEach(function (i) { byKey[i.k] = i; });
+    var total = D.stats.pins;
+    var pick = document.getElementById('pvPick'), det = document.getElementById('pvDetail');
+    function img(k) { return 'images/pinned/closet/' + k + '.webp'; }
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+    function show(k) {
+      var it = byKey[k];
+      Array.prototype.forEach.call(pick.children, function (b) { b.setAttribute('aria-pressed', b.dataset.k === k); });
+      var pct = Math.round(it.u / total * 100);
+      det.innerHTML = '<div class="pv-det-main"><img src="' + img(k) + '" alt=""><div><span class="eyebrow">' + esc(it.c) + '</span><h3>' + esc(it.n) + '</h3>' +
+        '<p class="pv-big"><b>' + it.u + '</b> of ' + total + ' outfits</p><span class="pv-track"><i style="width:' + Math.max(pct, 2) + '%"></i></span></div></div>' +
+        (it.with.length ? '<div class="pv-with"><span class="pv-with-k">Usually worn with</span><div class="pv-with-row">' + it.with.map(function (w) {
+          var x = byKey[w]; return '<button type="button" data-k="' + w + '"><img src="' + img(w) + '" alt=""><span>' + esc(x.n) + '</span></button>';
+        }).join('') + '</div></div>' : '');
+      Array.prototype.forEach.call(det.querySelectorAll('.pv-with button'), function (b) { b.addEventListener('click', function () { show(b.dataset.k); }); });
+    }
+    D.items.forEach(function (it) {
+      var b = document.createElement('button'); b.type = 'button'; b.dataset.k = it.k; b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<img src="' + img(it.k) + '" alt="' + esc(it.n) + '" loading="lazy"><span>' + it.u + '</span>';
+      b.title = it.n; b.addEventListener('click', function () { show(it.k); }); pick.appendChild(b);
+    });
+    show(D.items[0].k);
+    function bars(el, list, field) {
+      var max = list[0][field];
+      el.innerHTML = list.map(function (g) {
+        return '<div class="pv-bar"><span class="pv-bar-l">' + esc(g.g) + '</span><span class="pv-bar-t"><i style="width:' + (g[field] / max * 100) + '%"></i></span><b>' + g[field] + '</b></div>';
+      }).join('');
+    }
+    bars(document.getElementById('pvClothes'), D.gaps.filter(function (g) { return g.u > 0; }).sort(function (a, b) { return b.u - a.u || b.a - a.a; }).slice(0, 6), 'u');
+    bars(document.getElementById('pvShoes'), D.gaps.filter(function (g) { return g.shoe; }).sort(function (a, b) { return b.a - a.a; }).slice(0, 6), 'a');
+  })();
+  </script>
+  <script data-goatcounter="https://lauradewing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
