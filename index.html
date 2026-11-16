@@ -15,6 +15,13 @@
   <meta name="twitter:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
   <meta name="description" content="Laura Dewing designs learning systems that help global teams understand, adopt, and confidently use complex products and AI.">
   <link rel="stylesheet" href="style.css?v=20261116a">
+<style>
+.wfilter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;scroll-margin-top:96px}
+.wfilter button{font:inherit;font-size:14px;font-weight:500;color:var(--blue-700);background:#fff;border:1px solid var(--blue-200);border-radius:99px;padding:7px 16px;cursor:pointer;transition:background .15s,color .15s}
+.wfilter button:hover{background:var(--blue-50)}
+.wfilter button[aria-pressed="true"]{background:var(--blue-700);border-color:var(--blue-700);color:#fff}
+.wg-card.is-filtered{display:none!important}
+</style>
 </head>
 <body>
 
@@ -126,8 +133,14 @@
         </div>
       </div>
 
+      <div class="wfilter fade-in" role="group" aria-label="Filter work">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="case" aria-pressed="false">Case studies</button>
+        <button type="button" data-f="proto" aria-pressed="false">Prototypes</button>
+        <button type="button" data-f="ai" id="ai-builds" aria-pressed="false">AI builds</button>
+      </div>
       <div class="wgrid">
-        <a href="advisor-onboarding.html" class="wg-card fade-in">
+        <a href="advisor-onboarding.html" class="wg-card fade-in" data-cat="case">
           <span class="scribble card-note">60 → 40 days to proficiency</span>
           <span class="wg-thumb" aria-hidden="true"><img src="videos/cs-1-welcome.jpg" alt=""></span>
           <span class="wg-body">
@@ -136,7 +149,7 @@
             <span class="wg-foot"><span class="wl-stat">33% faster ramp</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="wrapped-readiness.html" class="wg-card fade-in">
+        <a href="wrapped-readiness.html" class="wg-card fade-in" data-cat="case proto">
           <span class="scribble card-note">4 → 2 weeks to launch-ready</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-wrapped.svg" alt=""></span>
           <span class="wg-body">
@@ -145,7 +158,7 @@
             <span class="wg-foot"><span class="wl-stat">~1,000 advisors a season</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="privacy-fluency.html" class="wg-card fade-in">
+        <a href="privacy-fluency.html" class="wg-card fade-in" data-cat="case">
           <span class="scribble card-note">measured on real QA errors</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/pl-shield.webp" alt=""></span>
           <span class="wg-body">
@@ -154,7 +167,7 @@
             <span class="wg-foot"><span class="wl-stat">&minus;25% critical errors</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="global-recertification.html" class="wg-card fade-in">
+        <a href="global-recertification.html" class="wg-card fade-in" data-cat="case">
           <span class="scribble card-note">821 of 850 finished</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-recert.webp" alt=""></span>
           <span class="wg-body">
@@ -163,7 +176,7 @@
             <span class="wg-foot"><span class="wl-stat">6 languages</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="source-to-ship.html" class="wg-card fade-in">
+        <a href="source-to-ship.html" class="wg-card fade-in" data-cat="case proto">
           <span class="scribble card-note">AI drafts. I decide what ships.</span>
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-source.webp" alt=""></span>
           <span class="wg-body">
@@ -172,7 +185,7 @@
             <span class="wg-foot"><span class="wl-stat">~50% less seat time</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="feedback-in-the-moment.html" class="wg-card fade-in">
+        <a href="feedback-in-the-moment.html" class="wg-card fade-in" data-cat="proto">
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-feedback.webp" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Live prototype</span>Netflix design exercise</span>
@@ -180,7 +193,7 @@
             <span class="wg-foot"><span class="wl-stat">React prototype</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
-        <a href="release-enablement-kit.html" class="wg-card fade-in">
+        <a href="release-enablement-kit.html" class="wg-card fade-in" data-cat="proto">
           <span class="wg-thumb" aria-hidden="true"><img src="images/art-launch.webp" alt=""></span>
           <span class="wg-body">
             <span class="wl-meta"><span class="wl-kind">Concept build</span>Launch enablement</span>
@@ -188,33 +201,19 @@
             <span class="wg-foot"><span class="wl-stat">Interactive kit</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
+        <a href="pinned-vs-owned.html" class="wg-card fade-in" data-cat="ai">
+          <span class="scribble card-note">109 of 170 already in my closet</span>
+          <span class="wg-thumb" aria-hidden="true"><img src="images/art-pinned.webp" alt=""></span>
+          <span class="wg-body">
+            <span class="wl-meta"><span class="wl-kind">AI build</span>Personal &middot; Data matching</span>
+            <span class="wg-title">Pinned vs. Owned: my Pinterest board vs. my real closet</span>
+            <span class="wg-foot"><span class="wl-stat">170 pins &times; 154 items</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="ai-builds" class="section">
-    <div class="container">
-      <div class="section-head fade-in">
-        <div>
-          <span class="eyebrow">AI builds</span>
-          <h2>Things I&rsquo;ve built with AI, just because I wanted them</h2>
-          <p class="section-note">Side projects where I point AI at a problem in my own life. Same instincts as my day job: find the gap, build the thing, measure what changed.</p>
-        </div>
-      </div>
-
-      <a href="pinned-vs-owned.html" class="build-feature fade-in">
-        <span class="scribble card-note">109 of 170 already in my closet</span>
-        <div>
-          <span class="wl-meta"><span class="wl-kind">AI build</span>Personal &middot; Data matching</span>
-          <h3>Pinned vs. Owned</h3>
-          <p>I matched every outfit on my Pinterest board against my real closet, piece by piece, to find out what I can wear today and which single purchase unlocks the most new outfits.</p>
-          <div class="build-tools"><span>Claude</span><span>Claude in Chrome</span><span>Python</span><span>Pinterest</span><span>Alta</span></div>
-          <span class="wg-foot"><span class="wl-stat">170 pins &times; 154 items</span><span class="wg-go" aria-hidden="true">&rarr;</span></span>
-        </div>
-        <span class="wg-thumb" aria-hidden="true"><img src="images/art-pinned.webp" alt=""></span>
-      </a>
-    </div>
-  </section>
 
   <section id="approach" class="section">
     <div class="container">
@@ -298,5 +297,20 @@
 
   <script src="site.js?v=20261110r"></script>
   <script data-goatcounter="https://lauradewing.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var bar=document.querySelector('.wfilter'); if(!bar) return;
+  var btns=bar.querySelectorAll('button'), cards=document.querySelectorAll('.wgrid .wg-card');
+  function apply(f){
+    btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.f===f?'true':'false');});
+    cards.forEach(function(c){var show=f==='all'||(' '+c.dataset.cat+' ').indexOf(' '+f+' ')>-1; c.classList.toggle('is-filtered',!show); if(show) c.classList.add('visible','in');});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.f);});});
+  function go(){ var y=bar.getBoundingClientRect().top+window.scrollY-96; window.scrollTo(0,y); }
+  function fromHash(){ if(location.hash==='#ai-builds'){ apply('ai'); go(); setTimeout(go,350); } }
+  window.addEventListener('hashchange',fromHash);
+  if(location.hash==='#ai-builds'){ apply('ai'); window.addEventListener('load',function(){ go(); setTimeout(go,350); }); }
+})();
+</script>
 </body>
 </html>
