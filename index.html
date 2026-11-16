@@ -22,6 +22,22 @@
 .wfilter button[aria-pressed="true"]{background:var(--blue-700);border-color:var(--blue-700);color:#fff}
 .wg-card.is-filtered{display:none!important}
 </style>
+<style>
+.about-merged{grid-template-columns:1fr 1.35fr;row-gap:36px;align-items:start}
+.about-merged > div{position:relative;z-index:1}
+.about-merged .about-intro h2{margin-bottom:18px}
+.about-merged .how-head{margin-bottom:18px}
+.about-merged .scribble-how{color:var(--sky);font-size:22px}
+.about-how-list{display:grid;gap:22px}
+.ah-row{padding-left:18px;border-left:2px solid rgba(255,255,255,.14)}
+.ah-row p{margin:0 0 6px;font-size:15.5px;line-height:1.55}
+.ah-row p b{display:block;color:#fff;font-weight:600;font-size:18px;margin-bottom:4px}
+.ah-row a{font-size:14px;font-weight:500;color:var(--sky)}
+.ah-row a:hover{color:#fff}
+.about-chips{grid-column:1 / -1;margin-top:0;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.about-chips span{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#DCE4F3}
+@media (max-width:860px){.about-merged{grid-template-columns:1fr;padding:32px 22px;gap:32px}}
+</style>
 </head>
 <body>
 
@@ -30,10 +46,8 @@
       <a href="index.html" class="brand"><span class="brand-mark">LD</span>Laura Dewing</a>
       <div class="nav-links">
         <a href="#work">Work</a>
-        <a href="#ai-builds">AI builds</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
         <a href="furniture.html">Furniture</a>
+        <a href="#about">About</a>
         <a href="mailto:iamcalledlaura@gmail.com" class="nav-cta">Get in touch</a>
       </div>
     </div>
@@ -214,36 +228,6 @@
     </div>
   </section>
 
-
-  <section id="approach" class="section">
-    <div class="container">
-      <div class="how fade-in">
-        <div class="how-head">
-          <span class="eyebrow">Approach</span>
-          <h2>How I work</h2>
-          <p class="scribble scribble-how" aria-hidden="true">the short version</p>
-        </div>
-        <div class="how-list">
-          <div class="how-row">
-            <p><b>I start with the job.</b> I figure out what people need to do, do differently, or understand, then build the practice around that. At Spotify, advisors practiced on real privacy requests, and critical errors dropped 25%.</p>
-            <a href="privacy-fluency.html">Privacy League case study &rarr;</a>
-          </div>
-          <div class="how-row">
-            <p><b>I iterate.</b> I pilot early and keep watching the data. On a global recertification, one exam topic scored 70% while everything else scored 94 to 100%, so I rewrote those questions and the module behind them.</p>
-            <a href="global-recertification.html">Recertification case study &rarr;</a>
-          </div>
-          <div class="how-row">
-            <p><b>I build with AI every day.</b> Simulations, voiceover, automations, and whole content pipelines. Converting live courses to eLearning with an AI-assisted pipeline cut seat time by about half.</p>
-            <a href="source-to-ship.html">Source to Ship case study &rarr;</a>
-          </div>
-          </div>
-        <div class="toolrow how-chips">
-          <span>Claude and Claude Code</span><span>ElevenLabs</span><span>Synthesia</span><span>Zapier</span><span>Articulate Storyline and Rise</span><span>React</span><span>Skilljar</span><span>Docebo</span><span>Action Mapping</span><span>Kirkpatrick</span><span>SCORM and xAPI</span><span>WCAG</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="off-the-clock" class="section">
     <div class="container">
       <div class="otc fade-in">
@@ -269,24 +253,47 @@
 
   <section id="about" class="section">
     <div class="container">
-      <div class="about fade-in">
-        <div>
+      <div class="about about-merged fade-in">
+        <div class="about-intro">
           <span class="eyebrow">About</span>
           <h2>Hi, I'm Laura.</h2>
-        </div>
-        <div>
           <p>I design learning systems that help global teams understand, adopt, and confidently use complex products and AI.</p>
-          <p>For 8+ years I've built onboarding, certification, product education, release readiness, and compliance programs for audiences of thousands, across languages and time zones at <strong>Spotify</strong>, <strong>Groupon</strong>, and in my current consulting work. I care about what people do differently after learning, so I measure my work in ramp time, error rates, cost, and real performance.</p>
-          <p>I'm a builder. Alongside learning design, I lead an AI enablement pipeline, taking ideas from intake through evaluation, prototyping, and adoption.</p>
-          <p>Based in Greater Chicago, working remote first, and open to senior learning experience design, enablement, and AI enablement roles.</p>
+          <p>8+ years at <strong>Spotify</strong>, <strong>Groupon</strong>, and in my current consulting work. Based in Greater Chicago, working remote first, and open to senior learning experience design, enablement, and AI enablement roles.</p>
           <div class="about-links">
             <a href="mailto:iamcalledlaura@gmail.com" class="primary">iamcalledlaura@gmail.com</a>
             <a href="https://www.linkedin.com/in/lauradewing" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
+        <div class="about-how" id="approach">
+          <div class="how-head">
+            <span class="eyebrow">How I work</span>
+            <p class="scribble scribble-how" aria-hidden="true">the short version</p>
+          </div>
+          <div class="about-how-list">
+            <div class="ah-row">
+              <p><b>I start with the job.</b> I figure out what people need to do, do differently, or understand, then build the practice around that. At Spotify, advisors practiced on real privacy requests, and critical errors dropped 25%.</p>
+              <a href="privacy-fluency.html">Privacy League case study &rarr;</a>
+            </div>
+            <div class="ah-row">
+              <p><b>I iterate.</b> I pilot early and keep watching the data. On a global recertification, one exam topic scored 70% while everything else scored 94 to 100%, so I rewrote those questions and the module behind them.</p>
+              <a href="global-recertification.html">Recertification case study &rarr;</a>
+            </div>
+            <div class="ah-row">
+              <p><b>I build with AI every day.</b> Simulations, voiceover, automations, and whole content pipelines. At work I also lead an AI enablement pipeline, from intake through evaluation, prototyping, and adoption.</p>
+              <a href="source-to-ship.html">Source to Ship case study &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="toolrow about-chips">
+          <span>Claude and Claude Code</span><span>ElevenLabs</span><span>Synthesia</span><span>Zapier</span><span>Articulate Storyline and Rise</span><span>React</span><span>Skilljar</span><span>Docebo</span><span>Action Mapping</span><span>Kirkpatrick</span><span>SCORM and xAPI</span><span>WCAG</span>
+        </div>
       </div>
     </div>
   </section>
+
+
+
+
 
   <footer class="footer">
     <div class="container">
