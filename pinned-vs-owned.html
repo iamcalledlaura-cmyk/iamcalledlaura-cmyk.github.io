@@ -45,9 +45,9 @@
         <div><label>Output</label><span>Interactive lookbook</span></div>
       </div>
       <div class="stats" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-        <div class="stat-card"><b>109 of 170</b><span>pinned outfits I can wear today with clothes I already own</span></div>
+        <div class="stat-card"><b>109</b><span>of my 170 pinned outfits I can wear today with clothes I already own</span></div>
         <div class="stat-card"><b>55</b><span>more outfits that are one piece away</span></div>
-        <div class="stat-card"><b>73 of 154</b><span>closet items that show up in at least one pin</span></div>
+        <div class="stat-card"><b>73</b><span>of my 154 closet items show up in at least one pin</span></div>
         <div class="stat-card"><b>8</b><span>outfits unlocked by the top buy: a pair of black jeans</span></div>
       </div>
     </div>
@@ -130,7 +130,7 @@
     }
     D.items.forEach(function (it) {
       var b = document.createElement('button'); b.type = 'button'; b.dataset.k = it.k; b.setAttribute('aria-pressed', 'false');
-      b.innerHTML = '<img src="' + img(it.k) + '" alt="' + esc(it.n) + '" loading="lazy"><span>' + it.u + '</span>';
+      b.innerHTML = '<img src="' + img(it.k) + '" alt="' + esc(it.n) + '"><span>' + it.u + '</span>';
       b.title = it.n; b.addEventListener('click', function () { show(it.k); }); pick.appendChild(b);
     });
     show(D.items[0].k);
