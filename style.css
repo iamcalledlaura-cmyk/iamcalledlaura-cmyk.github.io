@@ -1018,7 +1018,8 @@ a.frame:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 4px;
 
 .pv-pick { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; margin: 24px 0 16px; max-height: 300px; overflow-y: auto; padding: 4px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .pv-pick button { position: relative; aspect-ratio: 1; background: #fff; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; padding: 6px; display: grid; place-items: center; transition: border-color .15s ease; }
-.pv-pick button img { max-height: 100%; object-fit: contain; }
+.pv-pick button { height: 72px; aspect-ratio: auto; }
+.pv-pick button img { max-height: 58px; max-width: 100%; object-fit: contain; }
 .pv-pick button span { position: absolute; right: 3px; bottom: 3px; font-family: var(--mono); font-size: 10.5px; background: var(--blue-50); color: var(--blue-700); border-radius: 99px; padding: 0 5px; line-height: 16px; }
 .pv-pick button:hover { border-color: var(--blue-200); }
 .pv-pick button[aria-pressed="true"] { border: 2px solid var(--blue-600); }
