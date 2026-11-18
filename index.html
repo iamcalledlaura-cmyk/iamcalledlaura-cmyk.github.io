@@ -38,6 +38,20 @@
 .about-chips span{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#DCE4F3}
 @media (max-width:860px){.about-merged{grid-template-columns:1fr;padding:32px 22px;gap:32px}}
 </style>
+<style>
+.hero-role{display:block;font-size:17px;font-weight:600;color:var(--blue-700);letter-spacing:-.01em;margin:0}
+.hero-role .dot{display:inline-block;vertical-align:middle;margin:-3px 12px 0 2px;width:9px;height:9px;border-radius:50%;background:var(--blue-600);box-shadow:0 0 0 4px rgba(36,89,224,.18);flex:none}
+.hero-role .sep{color:var(--blue-200);margin:0 4px}
+.prev-at{display:flex;align-items:center;flex-wrap:wrap;gap:14px 28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.prev-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.prev-logo{display:inline-flex;align-items:center;gap:9px;color:var(--ink)}
+.prev-logo b{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.prev-spotify svg{fill:#1DB954}
+.prev-groupon svg{fill:#53A318}
+.hero-role .nw{white-space:nowrap}
+@media (max-width:600px){.prev-at{gap:12px 24px}.prev-label{flex-basis:100%}.prev-logo b{font-size:19px}.hero-role{font-size:15.5px}.hero-role .sep{display:none}.hero-role .nw+.sep+.nw{display:block;padding-left:23px}}
+.metrics-label{text-align:left;margin:0 0 14px}
+</style>
 </head>
 <body>
 
@@ -56,12 +70,17 @@
   <header class="hero">
     <div class="container hero-grid">
       <div class="fade-in">
-        <span class="chip"><span class="dot"></span>Learning design + AI enablement</span>
+        <p class="hero-role"><span class="dot"></span><span class="nw">Senior Learning Experience Designer</span> <span class="sep">&middot;</span> <span class="nw">AI enablement lead</span></p>
         <h1>I figure out what teams need to learn, I build the experiences that teach it, <span class="hl">and I measure success by what people do differently.</span></h1>
-        <p class="hero-sub">8+ years of onboarding, certification, product education, release readiness, and compliance programs for thousands of learners worldwide.</p>
+        <p class="hero-sub">I&rsquo;ve designed onboarding, certification, release readiness, and compliance training for thousands of people over 8+ years, and I build with AI every day, from interactive simulations to full content pipelines.</p>
         <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">See the work &rarr;</a>
+          <a href="#work" class="btn btn-primary">See my work &rarr;</a>
           <a href="https://www.linkedin.com/in/lauradewing" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        </div>
+        <div class="prev-at" aria-label="Previously at Spotify and Groupon">
+          <span class="prev-label">Previously at</span>
+          <span class="prev-logo prev-spotify"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg><b>Spotify</b></span>
+          <span class="prev-logo prev-groupon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.316 20.334C5.618 22.736 8.554 24 12.012 24c3.988 0 7.739-1.95 9.978-5.163 1.353-1.95 2.01-4.158 2.01-6.755 0-.484-.032-1.006-.063-1.529H10.595v4.61h6.687c-1.155 2.012-3.094 3.12-5.27 3.12-3.229 0-6.125-2.824-6.125-6.497 0-3.315 2.699-6.069 6.125-6.069 1.844 0 3.355.749 4.811 2.239h6.52C21.468 3.019 17.084 0 12.083 0c-3.323 0-6.22 1.17-8.53 3.409C1.25 5.647 0 8.572 0 11.754c-.008 3.417 1.108 6.271 3.316 8.58z"/></svg><b>Groupon</b></span>
         </div>
       </div>
       <div class="stack fade-in">
@@ -79,12 +98,12 @@
   </header>
 
   <section class="container fade-in metrics-wrap" aria-label="Results">
-    <p class="scribble scribble-metrics" aria-hidden="true">outcomes I can measure <svg class="arrow-down" viewBox="0 0 44 48" width="36" height="40"><path d="M3 9 C 18 3, 32 10, 30 42 M23 34 L30 44 L37 35" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+    <p class="eyebrow metrics-label">Outcomes I can measure</p>
     <div class="metrics">
       <div class="metric"><b>33<em>%</em></b><span>faster ramp for 2,000+ global support advisors</span></div>
       <div class="metric"><b>25<em>%</em></b><span>fewer critical privacy errors, held for 12 months</span></div>
       <div class="metric"><b>$50K<em>/yr</em></b><span>saved by automating L&amp;D tools and processes</span></div>
-      <div class="metric"><b>$680K<em>+</em></b><span>projected first-year benefit from the AI learning platform I&rsquo;m rolling out</span></div>
+      <div class="metric"><b>$680K<em>+</em></b><span>projected first-year benefit from the AI learning platform I made the business case for and now lead</span></div>
     </div>
   </section>
 
