@@ -14,9 +14,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
   <meta name="description" content="A prototype: reply to an angry customer out loud or in writing and get feedback against a 5-part de-escalation rubric. Built by Laura Dewing.">
-  <link rel="stylesheet" href="style.css?v=20261104d">
+  <link rel="stylesheet" href="style.css?v=20261120a">
   <style>
-    .coach { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; margin: 32px 0 8px; }
+    .coach { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; margin: 32px 0 8px; }
     .coach-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 1px solid var(--line); background: #FAFBFD; }
     .coach-steps { display: flex; gap: 6px; }
     .coach-steps span { width: 28px; height: 6px; border-radius: 99px; background: var(--line-2); }
@@ -27,13 +27,13 @@
     .cust { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
     .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--blue-100); color: var(--blue-700); display: grid; place-items: center; font-weight: 600; }
     .cust .who { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-    .cust .say { background: #F3F5F9; border: 1px solid var(--line); border-radius: 4px 14px 14px 14px; padding: 12px 14px; color: var(--ink); font-size: 16px; line-height: 1.55; }
+    .cust .say { background: #F3F5F9; border: 1px solid var(--line); border-radius: 4px 8px 8px 8px; padding: 12px 14px; color: var(--ink); font-size: 16px; line-height: 1.55; }
     .ctx { font-size: 14px; color: var(--muted); }
     label.lbl { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
-    textarea { width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; line-height: 1.5; }
+    textarea { width: 100%; min-height: 120px; resize: vertical; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line-2); border-radius: 7px; padding: 12px 14px; line-height: 1.5; }
     textarea:focus-visible, .cbtn:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
     .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .cbtn { font: inherit; font-size: 15px; font-weight: 500; border-radius: 10px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); display: inline-flex; gap: 8px; align-items: center; }
+    .cbtn { font: inherit; font-size: 15px; font-weight: 500; border-radius: 6px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); display: inline-flex; gap: 8px; align-items: center; }
     .cbtn.primary { background: var(--blue-600); border-color: var(--blue-600); color: #fff; }
     .cbtn.primary:hover { background: var(--blue-700); }
     .cbtn:disabled { opacity: .5; cursor: not-allowed; }
@@ -47,14 +47,14 @@
     .total b { font-size: 34px; letter-spacing: -0.03em; color: var(--blue-600); font-weight: 600; font-variant-numeric: tabular-nums; }
     .total span { color: var(--ink-2); }
     .crit { display: grid; gap: 8px; }
-    .ci { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
+    .ci { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; }
     .ci h4 { font-size: 15px; margin: 0; }
     .ci p { grid-column: 1 / -1; font-size: 14px; margin: 0; color: var(--ink-2); }
     .pips { display: flex; gap: 4px; align-items: center; }
     .pips i { width: 18px; height: 8px; border-radius: 99px; background: var(--line-2); }
     .pips i.on { background: var(--blue-600); }
     .quote { border-left: 3px solid var(--blue-500); padding: 4px 0 4px 14px; font-style: italic; color: var(--ink); }
-    .tip { background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: 12px; padding: 12px 14px; color: var(--blue-900); font-size: 15px; }
+    .tip { background: var(--blue-50); border: 1px solid var(--blue-200); border-radius: 7px; padding: 12px 14px; color: var(--blue-900); font-size: 15px; }
     .tip b { display: block; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--blue-700); margin-bottom: 4px; font-weight: 500; }
     .mode { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
     .mode::before { content: 'i'; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--mono); font-size: 11px; margin-top: 1px; }
