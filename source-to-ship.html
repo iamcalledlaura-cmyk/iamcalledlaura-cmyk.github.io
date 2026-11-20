@@ -3,20 +3,342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Converting live training with AI | Laura Dewing</title>
+  <title>A week of live training, rebuilt with AI | Laura Dewing</title>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Converting live training with AI | Laura Dewing">
-  <meta property="og:description" content="Converting multi-day live training into self-paced eLearning with an AI-assisted pipeline and a human review gate at every stage. Case study by Laura Dewing.">
+  <meta property="og:title" content="A week of live training, rebuilt with AI | Laura Dewing">
+  <meta property="og:description" content="How I turn week-long live courses into self-paced eLearning with an AI-assisted pipeline and a human gate at every stage. Case study by Laura Dewing.">
   <meta property="og:url" content="https://iamcalledlaura-cmyk.github.io/source-to-ship.html">
   <meta property="og:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://iamcalledlaura-cmyk.github.io/images/og-card.jpg">
-  <meta name="description" content="Converting multi-day live training into self-paced eLearning with an AI-assisted pipeline and a human review gate at every stage. Case study by Laura Dewing.">
+  <meta name="description" content="How I turn week-long live courses into self-paced eLearning with an AI-assisted pipeline and a human gate at every stage. Case study by Laura Dewing.">
   <link rel="stylesheet" href="style.css?v=20261104d">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#FFFBF4; --ink-s:#1F1A14; --sun:#FFD66B; --mint:#5CE1A8; --rose:#FF8FA3; --lav:#B9A6FF; --red:#E5484D; --hand:'Caveat',cursive; --serif:'Fraunces',Georgia,serif; }
+    body { background: var(--cream); }
+    .nav { background: rgba(255,251,244,.92); }
+    .sb { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .cs-section { padding-top: 56px; }
+    .cs-section h2, .cs-hero h1 { font-family: var(--serif); color: var(--ink-s); }
+    .cs-section h2 { font-size: clamp(28px,3.4vw,40px); margin: 4px 0 12px; }
+    .cs-section > p, .sb > p { max-width: 680px; }
+    .hand { font: 700 22px/1.1 var(--hand); color: var(--blue-600); }
+    .ch { font: 700 20px var(--hand); color: var(--blue-600); display:block; }
+    .card-s { background:#fff; border:2.5px solid var(--ink-s); border-radius:16px; box-shadow:5px 5px 0 var(--ink-s); }
+    .stk { display:inline-block; font:700 12.5px 'Space Grotesk',sans-serif; color:var(--ink-s); border:2px solid var(--ink-s); border-radius:99px; padding:3px 10px; white-space:nowrap; }
+    .s-cut { background:#E7EBF2; } .s-aid { background:var(--sun); } .s-red { background:var(--rose); } .s-con { background:#C9D9FF; } .s-ok { background:var(--mint); }
+    .bob { animation: bob 2.6s ease-in-out infinite; } @keyframes bob { 50% { transform: translateY(-6px); } }
+    .blink { animation: blink 4s infinite; transform-origin:center; transform-box:fill-box; } @keyframes blink { 0%,92%,100% { transform:scaleY(1); } 95% { transform:scaleY(.1); } }
+    .steam { animation: steam 1.4s ease-in-out infinite; } @keyframes steam { 50% { transform:translateY(-4px); opacity:.3; } }
+    .stamp { animation: stamp 3s ease-in-out infinite; transform-origin:center; transform-box:fill-box; } @keyframes stamp { 0%,60%,100% { transform:translateY(0); } 70% { transform:translateY(8px); } }
+
+    /* hero */
+    .cs-hero { padding: 48px 0 8px; }
+    .cs-hero h1 { font-weight:800; font-size: clamp(36px,5vw,60px); letter-spacing:-.03em; margin: 6px 0 12px; }
+    .cs-hero h1 u { text-decoration:none; background: linear-gradient(transparent 62%, var(--sun) 62%); }
+    .cs-hero .lede { font-size: 20px; color:#3A3226; }
+    .strip { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0 8px; }
+    .panel { padding:12px 12px 14px; position:relative; }
+    .panel svg { width:100%; height:auto; display:block; background:#F3F7FF; border-radius:10px; }
+    .panel p { font:700 19px/1.15 var(--hand); color:var(--ink-s); margin-top:10px; }
+    .panel .n { position:absolute; top:-12px; left:14px; background:var(--sun); border:2px solid var(--ink-s); border-radius:99px; font:700 12px var(--mono); padding:2px 9px; }
+    .meta-s { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:26px; }
+    .meta-s > div { background:#fff; border:2px solid var(--ink-s); border-radius:12px; padding:10px 12px; display:grid; grid-template-columns:40px 1fr; gap:10px; align-items:center; }
+    .meta-s .mi { width:40px; height:44px; display:block; }
+    .meta-s p { margin:0; line-height:1.3; }
+    .lc-cons .ci { width:28px; height:28px; display:block; margin-bottom:4px; }
+    .meta-s small { display:block; font:500 10.5px var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .meta-s span { font-size:14px; color:var(--ink-s); font-weight:500; line-height:1.3; }
+    .psst { font:700 19px var(--hand); color:var(--muted); margin-top:12px; }
+    @media (max-width:760px) { .meta-s { grid-template-columns:1fr 1fr; } }
+    /* cast / learner */
+    .scene { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin:22px 0; }
+    .scene .card-s { padding:16px; }
+    .row-c { display:grid; grid-template-columns:64px 1fr; gap:12px; align-items:start; margin-top:10px; }
+    .row-c svg { width:64px; height:80px; }
+    .bub { border:2px solid var(--ink-s); border-radius:14px; padding:10px 12px; font-size:15px; background:#fff; position:relative; }
+    .bub.gray { background:#F1F2F5; } .bub.blue { background:var(--blue-50); border-color:var(--blue-600); }
+    .bub.angry { background:#FFF0F2; }
+    .tagline { font:700 18px var(--hand); }
+    .cons { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+    .con { padding:14px; }
+    .con .ic { font-size:26px; line-height:1; }
+    .con small { display:block; font-size:13px; color:var(--muted); margin:8px 0 4px; line-height:1.35; }
+    .con b { display:block; font-size:14.5px; color:var(--ink-s); line-height:1.3; }
+
+
+    /* chapter 2 comic */
+    .flip { display:inline-flex; border:2.5px solid var(--ink-s); border-radius:99px; overflow:hidden; margin:18px 0 14px; box-shadow:3px 3px 0 var(--ink-s); }
+    .flip button { font:600 14px var(--sans); padding:8px 16px; background:#fff; border:0; cursor:pointer; color:var(--ink-s); }
+    .flip button[aria-pressed=true] { background:var(--ink-s); color:#fff; }
+    .comic { display:grid; grid-template-columns:1fr 1.25fr 1fr; gap:14px; }
+    .cp { padding:16px 14px 14px; position:relative; display:flex; flex-direction:column; gap:10px; }
+    .cp .n { position:absolute; top:-12px; left:14px; background:var(--sun); border:2px solid var(--ink-s); border-radius:99px; font:700 12px var(--mono); padding:2px 9px; }
+    .cp-art { background:#F3F7FF; border-radius:10px; height:120px; display:grid; place-items:center; }
+    .cp-art svg { width:80px; height:100px; }
+    .cp-out { font:700 22px/1.15 var(--hand); color:var(--red); text-align:center; margin:auto 0 0; }
+    .comic[data-v=today] .v-goal, .comic[data-v=goal] .v-today { display:none; }
+    .comic[data-v=goal] .cp:nth-child(3) .cp-art { background:#E8FBF2; }
+    .flip-hint { font:700 18px var(--hand); color:var(--blue-600); margin-top:8px; }
+    .learner { margin-top:22px; padding:18px 20px; }
+    .lc-who { display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center; }
+    .lc-who svg { width:64px; height:80px; }
+    .lc-who b { display:block; font-size:18px; color:var(--ink-s); }
+    .lc-sub { font-size:14px; color:var(--muted); }
+    .lc-stats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0; }
+    .lc-stats div { background:#F7F4EC; border-radius:10px; padding:10px 12px; font-size:14.5px; color:var(--ink-s); }
+    .lc-stats small { display:block; font:500 10.5px var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+    .lc-cons { list-style:none; margin:0; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .lc-cons li { padding:10px 0 0; border-top:1.5px dashed #E1D7C3; font-size:13.5px; }
+    .lc-cons span { color:var(--muted); display:block; margin-bottom:3px; }
+    .lc-cons b { color:var(--ink-s); font-weight:600; font-size:14.5px; line-height:1.3; display:block; }
+    @media (max-width:760px) { .comic, .lc-stats { grid-template-columns:1fr; } .lc-cons { grid-template-columns:1fr 1fr; } }
+    /* merrill */
+    .merrill { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:18px 0 6px; }
+    .mp { padding:12px; }
+    .mp .no { width:30px; height:30px; border-radius:50%; background:var(--sun); border:2px solid var(--ink-s); display:grid; place-items:center; font:700 12px var(--mono); }
+    .mp h4 { font-size:15px; margin:10px 0 4px; color:var(--ink-s); }
+    .mp p { font-size:13.5px; line-height:1.4; margin:0; }
+    .gagne { display:flex; height:40px; border:2.5px solid var(--ink-s); border-radius:10px; overflow:hidden; margin:10px 0 4px; }
+    .gagne div { display:flex; align-items:center; justify-content:center; font:600 11px var(--mono); color:#fff; border-left:2px solid var(--ink-s); }
+    .gagne div:first-child { border-left:0; }
+    .gagne-k { display:flex; justify-content:space-between; font-size:12.5px; color:var(--muted); }
+    .mayer { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .mayer span { background:#fff; border:2px solid var(--ink-s); border-radius:12px; padding:8px 12px; font-size:14px; box-shadow:3px 3px 0 var(--ink-s); }
+    .mayer b { color:var(--blue-700); }
+
+    /* belt */
+    .belt { padding:18px 16px 14px; margin-top:18px; }
+    .stations { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
+    .st { font:700 13.5px 'Space Grotesk',sans-serif; color:var(--ink-s); border:2.5px solid var(--ink-s); border-radius:12px; padding:10px 6px; cursor:pointer; text-align:center; transition:transform .12s; }
+    .st small { display:block; font:500 10px var(--mono); color:#33415C; margin-top:3px; letter-spacing:.04em; }
+    .st:hover { transform: translateY(-2px); }
+    .st[aria-pressed=true] { box-shadow:0 0 0 3px #fff, 0 0 0 6px var(--ink-s); }
+    .st.a { background:#C9D9FF; } .st.d { background:var(--sun); } .st.v { background:var(--mint); } .st.i { background:var(--rose); } .st.e { background:var(--lav); }
+    .track { position:relative; height:58px; margin-top:8px; }
+    .track .rail { position:absolute; left:0; right:0; bottom:6px; height:22px; background:#33415C; border:2.5px solid var(--ink-s); border-radius:12px; }
+    .track .pp { position:absolute; bottom:28px; width:26px; animation: ride 10s linear infinite; }
+    .track .pp:nth-child(3) { animation-delay:-3.3s; } .track .pp:nth-child(4) { animation-delay:-6.6s; }
+    @keyframes ride { from { left:-4%; } to { left:100%; } }
+    .gates { display:grid; grid-template-columns:repeat(7,1fr); position:absolute; inset:0 0 auto 0; }
+    .gates i { justify-self:center; width:20px; height:20px; border-radius:50%; background:#18A058; border:2px solid var(--ink-s); color:#fff; font:700 11px/16px var(--sans); text-align:center; font-style:normal; }
+    .loop { font:700 19px var(--hand); color:var(--blue-600); text-align:center; margin-top:4px; }
+    .st-info { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:16px 18px; margin-top:14px; }
+    .st-info label { font:500 11px var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--muted); display:flex; gap:8px; align-items:center; }
+    .st-info p { margin:6px 0 0; font-size:15px; }
+    .gate-pair { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px; align-items:start; }
+    .prompt { font:12.5px/1.65 var(--mono); color:#C9D3E6; background:var(--ink); border-radius:0 0 13px 13px; padding:16px 18px; white-space:pre-wrap; }
+    .prompt em { color:var(--sky); font-style:normal; } .prompt .c { color:#7C89A3; }
+    .fb { display:flex; gap:6px; align-items:center; padding:9px 14px; border-bottom:2.5px solid var(--ink-s); font:500 11px var(--mono); color:var(--muted); }
+    .fb i { width:9px; height:9px; border-radius:50%; background:#E2E8F2; border:1.5px solid var(--ink-s); }
+    .dark .fb { background:#15213D; color:#8C9AB5; }
+    .rubric { list-style:none; margin:0; padding:4px 16px 8px; }
+    .rubric li { display:grid; grid-template-columns:22px 1fr; gap:10px; padding:8px 0; border-top:1px solid var(--line); font-size:13.5px; line-height:1.35; }
+    .rubric li:first-child { border-top:0; }
+    .rubric .ck { width:20px; height:20px; border-radius:6px; display:grid; place-items:center; font-size:12px; font-weight:700; }
+    .rubric .ok .ck { background:var(--mint); } .rubric .no .ck { background:#FFE0E0; color:var(--red); }
+    .score { display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-top:2.5px solid var(--ink-s); font:700 18px var(--hand); }
+    .score b { font:700 24px 'Space Grotesk',sans-serif; color:var(--red); }
+
+    /* triage + conversion */
+    .tree { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0 26px; }
+    .tq { padding:14px; display:flex; flex-direction:column; gap:10px; }
+    .tq p { font-size:14.5px; font-weight:600; color:var(--ink-s); margin:0; line-height:1.3; }
+    .tq .ans { margin-top:auto; display:flex; align-items:center; gap:8px; font:500 11px var(--mono); color:var(--muted); text-transform:uppercase; }
+    .days-s { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 14px; }
+    .days-s span { font-size:13px; border:2px solid var(--ink-s); border-radius:10px; padding:5px 10px; background:#fff; }
+    .days-s span.on { background:var(--blue-600); color:#fff; }
+    .cmap { border:2.5px solid var(--ink-s); box-shadow:5px 5px 0 var(--ink-s); border-radius:16px; }
+    .cmap-row .sp-cell .stk { display:table; margin-bottom:5px; font-size:11px; padding:1px 8px; }
+    .cmap-total .sp { font-family: var(--serif); }
+
+    /* practice */
+    .swaps { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:18px 0 22px; }
+    .swap { padding:14px 16px; display:grid; grid-template-columns:1fr 24px 1.3fr; gap:8px; align-items:center; font-size:14.5px; }
+    .swap .was { color:var(--muted); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness:2px; }
+    .swap .ar { font-size:18px; color:var(--blue-600); text-align:center; }
+    .swap .now { color:var(--ink-s); font-weight:500; }
+    .scn { padding:0; overflow:hidden; }
+    .scn-body { padding:18px; }
+    .who { display:grid; grid-template-columns:70px 1fr; gap:12px; align-items:start; }
+    .who svg { width:70px; height:88px; }
+    .choice { border:2px solid var(--ink-s); border-radius:10px; padding:9px 12px; margin-top:8px; font-size:14.5px; background:#fff; }
+    .choice.ok { background:var(--blue-50); border-color:var(--blue-600); }
+    .why { font:700 19px/1.2 var(--hand); color:var(--ink-s); margin-top:12px; }
+    .proto-cta { border:2.5px solid var(--ink-s); box-shadow:5px 5px 0 var(--ink-s); }
+
+
+    /* playable scenario */
+    .pl-ctx { font:700 18px/1.2 var(--hand); color:var(--blue-600); margin:12px 0 4px; }
+    .pl-choice { display:block; width:100%; text-align:left; font:inherit; font-size:14.5px; cursor:pointer; transition:transform .12s, background .12s; color:var(--ink-s); }
+    .pl-choice:hover:not(:disabled) { transform:translateX(3px); background:var(--blue-50); }
+    .pl-choice:disabled { cursor:default; opacity:.55; }
+    .pl-choice.ok, .pl-choice.miss { opacity:1; }
+    .pl-choice.miss { background:#FFF0F2; border-color:var(--red); }
+    .pl-fb { margin-top:12px; border-radius:12px; padding:12px 14px; font-size:14.5px; border:2px solid var(--ink-s); }
+    .pl-fb.good { background:#E8FBF2; }
+    .pl-fb.bad { background:#FFF6E5; }
+    .pl-why { display:block; font:700 19px/1.2 var(--hand); color:var(--red); margin-top:6px; }
+    .pl-btn { margin-top:10px; display:inline-block; font:600 14px var(--sans); background:var(--ink-s); color:#fff; border:0; border-radius:99px; padding:8px 16px; cursor:pointer; }
+    .pl-btn:hover { background:var(--blue-600); }
+    .pl-end { margin-top:12px; }
+    .pl-win { font:700 24px var(--hand); color:#18A058; margin:0 0 6px; }
+    .pl-rub { padding:0; }
+    .pl-tries { font-size:14px; color:var(--muted); margin:8px 0 0; }
+
+    /* find the moment */
+    .fm-top { display:grid; grid-template-columns:1fr auto; gap:14px; align-items:stretch; }
+    .fm-k { display:block; font:500 10.5px var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .fm-task { background:var(--blue-50); border:2px solid var(--ink-s); border-radius:12px; padding:10px 14px; }
+    .fm-task p { margin:0; font-size:15px; color:var(--ink-s); }
+    .fm-score { background:var(--sun); border:2px solid var(--ink-s); border-radius:12px; padding:10px 14px; text-align:center; min-width:110px; }
+    .fm-score b { display:block; font:800 26px var(--serif); color:var(--ink-s); }
+    .fm-score span:last-child { font-size:12px; color:var(--ink-s); }
+    .fm-bar { position:relative; height:34px; margin:16px 0 10px; border:2px solid var(--ink-s); border-radius:10px; background:#F3F7FF; overflow:hidden; }
+    .fm-wave { position:absolute; inset:8px 6px; background:repeating-linear-gradient(90deg,#C9D9FF 0 3px,transparent 3px 7px); -webkit-mask:linear-gradient(#000,#000); opacity:.9; }
+    .fm-mark { position:absolute; top:4px; bottom:4px; width:4px; border-radius:2px; margin-left:-2px; }
+    .fm-mark.sam { background:var(--blue-600); } .fm-mark.cus { background:var(--rose); }
+    .fm-head { position:absolute; top:0; bottom:0; width:3px; background:var(--red); transition:left .35s ease; }
+    .fm-lines { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+    .fm-line { width:100%; display:grid; grid-template-columns:44px 74px 1fr; gap:8px; align-items:baseline; text-align:left; font:inherit; font-size:14.5px; color:var(--ink-s); background:#fff; border:2px solid var(--line); border-radius:10px; padding:8px 12px; cursor:pointer; transition:border-color .12s, transform .12s; }
+    .fm-line:hover:not(:disabled) { border-color:var(--ink-s); transform:translateX(3px); }
+    .fm-line:disabled { cursor:default; opacity:.5; }
+    .fm-line.hit { opacity:1; border-color:var(--red); background:#FFF0F2; }
+    .fm-line.miss { border-color:#E9C46A; background:#FFF9EC; }
+    .fm-t { font:500 12px var(--mono); color:var(--muted); }
+    .fm-who { font:600 12px var(--mono); text-transform:uppercase; letter-spacing:.04em; }
+    .fm-line.sam .fm-who { color:var(--blue-700); } .fm-line.cus .fm-who { color:#B4234A; }
+    .fm-note { grid-column:2 / -1; font:700 19px/1.15 var(--hand); color:var(--red); margin-top:2px; }
+    .fm-sum { font-size:15px; color:var(--ink-s); margin:0 0 4px; }
+    @media (max-width:760px) { .fm-top { grid-template-columns:1fr; } .fm-line { grid-template-columns:40px 1fr; } .fm-s { grid-column:1 / -1; } }
+    .fm-how { list-style:none; counter-reset:h; display:flex; flex-wrap:wrap; gap:6px 14px; margin:8px 0 0; padding:0; font-size:13.5px; color:var(--ink-s); }
+    .fm-how li { counter-increment:h; display:flex; align-items:center; gap:6px; }
+    .fm-how li::before { content:counter(h); width:20px; height:20px; border-radius:50%; background:var(--sun); border:2px solid var(--ink-s); display:grid; place-items:center; font:700 11px var(--mono); }
+    /* steered */
+    .fixes { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px; }
+    .fix { padding:16px 18px; }
+    .fix .top { display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
+    .fix h4 { font-size:15.5px; color:var(--ink-s); }
+    .fix .was { font-size:14px; color:var(--muted); text-decoration:line-through; text-decoration-color:var(--red); text-decoration-thickness:2px; }
+    .fix .pen { font:700 19px/1.15 var(--hand); color:var(--red); margin:6px 0; }
+    .fix .now { font-size:14.5px; color:var(--ink-s); background:var(--blue-50); border-left:3px solid var(--blue-600); padding:8px 10px; border-radius:6px; }
+    .meme { display:grid; grid-template-columns:1fr 1fr; overflow:hidden; margin-top:26px; }
+    .meme > div { padding:14px; }
+    .meme > div + div { border-left:2.5px solid var(--ink-s); }
+    .meme h4 { font:700 20px 'Space Grotesk',sans-serif; text-transform:uppercase; text-align:center; margin-bottom:8px; color:var(--ink-s); }
+    .meme svg { width:100%; height:auto; display:block; border-radius:10px; }
+    .meme p { font:700 18px/1.15 var(--hand); text-align:center; color:var(--ink-s); margin-top:8px; }
+
+    /* evidence ladder */
+    .ladder { display:grid; grid-template-columns:repeat(8,1fr); gap:6px; align-items:end; height:300px; margin:22px 0 8px; position:relative; }
+    .rung { border:2.5px solid var(--ink-s); border-radius:10px 10px 4px 4px; padding:8px 6px; display:flex; flex-direction:column; justify-content:flex-start; position:relative; }
+    .rung b { font:700 13px/1.2 var(--sans); color:var(--ink-s); }
+    .rung span { font-size:12px; line-height:1.25; color:var(--ink-s); margin-top:3px; font-weight:500; }
+    .rung em { font-style:normal; font:500 10px var(--mono); color:var(--blue-700); margin-top:3px; }
+    .rung.low { background:#F1F2F5; }
+    .rung.pilot { background:#C9D9FF; }
+    .rung.later { background: repeating-linear-gradient(45deg,#fff,#fff 6px,#EEF3FF 6px,#EEF3FF 12px); border-style:dashed; }
+    .climber { position:absolute; width:60px; top:-74px; left:50%; margin-left:-30px; }
+    .fine { font-size:13px; color:var(--muted); margin-top:10px; max-width:680px; }
+    .lad-key { display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--muted); }
+    .lad-key i { display:inline-block; width:12px; height:12px; border:2px solid var(--ink-s); border-radius:3px; vertical-align:-1px; margin-right:6px; }
+    .notes { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:22px 0; }
+    .sticky { background:var(--sun); padding:14px 16px 16px; box-shadow:3px 4px 0 rgba(31,26,20,.25); font-size:14.5px; color:var(--ink-s); }
+    .sticky:nth-child(1) { transform:rotate(-1.5deg); } .sticky:nth-child(2) { transform:rotate(1deg); background:#C9F2DF; } .sticky:nth-child(3) { transform:rotate(-.6deg); background:#FFD6DE; }
+    .sticky .h { font:700 20px/1.1 var(--hand); display:block; margin-bottom:6px; }
+    .stand { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .stand div { padding:14px 16px; }
+    .stand b { font:800 26px var(--serif); color:var(--ink-s); display:block; }
+    .stand span { font-size:14px; }
+
+    .next-cs a.big { font-family: var(--serif); }
+
+    @media (max-width: 760px) {
+      .strip, .scene, .gate-pair, .fixes, .meme, .swaps, .notes, .stand { grid-template-columns:1fr; }
+      .meme > div + div { border-left:0; border-top:2.5px solid var(--ink-s); }
+      .cons, .tree { grid-template-columns:1fr 1fr; }
+      .merrill { grid-template-columns:1fr; }
+      .stations, .gates { grid-template-columns:repeat(7, 84px); }
+      .belt { overflow-x:auto; }
+      .track { width: calc(7 * 84px + 48px); }
+      .st-info { grid-template-columns:1fr; }
+      .ladder { grid-template-columns:repeat(8, 84px); overflow-x:auto; padding-top:80px; height:380px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bob,.blink,.steam,.stamp,.track .pp { animation:none !important; } }
+  </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bot" viewBox="0 0 80 100">
+      <line x1="40" y1="4" x2="40" y2="16" stroke="#1F1A14" stroke-width="2.5"/>
+      <circle cx="40" cy="5" r="4.5" fill="#FF6B6B" stroke="#1F1A14" stroke-width="2"/>
+      <rect x="12" y="16" width="56" height="42" rx="14" fill="#7FB2FF" stroke="#1F1A14" stroke-width="2.5"/>
+      <rect x="20" y="25" width="40" height="22" rx="9" fill="#fff" stroke="#1F1A14" stroke-width="2"/>
+      <g class="blink"><circle cx="32" cy="36" r="3.5" fill="#1F1A14"/><circle cx="48" cy="36" r="3.5" fill="#1F1A14"/></g>
+      <rect x="20" y="62" width="40" height="30" rx="10" fill="#2459E0" stroke="#1F1A14" stroke-width="2.5"/>
+      <rect x="31" y="70" width="18" height="12" rx="3" fill="#FFD66B" stroke="#1F1A14" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="designer" viewBox="0 0 80 100">
+      <circle cx="40" cy="14" r="9" fill="#5A3B2E" stroke="#1F1A14" stroke-width="2.2"/>
+      <circle cx="40" cy="32" r="16" fill="#F4C7A1" stroke="#1F1A14" stroke-width="2.5"/>
+      <path d="M24 30 Q26 14 40 15 Q55 15 56 30 Q50 22 40 23 Q30 23 24 30Z" fill="#5A3B2E" stroke="#1F1A14" stroke-width="2"/>
+      <circle cx="34" cy="34" r="4.5" fill="none" stroke="#1F1A14" stroke-width="1.8"/><circle cx="46" cy="34" r="4.5" fill="none" stroke="#1F1A14" stroke-width="1.8"/>
+      <line x1="38.5" y1="34" x2="41.5" y2="34" stroke="#1F1A14" stroke-width="1.8"/>
+      <path d="M35 42 Q40 45 45 42" fill="none" stroke="#1F1A14" stroke-width="2" stroke-linecap="round"/>
+      <path d="M14 98 Q14 54 40 52 Q66 54 66 98Z" fill="#FFD66B" stroke="#1F1A14" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="cust" viewBox="0 0 80 100">
+      <g class="steam"><path d="M22 10 q-4 -6 0 -10" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M58 10 q4 -6 0 -10" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+      <circle cx="40" cy="32" r="17" fill="#E8B48C" stroke="#1F1A14" stroke-width="2.5"/>
+      <path d="M22 30 Q22 12 40 13 Q58 12 58 30 L58 44 Q54 34 52 26 Q40 22 28 26 Q26 34 22 44Z" fill="#2B2B3A" stroke="#1F1A14" stroke-width="2"/>
+      <path d="M30 29 l6 3 M50 29 l-6 3" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="34" cy="35" r="2.6" fill="#1F1A14"/><circle cx="46" cy="35" r="2.6" fill="#1F1A14"/>
+      <path d="M34 44 Q40 40 46 44" fill="none" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 98 Q14 56 40 54 Q66 56 66 98Z" fill="#FF8FA3" stroke="#1F1A14" stroke-width="2.5"/>
+      <rect x="56" y="26" width="10" height="18" rx="3" fill="#1F1A14"/>
+    </symbol>
+    <symbol id="cust-calm" viewBox="0 0 80 100">
+      <circle cx="40" cy="32" r="17" fill="#E8B48C" stroke="#1F1A14" stroke-width="2.5"/>
+      <path d="M22 30 Q22 12 40 13 Q58 12 58 30 L58 44 Q54 34 52 26 Q40 22 28 26 Q26 34 22 44Z" fill="#2B2B3A" stroke="#1F1A14" stroke-width="2"/>
+      <path d="M31 35 q3 -3 6 0 M43 35 q3 -3 6 0" fill="none" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M34 42 Q40 47 46 42" fill="none" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 98 Q14 56 40 54 Q66 56 66 98Z" fill="#FF8FA3" stroke="#1F1A14" stroke-width="2.5"/>
+      <rect x="56" y="26" width="10" height="18" rx="3" fill="#1F1A14"/>
+    </symbol>
+    <symbol id="agent" viewBox="0 0 80 100">
+      <circle cx="40" cy="32" r="17" fill="#C68B5E" stroke="#1F1A14" stroke-width="2.5"/>
+      <path d="M23 30 Q24 13 40 13 Q56 13 57 30 Q50 21 40 21 Q30 21 23 30Z" fill="#1F1A14"/>
+      <path d="M21 34 Q21 12 40 12 Q59 12 59 34" fill="none" stroke="#2459E0" stroke-width="3.5"/>
+      <rect x="16" y="30" width="8" height="12" rx="3" fill="#2459E0" stroke="#1F1A14" stroke-width="1.8"/>
+      <path d="M20 42 Q22 50 32 48" fill="none" stroke="#1F1A14" stroke-width="2"/>
+      <circle cx="34" cy="34" r="2.6" fill="#1F1A14"/><circle cx="46" cy="34" r="2.6" fill="#1F1A14"/>
+      <path d="M34 42 Q40 47 46 42" fill="none" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 98 Q14 56 40 54 Q66 56 66 98Z" fill="#5CE1A8" stroke="#1F1A14" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="agent-worried" viewBox="0 0 80 100">
+      <circle cx="40" cy="32" r="17" fill="#C68B5E" stroke="#1F1A14" stroke-width="2.5"/>
+      <path d="M23 30 Q24 13 40 13 Q56 13 57 30 Q50 21 40 21 Q30 21 23 30Z" fill="#1F1A14"/>
+      <path d="M21 34 Q21 12 40 12 Q59 12 59 34" fill="none" stroke="#2459E0" stroke-width="3.5"/>
+      <rect x="16" y="30" width="8" height="12" rx="3" fill="#2459E0" stroke="#1F1A14" stroke-width="1.8"/>
+      <circle cx="34" cy="35" r="2.6" fill="#1F1A14"/><circle cx="46" cy="35" r="2.6" fill="#1F1A14"/>
+      <path d="M34 45 Q40 41 46 45" fill="none" stroke="#1F1A14" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M60 24 q3 5 0 8 q-3 -3 0 -8z" fill="#7FB2FF"/>
+      <path d="M14 98 Q14 56 40 54 Q66 56 66 98Z" fill="#C9D3E6" stroke="#1F1A14" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="i-books" viewBox="0 0 32 32"><rect x="5" y="20" width="22" height="6" rx="1.5" fill="#FF8FA3" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="7" y="13" width="20" height="6" rx="1.5" fill="#5CE1A8" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="5" y="6" width="22" height="6" rx="1.5" fill="#7FB2FF" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-cone" viewBox="0 0 32 32"><path d="M16 4 L24 26 H8 Z" fill="#FFD66B" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5 17 H20.5 M13.5 11.5 H18.5" stroke="#1F1A14" stroke-width="3"/><rect x="5" y="25" width="22" height="4" rx="1.5" fill="#33415C" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 32 32"><circle cx="16" cy="17" r="11" fill="#FFD66B" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M16 11 V17 L20 20" fill="none" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M13 4 H19" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 32 32"><path d="M4 27 V21 H11 V15 H18 V9 H27 V27 Z" fill="#C9D9FF" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="23" cy="5.5" r="2.5" fill="#FF6B6B" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#7FB2FF" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M9 9 q4 3 2 7 q-2 3 2 6 M20 6 q-2 4 2 6 q4 1 3 6" fill="none" stroke="#1F1A14" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12 q3 1 4 4 q0 3 -2 5 q-3 -2 -4 -6z" fill="#5CE1A8" stroke="#1F1A14" stroke-width="1.6"/><path d="M19 8 q4 0 6 5 q-3 2 -5 0 q-2 -2 -1 -5z" fill="#5CE1A8" stroke="#1F1A14" stroke-width="1.6"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 32 32"><path d="M10 16 H22" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/><rect x="5" y="9" width="6" height="14" rx="2" fill="#FF8FA3" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="21" y="9" width="6" height="14" rx="2" fill="#FF8FA3" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="2" y="12" width="3" height="8" rx="1" fill="#33415C" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="27" y="12" width="3" height="8" rx="1" fill="#33415C" stroke="#1F1A14" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="paper" viewBox="0 0 30 36"><path d="M3 2h17l7 7v25H3z" fill="#fff" stroke="#1F1A14" stroke-width="2"/><path d="M8 13h14M8 19h14M8 25h9" stroke="#9AA6BD" stroke-width="2"/></symbol>
+  </defs>
+</svg>
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -30,293 +352,401 @@
     </div>
   </nav>
 
-  <header class="cs-hero" data-slide="overview" data-label="Overview" data-log="Cut the buzzwords from the title|Halved the intro|Fixed an overclaim: the 50% is a projection|Removed 2 made-up stats">
-    <div class="narrow fade-in">
-      <a href="index.html#work" class="back">&larr; All work</a><br>
-      <span class="eyebrow">AI-assisted learning design &middot; Global customer experience consultancy</span>
-      <h1 data-draft="Leveraging AI to Revolutionize Training Conversion at Scale" data-note="Say what it is. Cut the buzzwords.">Converting live training with an AI-assisted pipeline</h1>
-      <p class="lede" data-draft="In today&rsquo;s fast-paced learning landscape, organizations need innovative solutions. This case study explores how AI-powered workflows enabled the seamless transformation of instructor-led training into engaging, scalable eLearning.">I&rsquo;m turning a set of week-long live courses into self-paced eLearning. AI writes the first drafts. I decide what ships.</p>
-      <div class="cs-meta">
-        <div><label>Role</label><span>Learning experience designer and pipeline owner</span></div>
-        <div><label>Scope</label><span>Multi-day live courses</span></div>
-        <div><label>Method</label><span>ADDIE with AI-assisted drafting</span></div>
-        <div><label>Format</label><span>Fully self-paced eLearning</span></div>
+  <!-- 1 · HERO -->
+  <header class="cs-hero" data-slide="overview" data-label="Overview">
+    <div class="sb fade-in">
+      <a href="index.html#work" class="back">&larr; All work</a>
+      <span class="ch" style="margin-top:18px">a case study in 8 short chapters</span>
+      <h1>A week of live training, rebuilt as <u>about 15 self-paced hours</u></h1>
+      <p class="lede">AI writes the first drafts. I decide what ships.</p>
+
+      <div class="strip">
+        <div class="panel card-s"><span class="n">1</span>
+          <svg viewBox="0 0 240 150" role="img" aria-label="A classroom of managers on day 1 of 5, one is asleep">
+            <rect x="20" y="20" width="200" height="70" rx="6" fill="#fff" stroke="#1F1A14" stroke-width="2"/>
+            <text x="120" y="50" text-anchor="middle" font-family="Caveat" font-size="22" fill="#1F1A14">Day 1 of 5</text>
+            <text x="120" y="74" text-anchor="middle" font-family="Caveat" font-size="18" fill="#64718A">(6 hrs of slides)</text>
+            <use href="#agent" x="20" y="88" width="46" height="58"/><use href="#agent" x="72" y="92" width="42" height="54"/><use href="#agent" x="120" y="88" width="46" height="58"/><use href="#agent-worried" x="170" y="92" width="42" height="54"/>
+            <text x="204" y="112" font-family="Caveat" font-size="20" fill="#1F1A14">zzz</text>
+          </svg>
+          <p>Every course needed 1 room, 1 week and 1 facilitator.</p></div>
+        <div class="panel card-s"><span class="n">2</span>
+          <svg viewBox="0 0 240 150" role="img" aria-label="Draft the AI bot surrounded by flying pages">
+            <g class="bob"><use href="#bot" x="20" y="22" width="90" height="112"/></g>
+            <use href="#paper" x="120" y="30" width="28" height="34" transform="rotate(-12 134 47)"/>
+            <use href="#paper" x="150" y="54" width="28" height="34" transform="rotate(8 164 71)"/>
+            <use href="#paper" x="182" y="28" width="28" height="34" transform="rotate(-4 196 45)"/>
+            <use href="#paper" x="168" y="96" width="28" height="34" transform="rotate(14 182 113)"/>
+          </svg>
+          <p>Draft the bot turns slides and transcripts into first drafts.</p></div>
+        <div class="panel card-s"><span class="n">3</span>
+          <svg viewBox="0 0 240 150" role="img" aria-label="The designer stamps a draft: ships">
+            <use href="#designer" x="16" y="30" width="96" height="120"/>
+            <rect x="128" y="34" width="92" height="74" rx="8" fill="#fff" stroke="#1F1A14" stroke-width="2"/>
+            <path d="M140 52h66M140 64h48M140 76h58" stroke="#9AA6BD" stroke-width="3"/>
+            <path d="M188 64h22" stroke="#FF6B6B" stroke-width="3"/>
+            <g class="stamp"><rect x="150" y="80" width="66" height="26" rx="5" fill="none" stroke="#18A058" stroke-width="3" transform="rotate(-8 183 93)"/><text x="183" y="99" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="14" fill="#18A058" transform="rotate(-8 183 93)">SHIPS ✓</text></g>
+          </svg>
+          <p>I check each draft against the learner. Then it ships.</p></div>
       </div>
-      <p class="note">I've withheld client details and recreated the examples on a neutral topic: handling escalations.</p>
-      <div class="stats v-draft" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-        <div class="stat-card"><b>All</b><span>courses transformed</span></div>
-        <div class="stat-card"><b>50%</b><span>reduction in seat time</span></div>
-        <div class="stat-card"><b>3x</b><span>faster development</span></div>
-        <div class="stat-card"><b>100%</b><span>AI-powered workflow</span></div>
+
+      <div class="meta-s">
+        <div><svg class="mi" viewBox="0 0 80 100" aria-hidden="true"><use href="#designer"/></svg><p><small>Role</small><span>LXD + pipeline owner</span></p></div>
+        <div><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-books"/></svg><p><small>Scope</small><span>Several 5-day courses</span></p></div>
+        <div><svg class="mi" viewBox="0 0 80 100" aria-hidden="true"><use href="#bot"/></svg><p><small>Method</small><span>ADDIE + AI drafting</span></p></div>
+        <div><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-cone"/></svg><p><small>Status</small><span>In build, pilot first</span></p></div>
       </div>
-      <div class="stats v-final" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-        <div class="stat-card"><b>30 → 15</b><span>live hours per course, redesigned</span></div>
-        <div class="stat-card"><b>5-day</b><span>live courses redesigned as self-paced</span></div>
-        <div class="stat-card"><b>~50%</b><span>less seat time, projected with stakeholders</span></div>
-        <div class="stat-card"><b>7</b><span>pipeline stages, each with a human gate</span></div>
-      </div>
+      <p class="psst">psst: client details are withheld, so every example is recreated on a neutral topic: coaching an agent from quality data.</p>
     </div>
   </header>
 
-  <main class="narrow">
+  <main class="sb">
 
-    <section class="cs-section fade-in" data-slide="overview">
-      <span class="eyebrow">Why now</span>
-      <h2 data-draft="The Challenge: Scaling Training Delivery" data-note="Lead with the actual problem.">Live training had a ceiling</h2>
-      <p data-draft="Instructor-led training is resource-intensive and difficult to scale, presenting significant challenges for growing organizations seeking to maximize reach and revenue.">Every live course needed a facilitator, a time slot, and a full room. A new learning platform meant courses could reach anyone, anytime, and bring in revenue that live delivery capped.</p>
-      <p>The catch: converting them all by hand would take months, and quick conversions usually end up as narrated slide decks.</p>
+    <!-- 2 · LEARNER -->
+    <section class="cs-section fade-in" data-slide="learner" data-label="Meet the learner">
+      <span class="ch">chapter 2</span>
+      <h2>Meet Tess, a new team lead with a coaching problem</h2>
+      <p>Before I touched a slide, I pinned down who'd take these courses and what had to change on the floor.</p>
+
+      <div class="flip" role="group" aria-label="Show the coaching conversation today or after the course">
+        <button type="button" data-v="today" aria-pressed="true">Today</button>
+        <button type="button" data-v="goal" aria-pressed="false">After the course</button>
+      </div>
+      <div class="comic" id="comic" data-v="today">
+        <div class="cp card-s"><span class="n">1</span>
+          <div class="cp-art"><svg viewBox="0 0 120 90" style="width:150px;height:110px" role="img" aria-label="Sam's quality score chart drops from 88 to 72">
+            <rect x="4" y="4" width="112" height="82" rx="8" fill="#fff" stroke="#1F1A14" stroke-width="2"/>
+            <text x="12" y="20" font-family="Geist Mono" font-size="8" fill="#64718A">SAM · QA SCORE</text>
+            <polyline points="14,34 36,32 58,36 80,58 104,66" fill="none" stroke="#E5484D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="104" cy="66" r="4" fill="#E5484D"/>
+            <text x="104" y="82" text-anchor="end" font-family="Space Grotesk" font-weight="700" font-size="11" fill="#E5484D">88 → 72</text>
+          </svg></div>
+          <div class="bub angry">Sam's quality score dropped 16 points in a month.</div>
+        </div>
+        <div class="cp card-s"><span class="n">2</span>
+          <div class="cp-art"><svg aria-hidden="true" viewBox="0 0 80 100"><use href="#cust-calm"/></svg></div>
+          <div class="bub gray v-today">Tess: “Your score's 72. The target is 85, so you need to get it up.”</div>
+          <div class="bub blue v-goal">Tess: “Let's listen to 2 of your calls together. I'll show you exactly where the points went.”</div>
+        </div>
+        <div class="cp card-s"><span class="n">3</span>
+          <div class="cp-art"><svg class="v-today" aria-hidden="true" viewBox="0 0 80 100"><use href="#agent-worried"/></svg><svg class="v-goal" aria-hidden="true" viewBox="0 0 80 100"><use href="#agent"/></svg></div>
+          <p class="cp-out v-today">Next month: 71. Sam still doesn't know why.</p>
+          <p class="cp-out v-goal" style="color:#18A058">✓ Next month: 86. Sam knows what changed.</p>
+        </div>
+      </div>
+      <p class="flip-hint">tap “After the course” to see the goal ↑</p>
+
+      <div class="learner card-s">
+        <div class="lc-who">
+          <svg aria-hidden="true" viewBox="0 0 80 100"><use href="#cust-calm"/></svg>
+          <div><span class="tagline">The learner</span><b>New and frontline managers in CX operations</b><span class="lc-sub">Contact centers and service teams worldwide</span></div>
+        </div>
+        <div class="lc-stats">
+          <div><small>Already knows</small>The metrics, the dashboards, the targets</div>
+          <div><small>Needs to practice</small>Turning that data into coaching that changes what agents do</div>
+        </div>
+        <ul class="lc-cons">
+          <li><span><svg class="ci" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-clock"/></svg>Can't leave the floor for a week</span><b>20 to 30 minute modules</b></li>
+          <li><span><svg class="ci" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-steps"/></svg>Experience varies a lot</span><b>A pre-check lets pros skip ahead</b></li>
+          <li><span><svg class="ci" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-globe"/></svg>Many languages</span><b>Plain-language scripts, native-speaker review</b></li>
+          <li><span><svg class="ci" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-dumbbell"/></svg>It's a skill gap</span><b>Over a third of the time is practice</b></li>
+        </ul>
+      </div>
     </section>
 
-    <section class="cs-section fade-in" data-slide="pipeline" data-label="The pipeline" data-log="Added a missing stage: the draft skipped launch|Mapped every stage to ADDIE|Added a human gate to each stage">
-      <span class="eyebrow">The pipeline</span>
-      <h2 data-draft="A Comprehensive AI-Driven Development Framework" data-note="Give them the shape: how many stages, and where the gates are.">7 stages, 5 ADDIE phases, a human gate at each one</h2>
-      <p data-draft="Our innovative framework harnesses the power of artificial intelligence across every stage of the instructional design lifecycle, ensuring efficiency and quality.">AI drafts fast. Every stage has a checkpoint where I review before anything moves on. Tap a stage to see how it works.</p>
+<!-- 3 · LEARNING SCIENCE -->
+    <section class="cs-section fade-in" data-slide="science" data-label="Learning science">
+      <span class="ch">chapter 3</span>
+      <h2>3 frameworks every draft has to meet</h2>
+      <p>AI drafts default to “explain, then quiz.” These frameworks push them toward practice. I build them into the prompts and the review rubric.</p>
 
-      <ol class="draft-list v-draft">
-        <li><b>Analysis</b>AI reviews existing training materials.</li>
-        <li><b>Content extraction</b>AI extracts key content from slides and transcripts.</li>
-        <li><b>Design</b>AI generates learning objectives and storyboards.</li>
-        <li><b>Development</b>AI creates scripts, scenarios and assessments.</li>
-        <li><b>Translation</b>AI translates content into multiple languages.</li>
-        <li><b>Reporting</b>AI analyzes learner data and generates insights.</li>
-      </ol>
-      <div class="pipe v-final" id="pipe">
-        <div class="pipe-bands" role="group" aria-label="Pipeline stages by ADDIE phase">
-          <div class="pipe-band">
-            <span class="k">Analyze</span>
-            <button type="button" class="pipe-btn" data-s="0"><span class="n">01</span>Triage</button>
-            <button type="button" class="pipe-btn" data-s="1"><span class="n">02</span>Extraction</button>
-            <div class="bal" title="Share of work drafted by AI"><i style="width:70%"></i></div>
+      <h3>Merrill's First Principles shape each course</h3>
+      <div class="merrill">
+        <div class="mp card-s"><span class="no">1</span><h4>Problem</h4><p>Every module opens on a real coaching moment, like Tess's.</p></div>
+        <div class="mp card-s"><span class="no">2</span><h4>Activate</h4><p>A pre-check asks how they'd open the conversation today.</p></div>
+        <div class="mp card-s"><span class="no">3</span><h4>Demonstrate</h4><p>A model coaching conversation, right before the hardest choice.</p></div>
+        <div class="mp card-s"><span class="no">4</span><h4>Apply</h4><p>A branching scenario, then an AI agent to coach.</p></div>
+        <div class="mp card-s"><span class="no">5</span><h4>Integrate</h4><p>A coaching plan template for next week.</p></div>
+      </div>
+
+      <h3>Gagné's 9 events set the order inside each module</h3>
+      <div class="gagne" role="img" aria-label="A 25-minute module: events 1 to 3 take 4 minutes, presenting takes 8, guidance 3, practice with feedback 6, assessment 2, transfer 2">
+        <div style="flex:4;background:#7FB2FF">1-3</div>
+        <div style="flex:8;background:#3D74F2">4 · Present</div>
+        <div style="flex:3;background:#2459E0">5</div>
+        <div style="flex:6;background:#1846C4">6-7 · Practice</div>
+        <div style="flex:2;background:#0A2A6B">8</div>
+        <div style="flex:2;background:#0A2A6B">9</div>
+      </div>
+      <div class="gagne-k"><span>Hook, goal, recall</span><span>Day 2, module 1: 25 min</span><span>Assess, transfer</span></div>
+
+      <h3>Mayer's principles keep each screen lean</h3>
+      <div class="mayer">
+        <span><b>Coherence</b> cut what they won't use</span>
+        <span><b>Segmenting</b> short, learner-paced chunks</span>
+        <span><b>Signaling</b> the current stage lights up</span>
+        <span><b>Personalization</b> voiceover that sounds like a colleague</span>
+      </div>
+    </section>
+
+    <!-- 4 · PIPELINE -->
+    <section class="cs-section fade-in" data-slide="pipeline" data-label="The pipeline">
+      <span class="ch">chapter 4</span>
+      <h2>7 stations, and I stand at every one</h2>
+      <p>Drafts ride the belt. Each station has a human gate. Tap a station to see who does what.</p>
+
+      <div class="belt card-s">
+        <div class="stations" role="group" aria-label="Pipeline stations">
+          <button type="button" class="st a" data-s="0">01 Triage<small>ANALYZE</small></button>
+          <button type="button" class="st a" data-s="1">02 Extract<small>ANALYZE</small></button>
+          <button type="button" class="st d" data-s="2">03 Redesign<small>DESIGN</small></button>
+          <button type="button" class="st v" data-s="3">04 Build<small>DEVELOP</small></button>
+          <button type="button" class="st v" data-s="4">05 Localize<small>DEVELOP</small></button>
+          <button type="button" class="st i" data-s="5">06 Pilot<small>IMPLEMENT</small></button>
+          <button type="button" class="st e" data-s="6">07 Measure<small>EVALUATE</small></button>
+        </div>
+        <div class="track" aria-hidden="true">
+          <div class="gates"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i></div>
+          <svg class="pp" viewBox="0 0 30 36"><use href="#paper"/></svg>
+          <svg class="pp" viewBox="0 0 30 36"><use href="#paper"/></svg>
+          <svg class="pp" viewBox="0 0 30 36"><use href="#paper"/></svg>
+          <div class="rail"></div>
+        </div>
+        <p class="loop">↺ what I learn at 07 loops back to 03</p>
+      </div>
+
+      <div class="st-info card-s" aria-live="polite">
+        <div><label><svg width="22" height="28" aria-hidden="true"><use href="#bot" width="22" height="28"/></svg>Draft does</label><p id="si-ai"></p></div>
+        <div><label><svg width="22" height="28" aria-hidden="true"><use href="#designer" width="22" height="28"/></svg>I check</label><p id="si-me"></p></div>
+      </div>
+
+      <h3>Inside the Redesign gate</h3>
+      <p>The prompt asks for Merrill and Gagné. The rubric checks the result. This first draft scored 2 out of 6.</p>
+      <div class="gate-pair">
+        <div class="card-s dark" style="overflow:hidden">
+          <div class="fb"><i></i><i></i><i></i>redesign-prompt.md</div>
+          <div class="prompt"><span class="c"># Station 03 · Redesign</span>
+Draft a self-paced module from
+the attached <em>content map</em>.
+
+Learner: <em>{learner profile}</em>
+Goal: <em>{what they do on the job}</em>
+
+Open on a real coaching moment
+from the extraction notes. Follow Merrill's
+First Principles and Gagné's
+9 events.
+
+Max <em>120 words</em> of narration a screen.
+Move reference detail to a job aid.
+Tag anything not in the source
+<em>[CHECK]</em>.</div>
+        </div>
+        <div class="card-s" style="overflow:hidden">
+          <div class="fb"><i></i><i></i><i></i>design rubric · first draft</div>
+          <ul class="rubric">
+            <li class="no"><span class="ck">✕</span><span>Objective is something they do on the job</span></li>
+            <li class="no"><span class="ck">✕</span><span>Opens on a specific, real problem</span></li>
+            <li class="ok"><span class="ck">✓</span><span>A third or more of the time is practice</span></li>
+            <li class="ok"><span class="ck">✓</span><span>Feedback explains why</span></li>
+            <li class="no"><span class="ck">✕</span><span>120 words or fewer a screen</span></li>
+            <li class="no"><span class="ck">✕</span><span>Wrong answers sound like real mistakes</span></li>
+          </ul>
+          <div class="score"><span>back to Draft with notes</span><b>2/6</b></div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:var(--muted);margin-top:16px">Tools: Claude, Claude Code, Articulate Rise, ElevenLabs, xAPI, Zapier.</p>
+    </section>
+
+    <!-- 5 · TRIAGE + CONVERSION -->
+    <section class="cs-section fade-in" data-slide="conversion" data-label="Triage and conversion">
+      <span class="ch">chapter 5</span>
+      <h2>Every live block gets 1 of 4 stickers</h2>
+      <p>Draft audits each session. I make the call with the same 3 questions every time.</p>
+      <div class="tree">
+        <div class="tq card-s"><p>Do they need it to do the job?</p><div class="ans">No → <span class="stk s-cut">Cut</span></div></div>
+        <div class="tq card-s"><p>Is it something they'd look up?</p><div class="ans">Yes → <span class="stk s-aid">Job aid</span></div></div>
+        <div class="tq card-s"><p>Does it need a facilitator?</p><div class="ans">Yes → <span class="stk s-red">Redesign</span></div></div>
+        <div class="tq card-s" style="background:var(--blue-50)"><p>Everything else</p><div class="ans">→ <span class="stk s-con">Convert</span></div></div>
+      </div>
+
+      <h3>Day 2, before and after</h3>
+      <div class="days-s"><span>Day 1 · Managing by metrics · 6 → ~3 hrs</span><span class="on">Day 2 · Coaching from quality data · 6 → ~2.2 hrs</span><span>Day 3 · Calibration · 6 → ~3 hrs</span><span>Day 4 · Real-time management · 6 → ~3 hrs</span><span>Day 5 · Casework and final exam · 6 → ~3.8 hrs</span></div>
+      <div class="cmap" role="table" aria-label="Day 2 conversion from live blocks to self-paced replacements">
+        <div class="cmap-head" role="row"><span role="columnheader">Live</span><span></span><span role="columnheader">Self-paced</span></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Welcome and icebreaker<small>45 min</small></span><div class="bars" style="width:50%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-cut">Cut</span><span class="lbl">A pre-check that lets pros skip ahead<small>5 min</small></span><div class="bars sp" style="width:5.6%"></div></div></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Lecture on the coaching model<small>75 min</small></span><div class="bars" style="width:83.3%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-con">Convert</span><span class="lbl">Interactive walkthrough<small>25 min</small></span><div class="bars sp" style="width:27.8%"></div></div></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Case study in breakout groups<small>60 min</small></span><div class="bars" style="width:66.7%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-red">Redesign</span><span class="lbl">Solo case with real-looking data and a model answer<small>30 min</small></span><div class="bars sp" style="width:33.3%"></div></div></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Coaching role-play rounds<small>90 min</small></span><div class="bars" style="width:100%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-red">Redesign</span><span class="lbl">Branching scenario + an AI agent to coach<small>50 min</small></span><div class="bars sp" style="width:55.6%"></div></div></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Q&amp;A and breaks<small>60 min</small></span><div class="bars" style="width:66.7%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-aid">Job aid</span><span class="lbl">Answers built into the content<small>0 min</small></span><div class="bars zero"></div></div></div>
+        <div class="cmap-row" role="row"><div role="cell"><span class="lbl">Debrief<small>30 min</small></span><div class="bars" style="width:33.3%"></div></div><span class="arrow" aria-hidden="true">&rarr;</span><div role="cell" class="sp-cell"><span class="stk s-aid">Job aid</span><span class="lbl">Knowledge check + coaching plan template<small>20 min</small></span><div class="bars sp" style="width:22.2%"></div></div></div>
+        <div class="cmap-total" role="row"><span role="cell">6 hours live</span><span class="arrow" aria-hidden="true"></span><span role="cell" class="sp">About 2.2 hours</span></div>
+      </div>
+    </section>
+
+    <!-- 6 · PRACTICE -->
+    <section class="cs-section fade-in" data-slide="practice" data-label="Replacing the room">
+      <span class="ch">chapter 6</span>
+      <h2>Replacing the room</h2>
+      <p>Breakouts and role-play are where managers learn to coach. Here's what the room gave them, and what they get now. Then try one activity yourself.</p>
+      <div class="swaps">
+        <div class="swap card-s"><span class="was">Coaching role-play with a partner</span><span class="ar">→</span><span class="now">Branching scenario, then an AI agent who reacts to what they say</span></div>
+        <div class="swap card-s"><span class="was">A facilitator's feedback</span><span class="ar">→</span><span class="now">Feedback on every choice that explains why</span></div>
+        <div class="swap card-s"><span class="was">Breakout casework with peers</span><span class="ar">→</span><span class="now">Solo cases with real-looking data and model answers</span></div>
+        <div class="swap card-s"><span class="was">An open-book exam in the room</span><span class="ar">→</span><span class="now">An open-book scenario exam at the end</span></div>
+      </div>
+
+      <div class="card-s scn" id="fm">
+        <div class="fb"><i></i><i></i><i></i><span id="fm-step">try it · QA review · Sam · call 1 of 2</span></div>
+        <div class="scn-body">
+          <div class="fm-top">
+            <div class="fm-task"><span class="fm-k">You're Tess</span><p>Sam lost points on <b>“Confirms the issue before solving.”</b> Find where in his calls.</p>
+              <ol class="fm-how"><li>Read the call</li><li>Tap the line where Sam slipped</li><li>Do it again on call 2</li></ol></div>
+            <div class="fm-score"><span class="fm-k">QA item</span><b id="fm-found">0 / 2</b><span>calls found</span></div>
           </div>
-          <div class="pipe-band">
-            <span class="k">Design</span>
-            <button type="button" class="pipe-btn" data-s="2"><span class="n">03</span>Redesign</button>
-            <div class="bal" title="Share of work drafted by AI"><i style="width:35%"></i></div>
-          </div>
-          <div class="pipe-band">
-            <span class="k">Develop</span>
-            <button type="button" class="pipe-btn" data-s="3"><span class="n">04</span>Build</button>
-            <button type="button" class="pipe-btn" data-s="4"><span class="n">05</span>Localization</button>
-            <div class="bal" title="Share of work drafted by AI"><i style="width:70%"></i></div>
-          </div>
-          <div class="pipe-band">
-            <span class="k">Implement</span>
-            <button type="button" class="pipe-btn" data-s="5"><span class="n">06</span>Pilot and launch</button>
-            <div class="bal" title="Share of work drafted by AI"><i style="width:45%"></i></div>
-          </div>
-          <div class="pipe-band">
-            <span class="k">Evaluate</span>
-            <button type="button" class="pipe-btn" data-s="6"><span class="n">07</span>Measure and iterate</button>
-            <div class="bal" title="Share of work drafted by AI"><i style="width:35%"></i></div>
-          </div>
-        </div>
-        <div class="pipe-loop">
-          <svg width="56" height="16" viewBox="0 0 56 16" aria-hidden="true"><path d="M54 3 H8 Q3 3 3 8 V13" fill="none" stroke="#3D74F2" stroke-width="1.6"/><path d="M0 10 L3 14 L6 10" fill="none" stroke="#3D74F2" stroke-width="1.6"/></svg>
-          Evaluate findings loop back to Design
-        </div>
-        <div class="legend"><span><i></i>AI drafting</span><span><i class="h"></i>Human judgment</span></div>
-
-        <div class="pipe-panel" id="pipe-panel" aria-live="polite">
-          <span class="eyebrow" id="pp-phase"></span>
-          <h4 id="pp-title"></h4>
-          <div class="pipe-grid">
-            <div><label>AI drafts</label><p id="pp-ai"></p></div>
-            <div><label>My gate</label><p id="pp-gate"></p></div>
-            <div><label>What comes out</label><p id="pp-out"></p></div>
-            <div><label>AI drafting vs. human judgment</label><div class="pipe-meter"><span class="track"><i id="pp-bar"></i></span><span id="pp-pct"></span></div></div>
+          <div class="fm-bar" aria-hidden="true"><div class="fm-wave"></div><div id="fm-marks"></div><i class="fm-head" id="fm-head"></i></div>
+          <ol class="fm-lines" id="fm-lines"></ol>
+          <div class="pl-fb" id="fm-fb" hidden></div>
+          <div class="pl-end" id="fm-end" hidden>
+            <p class="pl-win">✓ Same moment, both calls.</p>
+            <p class="fm-sum">That's the coaching point: <b>confirm the issue before fixing it.</b> Tess walks in with 2 clips and 1 behavior to change. A score alone wouldn't give her that.</p>
+            <button type="button" class="pl-btn" id="fm-restart">Play again</button>
           </div>
         </div>
       </div>
-
-      <p class="v-final">AI does most of the lifting in Analyze and Develop. I carry more of the weight in Design and Evaluate, where the calls are about learners and data.</p>
-      <p style="font-size:15px;color:var(--muted)">Tools: Claude, Claude Code, Articulate Rise, ElevenLabs, xAPI, Zapier.</p>
+      <p class="mock-label">One activity from the recreated course: managers find the coaching moment in real-looking calls before they coach.</p>
     </section>
 
-    <section class="cs-section fade-in" data-slide="conversion" data-label="Conversion map" data-log="Replaced a narrated lecture video with an interactive module|Replaced watch-and-quiz role-play with real practice|Used real numbers in the title">
-      <span class="eyebrow">The conversion map</span>
-      <h2 data-draft="Optimizing Seat Time Through Strategic Redesign" data-note="Use the real numbers.">30 live hours, redesigned as about 15</h2>
-      <p data-draft="By strategically reimagining every component of the live experience, we achieved dramatic reductions in seat time while maintaining learning effectiveness.">Here&rsquo;s the recreated course, day by day.</p>
-      <div class="days">
-        <div class="day"><span class="k">Day 1</span><h4>Why customers escalate</h4><p>6 hrs &rarr; ~3 hrs</p></div>
-        <div class="day on"><span class="k">Day 2</span><h4>De-escalation on live contacts</h4><p>6 hrs &rarr; ~2.2 hrs</p></div>
-        <div class="day"><span class="k">Day 3</span><h4>Owning the resolution</h4><p>6 hrs &rarr; ~3 hrs</p></div>
-        <div class="day"><span class="k">Day 4</span><h4>Written and digital escalations</h4><p>6 hrs &rarr; ~3 hrs</p></div>
-        <div class="day"><span class="k">Day 5</span><h4>Coaching, quality, and final assessment</h4><p>6 hrs &rarr; ~3.8 hrs</p></div>
+    <!-- 7 · STEERED -->
+    <section class="cs-section fade-in" data-slide="steered" data-label="Red pen">
+      <span class="ch">chapter 7</span>
+      <h2>4 fixes with a red pen</h2>
+      <p>The 4 rubric fails from chapter 4, and what I changed.</p>
+      <div class="fixes">
+        <div class="fix card-s"><div class="top"><h4>The objective</h4><span class="stk s-con">Merrill · Apply</span></div>
+          <p class="was">“Learners will be able to list the 4 steps of the coaching model.”</p>
+          <p class="pen">They need to run the conversation, with real data in hand.</p>
+          <p class="now">“Given an agent's QA results, plan and open a coaching conversation that targets the biggest gap.”</p></div>
+        <div class="fix card-s"><div class="top"><h4>The scenario</h4><span class="stk s-aid">Merrill · Problem</span></div>
+          <p class="was">“An agent's quality score is low.”</p>
+          <p class="pen">Give him a name, a trend and a pattern to find.</p>
+          <p class="now">“Sam dropped from 88 to 72 in a month. 3 of his last 5 calls missed the same step.”</p></div>
+        <div class="fix card-s"><div class="top"><h4>The voiceover</h4><span class="stk s-red">Mayer · Coherence</span></div>
+          <p class="was">260 words covering the whole facilitator guide.</p>
+          <p class="pen">Keep what they'll act on. Move the rest.</p>
+          <p class="now">110 words, plus a job aid.</p></div>
+        <div class="fix card-s"><div class="top"><h4>The wrong answers</h4><span class="stk s-ok">Real practice</span></div>
+          <p class="was">Options so harsh anyone would spot them.</p>
+          <p class="pen">Real mistakes sound reasonable.</p>
+          <p class="now">“Your score is 72, the target is 85” (data, no direction) and “Everyone has a bad month” (avoiding it).</p></div>
       </div>
 
-      <h3>Zoom in: Day 2, de-escalation on live contacts</h3>
-      <table class="data draft-table v-draft">
-        <thead><tr><th>Live block</th><th>Self-paced version</th></tr></thead>
-        <tbody>
-          <tr><td>Welcome and icebreaker (45 min)</td><td>Welcome video (10 min)</td></tr>
-          <tr><td>Lecture: the escalation cycle (75 min)</td><td>Narrated slide video (60 min)</td></tr>
-          <tr><td>Facilitator stories (60 min)</td><td>Text summary of key stories (20 min)</td></tr>
-          <tr><td>Role-play rounds (90 min)</td><td>Video of a recorded role-play, then a quiz (40 min)</td></tr>
-          <tr><td>Q&amp;A (60 min)</td><td>FAQ PDF (15 min)</td></tr>
-          <tr><td>Debrief (30 min)</td><td>10-question knowledge check (15 min)</td></tr>
-          <tr><td>6 hours live</td><td>About 2.7 hours, mostly watching</td></tr>
-        </tbody>
-      </table>
-      <div class="cmap v-final" role="table" aria-label="Day 2 conversion from live blocks to self-paced replacements">
-        <div class="cmap-head" role="row"><span role="columnheader">Live block</span><span></span><span role="columnheader">Self-paced replacement</span></div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Welcome, recap, icebreaker<small>45 min</small></span><div class="bars" style="width:50%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Pre-check that routes experienced learners past what they know<small>5 min</small></span><div class="bars sp" style="width:5.6%"></div></div>
-        </div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Lecture: the escalation cycle<small>75 min</small></span><div class="bars" style="width:83.3%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Micro-module 1: interactive walkthrough of the cycle<small>25 min</small></span><div class="bars sp" style="width:27.8%"></div></div>
-        </div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Facilitator stories and group discussion<small>60 min</small></span><div class="bars" style="width:66.7%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Micro-module 2: real-world scenarios with reflection prompts, built from stories captured in extraction<small>30 min</small></span><div class="bars sp" style="width:33.3%"></div></div>
-        </div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Role-play rounds<small>90 min</small></span><div class="bars" style="width:100%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Branching scenario plus AI customer simulation<small>50 min</small></span><div class="bars sp" style="width:55.6%"></div></div>
-        </div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Q&amp;A and breaks<small>60 min</small></span><div class="bars" style="width:66.7%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Common questions answered inside the content<small>0 min</small></span><div class="bars zero"></div></div>
-        </div>
-        <div class="cmap-row" role="row">
-          <div role="cell"><span class="lbl">Debrief and wrap-up<small>30 min</small></span><div class="bars" style="width:33.3%"></div></div>
-          <span class="arrow" aria-hidden="true">&rarr;</span>
-          <div role="cell" class="sp-cell"><span class="lbl">Knowledge check plus a downloadable de-escalation job aid<small>20 min</small></span><div class="bars sp" style="width:22.2%"></div></div>
-        </div>
-        <div class="cmap-total" role="row"><span role="cell">6 hours live</span><span class="arrow" aria-hidden="true"></span><span role="cell" class="sp">About 2.2 hours self-paced</span></div>
-      </div>
-
-      <h3>Where the time goes</h3>
-      <ul class="list">
-        <li>No breaks, setup, or waiting on the group</li>
-        <li>A pre-check lets experienced people skip ahead</li>
-        <li>Common questions get answered once, in the content</li>
-      </ul>
-    </section>
-
-    <section class="cs-section fade-in" data-slide="role-play" data-label="Replacing the role-play" data-log="Swapped a passive video for 2 kinds of practice|Cut a weak &quot;all of the above&quot; quiz item">
-      <span class="eyebrow">Replacing the role-play</span>
-      <h2 data-draft="Innovative Approaches to Interactive Practice" data-note="Lead with the hard part.">The hardest thing to convert</h2>
-      <p data-draft="Traditional role-play exercises were transformed into cutting-edge AI-powered simulations that deliver personalized, engaging practice for every learner.">Role-play is where people actually learn to calm someone down. With no facilitator, 2 kinds of practice take its place.</p>
-      <div class="draft-box v-draft">
-        <h4>Recorded role-play video</h4>
-        <p>Learners watch an expert agent handle an escalation, then answer a short quiz.</p>
-        <div class="draft-q"><span>Q3. What should the agent do first?</span><span>a) Apologize</span><span>b) Transfer the call</span><span>c) Escalate to a supervisor</span><span>d) All of the above</span></div>
-      </div>
-      <div class="two-col v-final">
-        <div class="col-card accent"><h4>Branching scenario</h4><ul>
-          <li>Pick a reply as the customer gets angrier</li>
-          <li>Each choice changes how they react</li>
-        </ul></div>
-        <div class="col-card accent"><h4>AI customer simulation</h4><ul>
-          <li>Type your own reply to an AI customer</li>
-          <li>Good replies calm them down; scripted ones don&rsquo;t</li>
-        </ul></div>
-      </div>
-      <div class="mock v-final">
-        <div class="frame-bar"><i></i><i></i><i></i><span>branching scenario, recreated</span></div>
-        <div class="mock-body">
-          <span class="eyebrow">Turn 2 of 5</span>
-          <div class="bubble user" style="margin:12px 0 14px">&ldquo;This is the third time I&rsquo;ve called about this refund. The last person told me it was processed. It wasn&rsquo;t. I want to speak to a manager.&rdquo;</div>
-          <div class="choice">&ldquo;I completely understand your frustration. Let me transfer you.&rdquo;</div>
-          <div class="choice">&ldquo;I&rsquo;m sorry, the last agent shouldn&rsquo;t have told you that.&rdquo;</div>
-          <div class="choice ok">&ldquo;Three calls with no refund is not okay. I&rsquo;m going to find out what happened right now, and I&rsquo;ll stay with you until it&rsquo;s sorted.&rdquo;</div>
-        </div>
-      </div>
-      <p class="mock-label v-final">Illustrative scenario turn on the recreated escalations course.</p>
-      <div class="proto-cta">
-        <div><h3>Escalation Practice Coach</h3><p>Hear an angry customer, say your reply out loud, and get instant feedback.</p></div>
-        <a href="practice-coach.html" class="btn btn-primary">Try the prototype &rarr;</a>
+      <div class="meme card-s">
+        <div><h4>Expectation</h4>
+          <svg viewBox="0 0 300 190" role="img" aria-label="Draft the bot presses a big red Make Course button and a finished course pops out with sparkles" style="background:#F3F7FF">
+            <g class="bob"><use href="#bot" x="8" y="48" width="96" height="120"/></g>
+            <path d="M84 132 Q104 128 118 118" fill="none" stroke="#1F1A14" stroke-width="5" stroke-linecap="round"/>
+            <path d="M84 132 Q104 128 118 118" fill="none" stroke="#2459E0" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="120" cy="117" r="5" fill="#7FB2FF" stroke="#1F1A14" stroke-width="2"/>
+            <rect x="112" y="128" width="78" height="30" rx="6" fill="#33415C" stroke="#1F1A14" stroke-width="2.5"/>
+            <text x="151" y="147" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="9.5" fill="#fff">MAKE COURSE</text>
+            <path d="M124 128 Q124 106 151 106 Q178 106 178 128 Z" fill="#FF6B6B" stroke="#1F1A14" stroke-width="2.5"/>
+            <text x="150" y="96" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="20" fill="#1F1A14">*boop*</text>
+            <path d="M188 104 Q204 86 214 74" fill="none" stroke="#1F1A14" stroke-width="2" stroke-dasharray="4 4"/>
+            <g transform="rotate(4 252 56)">
+              <rect x="208" y="20" width="84" height="72" rx="8" fill="#fff" stroke="#1F1A14" stroke-width="2.5"/>
+              <rect x="208" y="20" width="84" height="16" rx="8" fill="#2459E0" stroke="#1F1A14" stroke-width="2.5"/>
+              <text x="250" y="32" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="9" fill="#fff">COURSE</text>
+              <circle cx="250" cy="64" r="15" fill="#5CE1A8" stroke="#1F1A14" stroke-width="2.5"/>
+              <path d="M243 64 l5 5 9 -10" fill="none" stroke="#1F1A14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g fill="#FFD66B" stroke="#1F1A14" stroke-width="1.5">
+              <path d="M200 16 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+              <path d="M286 104 l2.5 5 5 2.5 -5 2.5 -2.5 5 -2.5 -5 -5 -2.5 5 -2.5z"/>
+            </g>
+            <text x="250" y="122" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="19" fill="#18A058">done!</text>
+          </svg>
+          <p>Press a button, get a finished course.</p></div>
+        <div><h4>Reality</h4>
+          <svg viewBox="0 0 300 190" role="img" aria-label="Draft the bot holds out draft 3. The designer marks it up with a red pen: crossed-out lines, 260 words changed to 110, and the note who's the learner" style="background:#FFF6E5">
+            <use href="#bot" x="0" y="64" width="78" height="98"/>
+            <path d="M62 128 Q76 124 88 118" fill="none" stroke="#1F1A14" stroke-width="5" stroke-linecap="round"/>
+            <path d="M62 128 Q76 124 88 118" fill="none" stroke="#2459E0" stroke-width="2.5" stroke-linecap="round"/>
+            <g transform="rotate(-3 140 104)">
+              <rect x="86" y="40" width="108" height="132" rx="4" fill="#fff" stroke="#1F1A14" stroke-width="2.5"/>
+              <text x="96" y="56" font-family="Geist Mono" font-size="8" fill="#64718A">DRAFT 3</text>
+              <g stroke="#9AA6BD" stroke-width="3" stroke-linecap="round">
+                <path d="M96 80 H176"/><path d="M96 90 H182"/><path d="M96 100 H168"/><path d="M96 124 H180"/><path d="M96 134 H160"/><path d="M96 154 H174"/>
+              </g>
+              <g stroke="#E5484D" stroke-width="2.5" stroke-linecap="round">
+                <path d="M94 80 H178"/><path d="M94 90 H184"/><path d="M94 100 H170"/>
+              </g>
+              <text x="96" y="72" font-family="Caveat" font-weight="700" font-size="14" fill="#E5484D">260 → 110 words</text><path d="M96 114 H150" stroke="#9AA6BD" stroke-width="3" stroke-linecap="round"/>
+              <text x="96" y="148" font-family="Caveat" font-weight="700" font-size="14" fill="#E5484D">who's the learner?</text>
+              <circle cx="96" cy="166" r="0"/>
+            </g>
+            <use href="#designer" x="200" y="64" width="92" height="115"/>
+            <path d="M220 140 Q206 132 196 120" fill="none" stroke="#1F1A14" stroke-width="5" stroke-linecap="round"/>
+            <path d="M220 140 Q206 132 196 120" fill="none" stroke="#F4C7A1" stroke-width="2.5" stroke-linecap="round"/>
+            <g transform="rotate(-38 190 112)">
+              <rect x="176" y="108" width="30" height="7" rx="2" fill="#E5484D" stroke="#1F1A14" stroke-width="2"/>
+              <path d="M176 108 L168 111.5 L176 115 Z" fill="#1F1A14"/>
+            </g>
+            <circle cx="196" cy="120" r="4.5" fill="#F4C7A1" stroke="#1F1A14" stroke-width="2"/>
+            <path d="M204 14 H292 Q298 14 298 20 V48 Q298 54 292 54 H236 L226 64 L228 54 H204 Q198 54 198 48 V20 Q198 14 204 14 Z" fill="#fff" stroke="#1F1A14" stroke-width="2"/>
+            <text x="248" y="31" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="14" fill="#1F1A14">Closer! Cut half,</text>
+            <text x="248" y="46" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="14" fill="#1F1A14">open on Tess.</text>
+          </svg>
+          <p>AI drafts fast. I edit until it fits the learner.</p></div>
       </div>
     </section>
 
-    <section class="cs-section fade-in" data-slide="steered" data-label="Where I steered" data-log="Showed the actual edits|Cut the intro to two sentences">
-      <span class="eyebrow">Where I steered</span>
-      <h2 data-draft="Ensuring Quality Through Human-in-the-Loop Oversight" data-note="Show the actual edits.">The small calls that shape what learners get</h2>
-      <p data-draft="Human oversight was applied at every stage to ensure all AI-generated content met the highest quality standards.">AI drafts usually get close. Fitting them to the learner is my job. Here are 4 small calls from the Day 2 build:</p>
-      <div class="steers">
-        <div class="steer"><h4>The objective that only asked learners to remember</h4><div class="steer-flow">
-          <div class="draft"><label>AI draft</label>&ldquo;Learners will be able to list the four stages of the escalation cycle.&rdquo;</div>
-          <div class="dir"><label>My direction</label>On a live call, they need to spot the stages. Make it about that.</div>
-          <div class="fin"><label>Final</label>&ldquo;Given a customer conversation, identify which stage the customer is in and choose a response that fits it.&rdquo;</div>
-        </div></div>
-        <div class="steer"><h4>The scenario that could happen anywhere</h4><div class="steer-flow">
-          <div class="draft"><label>AI draft</label>&ldquo;A customer is upset about a problem with their order and wants it fixed.&rdquo;</div>
-          <div class="dir"><label>My direction</label>Too generic. Give her a name, a history, and a reason to be angry.</div>
-          <div class="fin"><label>Final</label>&ldquo;This is Dana&rsquo;s third contact about a refund promised ten days ago. The last agent said it was processed. It wasn&rsquo;t.&rdquo;</div>
-        </div></div>
-        <div class="steer"><h4>The voiceover script that ran long</h4><div class="steer-flow">
-          <div class="draft"><label>AI draft</label>260 words covering everything in the facilitator guide.</div>
-          <div class="dir"><label>My direction</label>Keep only what they need to act on. Move the rest to the job aid.</div>
-          <div class="fin"><label>Final</label>110 words, plus a downloadable job aid.</div>
-        </div></div>
-        <div class="steer"><h4>The too-obvious distractors</h4><div class="steer-flow">
-          <div class="draft"><label>AI draft</label>Wrong answers so rude that learners would spot them instantly.</div>
-          <div class="dir"><label>My direction</label>Real mistakes sound polite. Use what agents actually say.</div>
-          <div class="fin"><label>Final</label>&ldquo;I completely understand your frustration&rdquo; (scripted) and &ldquo;Let me transfer you&rdquo; (passing ownership).</div>
-        </div></div>
+    <!-- 8 · MEASURE -->
+    <section class="cs-section fade-in" data-slide="measure" data-label="Measure">
+      <span class="ch">chapter 8</span>
+      <h2>Climbing the evidence ladder</h2>
+      <p>A completion rate only proves people showed up. I plan to measure higher up the ladder, all the way to “their team's scores went up.”</p>
+
+      <div class="ladder" role="img" aria-label="An 8-step evidence ladder. Steps 1 and 2 are tracked. Steps 3 to 6 are measured in the pilot. Steps 7 and 8 come after launch.">
+        <div class="rung low" style="height:24%"><b>Showed up</b><span>Completions</span></div>
+        <div class="rung low" style="height:34%"><b>Clicked through</b><span>Time, retries, drop-off</span></div>
+        <div class="rung pilot" style="height:44%"><b>Liked it</b><span>Pilot survey</span></div>
+        <div class="rung pilot" style="height:54%"><b>Knows it</b><span>Knowledge checks</span></div>
+        <div class="rung pilot" style="height:64%"><b>Makes good calls</b><span>Scenario choices</span></div>
+        <div class="rung pilot" style="height:74%"><svg class="climber" viewBox="0 0 80 100" aria-hidden="true"><use href="#cust-calm"/></svg><b>Can do it</b><span>AI coaching sim, scored</span></div>
+        <div class="rung later" style="height:86%"><b>Does it on the job</b><span>Coaching quality on the floor</span></div>
+        <div class="rung later" style="height:98%"><b>It made a difference</b><span>Team QA scores</span></div>
       </div>
+      <div class="lad-key"><span><i style="background:#F1F2F5"></i>Tracked</span><span><i style="background:#C9D9FF"></i>Measured in the pilot</span><span><i style="background:#fff;border-style:dashed"></i>After launch</span></div>
+      <p class="fine">Built on Will Thalheimer's LTEM model. It maps to Kirkpatrick too: “Liked it” is level 1, the middle 3 steps are level 2, “Does it on the job” is level 3 and “It made a difference” is level 4.</p>
+
+      <h3>Draft finds patterns. I decide what they mean.</h3>
+      <div class="notes">
+        <div class="sticky"><span class="h">Most opened with the score at 1 point</span>I added a model conversation right before it.</div>
+        <div class="sticky"><span class="h">Drop-off spiked mid-module</span>I split it in 2.</div>
+        <div class="sticky"><span class="h">Everyone missed 1 question</span>I rewrote the question and left the content alone.</div>
+      </div>
+
+      <h3>Where it stands</h3>
+      <div class="stand">
+        <div class="card-s"><b>Several</b><span>courses in build</span></div>
+        <div class="card-s"><b>~50%</b><span>less seat time, projected</span></div>
+        <div class="card-s"><b>Pilot</b><span>first, then full rollout</span></div>
+      </div>
+      <p style="margin-top:18px">I'll add measured numbers as pilot data comes in. The prompts, rubric and triage questions are now templates for every new course.</p>
     </section>
 
-
-
-    <section class="cs-section fade-in" data-slide="launch" data-label="Measure and iterate" data-log="Swapped a vague analytics claim for 3 real patterns">
-      <span class="eyebrow">Measure and iterate</span>
-      <h2 data-draft="Leveraging Data Analytics for Continuous Improvement" data-note="Who makes the call? Say so.">AI finds the patterns. I decide what they mean.</h2>
-      <p>xAPI shows me which choices people make, where they drop off, and what they miss. 3 recreated examples:</p>
-      <p class="draft-box v-draft">Learning analytics dashboards provide actionable insights that drive continuous improvement across the program, ensuring optimal learner outcomes.</p>
-      <div class="decisions v-final">
-        <div class="decision"><span class="vs">Most learners chose &ldquo;transfer&rdquo; at one point</span><h4>Learners knew the answer but hesitated</h4><p>A confidence gap. I added a short model response just before that decision.</p></div>
-        <div class="decision"><span class="vs">Drop-off spiked mid-module</span><h4>The module ran too long</h4><p>I split it into two shorter modules.</p></div>
-        <div class="decision"><span class="vs">Nearly everyone missed one question</span><h4>The question was ambiguous</h4><p>I rewrote the question and left the content alone.</p></div>
-        <div class="decision"><span class="vs">Findings loop back to Design</span><h4>Each course improves the next</h4><p>Each conversion sharpens the prompts and rubric for the next.</p></div>
-      </div>
-    </section>
-
-    <section class="cs-section fade-in" data-slide="results" data-label="Results" data-log="Removed 3 invented results|Labeled the projection as a projection">
-      <span class="eyebrow">Results and what&rsquo;s next</span>
-      <h2 data-draft="Transformational Results and Measurable Impact" data-note="Nothing is measured yet. Don&rsquo;t claim it.">Projected now, measured soon</h2>
-      <table class="data draft-table v-draft">
-        <thead><tr><th>Results</th><th>Impact</th></tr></thead>
-        <tbody>
-          <tr><td>Seat time</td><td class="num">50% reduction</td></tr>
-          <tr><td>Learner satisfaction</td><td class="num">96%</td></tr>
-          <tr><td>Completion rate</td><td class="num">98%</td></tr>
-          <tr><td>Development time</td><td class="num">3x faster</td></tr>
-        </tbody>
-      </table>
-      <table class="data v-final">
-        <thead><tr><th>So far</th><th>Result</th></tr></thead>
-        <tbody>
-          <tr><td>Live courses in conversion</td><td class="num">Several, in build</td></tr>
-          <tr><td>Seat time, projected with stakeholders</td><td class="num">About 50% less</td></tr>
-          <tr><td>Delivery</td><td class="num">Fully self-paced, piloted before rollout</td></tr>
-        </tbody>
-      </table>
-      <p class="v-final">I&rsquo;ll swap in measured numbers as pilot data comes in.</p>
-      <div class="principles">
-        <div class="principle"><b>Escalation Practice Coach</b><span>Spoken practice with AI feedback, checked against human scoring.</span></div>
-        <div class="principle"><b>Reusable pipeline</b><span>I've turned the prompts and checklists into templates for future courses.</span></div>
-      </div>
-    </section>
-
-    <div class="next-cs" data-slide="results">
+    <div class="next-cs" data-slide="measure">
       <span class="eyebrow">Next case study</span>
       <a href="advisor-onboarding.html" class="big">Onboarding 2,000+ advisors into Spotify Customer Service &rarr;</a>
     </div>
   </main>
 
-  <nav class="pager" id="pager" aria-label="Case study sections" hidden>
-    <button type="button" class="pager-arrow" id="pg-prev" aria-label="Previous section">&larr;</button>
+  <nav class="pager" id="pager" aria-label="Case study chapters" hidden>
+    <button type="button" class="pager-arrow" id="pg-prev" aria-label="Previous chapter">&larr;</button>
     <div class="pager-dots" id="pg-dots"></div>
     <span class="pager-label" id="pg-label" aria-live="polite"></span>
-    <button type="button" class="pager-arrow pager-next" id="pg-next" aria-label="Next section"><span class="pn-txt">Next</span> &rarr;</button>
+    <button type="button" class="pager-arrow pager-next" id="pg-next" aria-label="Next chapter"><span class="pn-txt">Next</span> &rarr;</button>
   </nav>
 
   <footer class="footer">
@@ -325,27 +755,92 @@
   <script src="site.js?v=20261104a"></script>
   <script>
   (function () {
-    var S = [
-      { p: 'Analyze', t: 'Triage', ai: 'An audit of each live session: length, interaction type, content type, and how much depends on the facilitator.', gate: 'I decide, session by session, what converts as is, what gets redesigned, and what gets cut.', out: 'A triage sheet for the course.', a: 75 },
-      { p: 'Analyze', t: 'Extraction', ai: 'A content map built from slides, facilitator guides, and session transcripts, including the stories and Q&A no one ever wrote down.', gate: 'An SME confirms nothing important is missing or wrong.', out: 'A content map with unwritten knowledge flagged.', a: 70 },
-      { p: 'Design', t: 'Redesign', ai: 'Learning objectives, a storyboard, and a proposed self-paced replacement for each facilitation moment.', gate: 'I review against the design rubric and redirect where needed.', out: 'The conversion map and storyboard.', a: 35 },
-      { p: 'Develop', t: 'Build', ai: 'Scripts, scenario branches, knowledge check items, and voiceover drafts.', gate: 'QA checklist, accessibility pass, and an accuracy check against source.', out: 'Rise modules, simulations, and job aids.', a: 65 },
-      { p: 'Develop', t: 'Localization', ai: 'Translations of scripts, on-screen text, and job aids.', gate: 'A native-speaker review of every language.', out: 'Localized course versions.', a: 75 },
-      { p: 'Implement', t: 'Pilot and launch', ai: 'Course summaries and positioning notes I hand to marketing and sales as source material.', gate: 'Every claim in launch materials traces back to an objective or design decision. A pilot group goes first, and I adjust before full rollout.', out: 'A catalog listing, a sales brief, and pilot fixes.', a: 45 },
-      { p: 'Evaluate', t: 'Measure and iterate', ai: 'Pattern analysis of xAPI data: branch choices, drop-off points, time per screen, retries, and missed questions.', gate: 'I decide what each pattern means and what to change. Findings loop back to Design.', out: 'Revisions, plus updates to the rubric and prompts.', a: 35 }
+    var c = document.getElementById('comic'), bs = document.querySelectorAll('.flip button'), hint = document.querySelector('.flip-hint');
+    bs.forEach(function (b) { b.addEventListener('click', function () {
+      c.dataset.v = b.dataset.v;
+      bs.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      if (hint) hint.style.visibility = 'hidden';
+    }); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var C = [
+      { len: 150, lines: [
+        { t: '0:05', who: 'Sam', s: "Thanks for calling, this is Sam. How can I help?", h: "That's a fine opening. Keep going." },
+        { t: '0:12', who: 'Customer', s: "Hi, I was charged twice this month, and I think one of them…", h: "That's the customer. Watch what Sam does next." },
+        { t: '0:16', who: 'Sam', s: "I can fix that! I'll refund the second charge right now.", ok: true, note: "Jumps to a fix 4 seconds in. She hadn't finished." },
+        { t: '0:31', who: 'Customer', s: "Oh. Actually the second charge is a different plan. I wanted to cancel that one.", h: "That's the fallout. Look earlier: where did it go wrong?" },
+        { t: '0:40', who: 'Sam', s: "Sorry about that. Let me reverse the refund.", h: "Still the fallout. Find the moment that caused it." },
+        { t: '2:20', who: 'Customer', s: "So is it cancelled or not?", h: "Two minutes later and still confused. The cause was earlier." }
+      ] },
+      { len: 120, lines: [
+        { t: '0:04', who: 'Sam', s: "Hi, this is Sam. What can I do for you?", h: "A fine opening. Keep going." },
+        { t: '0:09', who: 'Customer', s: "My order says delivered, but when I opened it…", h: "That's the customer. Watch what Sam does next." },
+        { t: '0:13', who: 'Sam', s: "No problem, I'll send a replacement today.", ok: true, note: "Same move: a fix before the problem. 4 seconds in again." },
+        { t: '0:24', who: 'Customer', s: "I have the package. One item is missing.", h: "That's the customer correcting him. Look earlier." },
+        { t: '0:33', who: 'Sam', s: "Oh. Okay, which item?", h: "Now he's asking, but it's late. Find where he skipped it." }
+      ] }
     ];
-    var btns = document.querySelectorAll('.pipe-btn');
-    var $ = function (id) { return document.getElementById(id); };
+    var ci = 0, found = 0, $ = function (id) { return document.getElementById(id); };
+    function sec(t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; }
+    function render() {
+      var c = C[ci];
+      $('fm-step').textContent = 'try it · QA review · Sam · call ' + (ci + 1) + ' of 2';
+      $('fm-found').textContent = found + ' / 2';
+      $('fm-fb').hidden = true; $('fm-end').hidden = true; $('fm-lines').hidden = false;
+      var marks = $('fm-marks'), list = $('fm-lines'); marks.innerHTML = ''; list.innerHTML = '';
+      $('fm-head').style.left = '0%';
+      c.lines.forEach(function (l, j) {
+        var pos = Math.min(98, sec(l.t) / c.len * 100);
+        var m = document.createElement('span'); m.className = 'fm-mark ' + (l.who === 'Sam' ? 'sam' : 'cus'); m.style.left = pos + '%'; marks.appendChild(m);
+        var li = document.createElement('li');
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'fm-line ' + (l.who === 'Sam' ? 'sam' : 'cus');
+        b.innerHTML = '<span class="fm-t"></span><span class="fm-who"></span><span class="fm-s"></span>';
+        b.querySelector('.fm-t').textContent = l.t; b.querySelector('.fm-who').textContent = l.who; b.querySelector('.fm-s').textContent = '“' + l.s + '”';
+        b.addEventListener('click', function () { tap(l, b, pos); });
+        li.appendChild(b); list.appendChild(li);
+      });
+    }
+    function tap(l, b, pos) {
+      $('fm-head').style.left = pos + '%';
+      var fb = $('fm-fb'); fb.hidden = false;
+      document.querySelectorAll('.fm-line.miss').forEach(function (x) { x.classList.remove('miss'); });
+      if (!l.ok) { b.classList.add('miss'); fb.className = 'pl-fb bad'; fb.innerHTML = '<span class="pl-why" style="margin:0"></span>'; fb.firstChild.textContent = l.h; return; }
+      found++; $('fm-found').textContent = found + ' / 2';
+      document.querySelectorAll('.fm-line').forEach(function (x) { x.disabled = true; });
+      b.classList.add('hit');
+      var n = document.createElement('span'); n.className = 'fm-note'; n.textContent = l.note; b.appendChild(n);
+      fb.className = 'pl-fb good'; fb.innerHTML = '<b>Found it.</b> ';
+      var nx = document.createElement('button'); nx.type = 'button'; nx.className = 'pl-btn';
+      nx.textContent = ci === 0 ? 'Check call 2 →' : 'See the pattern →';
+      nx.addEventListener('click', function () { if (ci === 0) { ci = 1; render(); } else { end(); } });
+      fb.appendChild(nx);
+    }
+    function end() {
+      $('fm-step').textContent = 'try it · QA review · Sam · done';
+      $('fm-fb').hidden = true; $('fm-end').hidden = false;
+    }
+    $('fm-restart').addEventListener('click', function () { ci = 0; found = 0; render(); });
+    render();
+  })();
+  </script>
+  <script>
+  (function () {
+    var S = [
+      ['Audits each live session: length, content and how much depends on the facilitator.', 'I give every block 1 of 4 stickers.'],
+      ['Maps slides, guides and transcripts, including stories no one wrote down.', 'An SME confirms nothing is missing or wrong.'],
+      ['Drafts objectives, a storyboard and a replacement for each live moment.', 'I score it against the rubric and send it back with notes.'],
+      ['Drafts scripts, scenario branches, quiz items and voiceover.', 'QA, accessibility and an accuracy check against the source.'],
+      ['Translates scripts, screens and job aids.', 'A native speaker reviews every language.'],
+      ['Drafts launch notes for sales and marketing.', 'A pilot group goes first. I fix what they find, then we roll out.'],
+      ['Finds patterns in xAPI data: choices, drop-off, misses.', 'I decide what each pattern means. Fixes loop back to Redesign.']
+    ];
+    var btns = document.querySelectorAll('.st');
     function show(i) {
-      var s = S[i];
       btns.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.s === i)); });
-      $('pp-phase').textContent = s.p + ' · Stage ' + (i + 1);
-      $('pp-title').textContent = s.t;
-      $('pp-ai').textContent = s.ai;
-      $('pp-gate').textContent = s.gate;
-      $('pp-out').textContent = s.out;
-      $('pp-bar').style.width = s.a + '%';
-      $('pp-pct').textContent = s.a >= 60 ? 'AI-heavy' : (s.a >= 45 ? 'Balanced' : 'Judgment-heavy');
+      document.getElementById('si-ai').textContent = S[i][0];
+      document.getElementById('si-me').textContent = S[i][1];
     }
     btns.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.s); }); });
     show(0);
@@ -358,21 +853,15 @@
     all.forEach(function (el) { if (ids.indexOf(el.dataset.slide) < 0) ids.push(el.dataset.slide); });
     var labels = ids.map(function (id) { return document.querySelector('[data-slide="' + id + '"][data-label]').dataset.label; });
     var cur = 0, dots = document.getElementById('pg-dots');
-    var lede = document.querySelector('.cs-hero .lede');
-    if (lede) {
-      var how = document.createElement('p'); how.className = 'howto';
-      how.innerHTML = '<b>' + ids.length + ' sections.</b> Move through them with the <b>Next</b> button or dots at the bottom of the screen, or your arrow keys. On a phone, swipe.';
-      lede.parentNode.insertBefore(how, lede.nextSibling);
-    }
     ids.forEach(function (id, i) {
       if (i === ids.length - 1) return;
       var group = document.querySelectorAll('[data-slide="' + id + '"]');
       var last = group[group.length - 1];
       var b = document.createElement('button'); b.type = 'button'; b.className = 'next-sheet';
-      b.innerHTML = '<span>Up next \u00b7 ' + (i + 2) + ' of ' + ids.length + '</span><b></b><i aria-hidden="true">&rarr;</i>';
+      b.innerHTML = '<span>Up next · ' + (i + 2) + ' of ' + ids.length + '</span><b></b><i aria-hidden="true">&rarr;</i>';
       b.querySelector('b').textContent = labels[i + 1];
       b.addEventListener('click', function () { go(i + 1); });
-      (last.querySelector('.narrow') || last).appendChild(b);
+      (last.querySelector('.sb') || last).appendChild(b);
     });
     document.body.classList.add('paged');
     document.getElementById('pager').hidden = false;
@@ -384,57 +873,6 @@
       b.addEventListener('click', function () { go(i); });
       dots.appendChild(b);
     });
-    // Review layer: tap-to-reveal edits, review logs, draft/review switch
-    var edited = Array.prototype.slice.call(document.querySelectorAll('[data-draft]'));
-    var tagN = 0;
-    edited.forEach(function (el) {
-      el.dataset.final = el.innerHTML;
-      if (!el.dataset.note) return;
-      var id = 'rl-pop-' + (++tagN);
-      var box = document.createElement('div'); box.className = 'rl';
-      box.innerHTML = '<button type="button" class="rl-tag" aria-expanded="false" aria-controls="' + id + '"><span class="rl-dot" aria-hidden="true"></span>Edited</button>' +
-        '<div class="rl-pop" id="' + id + '" hidden><div class="rl-was"><span>AI draft</span><s></s></div><div class="rl-why"><b>LD</b><span></span></div></div>';
-      box.querySelector('s').textContent = el.dataset.draft;
-      box.querySelector('.rl-why span').textContent = el.dataset.note;
-      el.parentNode.insertBefore(box, el);
-      var btn = box.querySelector('.rl-tag'), pop = box.querySelector('.rl-pop');
-      btn.addEventListener('click', function () { var open = pop.hidden; pop.hidden = !open; btn.setAttribute('aria-expanded', String(open)); });
-    });
-    var total = 0;
-    ids.forEach(function (id) {
-      var head = document.querySelector('[data-slide="' + id + '"][data-label]');
-      var items = (head.dataset.log || '').split('|').filter(Boolean);
-      total += items.length;
-      var group = Array.prototype.filter.call(document.querySelectorAll('[data-slide="' + id + '"]'), function (g) { return !g.classList.contains('next-cs'); });
-      var last = group[group.length - 1];
-      var host = last.querySelector('.narrow') || last;
-      var rv = document.createElement('div'); rv.className = 'review';
-      rv.innerHTML = '<div class="stamp" role="note"><b>Approved</b><span>LD &middot; Gate passed</span></div>' +
-        '<div class="rl-log"><span class="rl-log-k">' + items.length + (items.length === 1 ? ' edit' : ' edits') + ' at this gate</span><ul></ul></div>';
-      var ul = rv.querySelector('ul');
-      items.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
-      host.insertBefore(rv, host.querySelector(':scope > .next-sheet'));
-    });
-    var hero = document.querySelector('.cs-hero .howto') || document.querySelector('.cs-hero .lede');
-    var wrap = document.createElement('div'); wrap.className = 'rl-switch-wrap';
-    wrap.innerHTML = '<div class="rl-switch" role="group" aria-label="Which version to show"><button type="button" data-v="draft" aria-pressed="false">AI first draft</button><button type="button" data-v="final" aria-pressed="true">After my review</button></div>' +
-      '<span><b>' + total + ' edits</b> across ' + ids.length + ' sections. Flip it to see what a typical AI first draft looks like, then look for the <span class="rl-dot inline" aria-hidden="true"></span> Edited tags.</span>';
-    hero.parentNode.insertBefore(wrap, hero.nextSibling);
-    var prl = document.createElement('button'); prl.type = 'button'; prl.className = 'pager-rl'; prl.setAttribute('aria-pressed', 'false'); prl.textContent = 'Show AI draft';
-    document.getElementById('pager').insertBefore(prl, document.getElementById('pg-prev'));
-    function setMode(draft) {
-      document.body.classList.toggle('rl-draft', draft);
-      edited.forEach(function (el) { if (draft) el.textContent = el.dataset.draft; else el.innerHTML = el.dataset.final; });
-      document.querySelectorAll('.rl-pop').forEach(function (p) { p.hidden = true; });
-      document.querySelectorAll('.rl-tag').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
-      document.querySelectorAll('.stamp').forEach(function (st) {
-        st.innerHTML = draft ? '<b>Draft</b><span>Not reviewed yet</span>' : '<b>Approved</b><span>LD &middot; Gate passed</span>';
-      });
-      wrap.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.v === 'draft') === draft)); });
-      prl.setAttribute('aria-pressed', String(draft)); prl.textContent = draft ? 'Show my review' : 'Show AI draft';
-    }
-    wrap.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.v === 'draft'); }); });
-    prl.addEventListener('click', function () { setMode(!document.body.classList.contains('rl-draft')); });
     function go(i, quiet) {
       cur = Math.max(0, Math.min(ids.length - 1, i));
       all.forEach(function (el) {
@@ -446,7 +884,7 @@
         d.classList.toggle('on', j === cur);
         if (j === cur) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
       });
-      document.getElementById('pg-label').textContent = (cur + 1) + ' / ' + ids.length + '  \u00b7  ' + labels[cur];
+      document.getElementById('pg-label').textContent = (cur + 1) + ' / ' + ids.length + '  ·  ' + labels[cur];
       document.getElementById('pg-prev').disabled = cur === 0;
       document.getElementById('pg-next').disabled = cur === ids.length - 1;
       if (!quiet) {
@@ -466,7 +904,7 @@
     document.addEventListener('touchend', function (e) {
       if (sx === null) return;
       var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && !e.target.closest('.cmap, table')) go(cur + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && !e.target.closest('.cmap, .belt, .ladder')) go(cur + (dx < 0 ? 1 : -1));
       sx = null;
     }, { passive: true });
     function fromHash() { var i = ids.indexOf(location.hash.slice(1)); go(i < 0 ? 0 : i, true); }
